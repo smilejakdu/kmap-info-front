@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./ExcelForm.css";
 import { OutTable } from "react-excel-renderer";
 import XLSX from "xlsx";
@@ -26,7 +27,7 @@ const ExcelRenderer = (file, callback, index = 0) => {
       for (let i = 0; i < len; i++) {
         sheetArr.push(wb.SheetNames[i]);
       }
-      //var wsname = wb.SheetNames[0]; 가 index 에 따라서 무슨 sheet 가 보여지는지 갈림
+
       var wsname = wb.SheetNames[index];
       var ws = wb.Sheets[wsname];
 
@@ -35,10 +36,8 @@ const ExcelRenderer = (file, callback, index = 0) => {
       for (let i = 1; i < json.length; i++) {
         jsonData.push(json[i]);
       }
-      // var cols = make_cols(ws["!ref"]);
+
       var cols = make_cols(json[0]);
-      console.log("cols", cols);
-      console.log("jsonData : ", jsonData);
       var data = { rows: jsonData, cols: cols, sheetArr: sheetArr };
 
       resolve(data);
@@ -50,10 +49,7 @@ const ExcelRenderer = (file, callback, index = 0) => {
 };
 
 const make_cols = (refstr) => {
-  console.log("refstr : ", refstr);
-  // 여기다가 id 를 추가
   refstr.unshift("id");
-  console.log("refstr.length : ", refstr.length);
   var o = [];
   for (var i = 0; i < refstr.length; ++i) {
     o[i] = { name: refstr[i], key: i };
@@ -72,7 +68,7 @@ class ExcelForm extends Component {
       rows: null,
       cols: null,
       fileObj: null,
-      name: "",
+      excelFileName: "",
     };
 
     this.fileHandler = this.fileHandler.bind(this);
@@ -87,7 +83,13 @@ class ExcelForm extends Component {
       isOpen: !this.state.isOpen,
     });
   }
-
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //  return true!; 구현하지 않을때는 기본적으로 true 입니다.
+    if (this.state !== nextState) {
+      return true;
+    }
+    return this.props.info !== nextProps.info;
+  }
   openFileBrowser = () => {
     this.fileInput.current.click();
   };
@@ -99,7 +101,7 @@ class ExcelForm extends Component {
 
       if (fileName.slice(fileName.lastIndexOf(".") + 1) === "xlsx") {
         this.setState({
-          name: fileName,
+          excelFileName: fileName,
           isFormInvalid: false,
           fileObj: fileObj,
         });
@@ -107,7 +109,7 @@ class ExcelForm extends Component {
       } else {
         this.setState({
           isFormInvalid: true,
-          name: "",
+          excelFileName: "",
         });
       }
     }
@@ -125,7 +127,7 @@ class ExcelForm extends Component {
             cols: resp.cols,
             rows: resp.rows,
             uploadedSheetName: resp.sheetArr,
-            name: fileObj.name,
+            excelFileName: fileObj.name,
           });
         }
       },
@@ -134,23 +136,37 @@ class ExcelForm extends Component {
   };
 
   sheetDataClick = (index) => {
-    console.log(index);
     this.renderFile(this.state.fileObj, index);
   };
 
   uploadClick = (e) => {
-    alert("업로드 버튼 클릭");
-    console.log("업로드 버튼 클릭 ");
-    fetch("http://127.0.0.1:8000/blog/board", {
-      method: "POST",
-      body: JSON.stringify({
-        title: this.state.title,
-        content: this.state.content,
-      }),
-    }).then((res) => {
-      console.log("boardform" + res);
-      return res.json();
-    });
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", this.state.fileObj);
+    formData.entries();
+
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + " , " + pair[1]);
+    }
+
+    axios
+      .post("http://localhost:8000/excel/upload", formData)
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          isOpen: false,
+          dataLoaded: false,
+          isFormInvalid: false,
+          uploadedSheetName: [],
+          rows: null,
+          cols: null,
+          fileObj: null,
+          excelFileName: "",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -181,48 +197,50 @@ class ExcelForm extends Component {
           </Jumbotron>
         </div>
         <Container>
-          <form className="form_box">
-            <FormGroup row>
-              <button className="upload_btn">업로드</button>
-              <button className="upload_btn">데이터 조회</button>
-              <Col xs={4} sm={8} lg={10}>
-                <div className="sheet_box">
-                  <li className="ul_style">{sheets}</li>
-                </div>
-                <input
-                  type="file"
-                  hidden
-                  onChange={this.fileHandler.bind(this)}
-                  ref={this.fileInput}
-                  onClick={(event) => {
-                    event.target.value = null;
-                  }}
-                  style={{ padding: "10px" }}
-                />
-                <InputGroup>
-                  <InputGroupAddon addonType="prepend">
-                    <div className="test">
-                      <Button
-                        className="file_search_btn"
-                        onClick={this.openFileBrowser.bind(this)}
-                      >
-                        파일찾기
-                      </Button>
-                      <button
-                        className="file_search_btn"
-                        type="submit"
-                        onClick={this.uploadClick}
-                      >
-                        업로드 시작
-                      </button>
-                    </div>
-                  </InputGroupAddon>
-                  <p>.xlsx 파일만 가능합니다.</p>
-                </InputGroup>
-              </Col>
-            </FormGroup>
-          </form>
-          {this.state.name}
+          <div className="form_box">
+            <form>
+              <FormGroup row>
+                <button className="upload_btn">업로드</button>
+                <button className="upload_btn">데이터 조회</button>
+                <Col xs={4} sm={8} lg={10}>
+                  <div className="sheet_box">
+                    <li className="ul_style">{sheets}</li>
+                  </div>
+                  <input
+                    type="file"
+                    hidden
+                    onChange={this.fileHandler.bind(this)}
+                    ref={this.fileInput}
+                    onClick={(event) => {
+                      event.target.value = null;
+                    }}
+                    style={{ padding: "10px" }}
+                  />
+                </Col>
+              </FormGroup>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <div className="test">
+                    <Button
+                      className="file_search_btn"
+                      onClick={this.openFileBrowser.bind(this)}
+                    >
+                      파일찾기
+                    </Button>
+                    <button
+                      className="file_search_btn"
+                      type="submit"
+                      onClick={this.uploadClick}
+                    >
+                      업로드 시작
+                    </button>
+                  </div>
+                </InputGroupAddon>
+                <p>.xlsx 파일만 가능합니다.</p>
+              </InputGroup>
+            </form>
+          </div>
+          {this.state.excelFileName}
           {this.state.dataLoaded && (
             <div>
               <Card className="restrict-card">
