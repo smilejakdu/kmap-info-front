@@ -83,12 +83,6 @@ TH {
   text-align: center;
 }
 
-.jumbotron-background {
-  background: black;
-  border-radius: 0rem !important;
-  color: black;
-  border: 1px solid black;
-}
 
 .jumbotron-button {
   color: #fff !important;
@@ -108,21 +102,6 @@ TH {
   max-width: 70%;
   min-width: 15rem;
   max-height: 500px;
-}
-
-.header_color {
-  background: black;
-}
-
-.kmap_header_title {
-  color: white;
-  top: 0;
-  right: 0;
-  height: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  text-align: center;
 }
 
 .file_search_btn {
@@ -180,7 +159,6 @@ TH {
 }
 
 .sheet_btn {
-  border: 1px solid black;
   margin: 10px;
   max-width: 10rem;
   min-width: 7rem;

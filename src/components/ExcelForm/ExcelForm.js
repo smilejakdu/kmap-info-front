@@ -4,7 +4,6 @@ import "./ExcelForm.css";
 import { OutTable } from "react-excel-renderer";
 import XLSX from "xlsx";
 import {
-  Jumbotron,
   Col,
   InputGroup,
   InputGroupAddon,
@@ -64,7 +63,7 @@ class ExcelForm extends Component {
       isOpen: false,
       dataLoaded: false,
       isFormInvalid: false,
-      uploadedSheetName: [],
+      uploadName: [],
       rows: null,
       cols: null,
       fileObj: null,
@@ -126,7 +125,7 @@ class ExcelForm extends Component {
             dataLoaded: true,
             cols: resp.cols,
             rows: resp.rows,
-            uploadedSheetName: resp.sheetArr,
+            uploadName: resp.sheetArr,
             excelFileName: fileObj.name,
           });
         }
@@ -137,6 +136,24 @@ class ExcelForm extends Component {
 
   sheetDataClick = (index) => {
     this.renderFile(this.state.fileObj, index);
+  };
+
+  ExcelData = (e) => {
+    e.preventDefault();
+    return axios
+      .get("http://localhost:8000/excel/upload")
+      .then((res) => {
+        let {
+          data: {
+            data: { excel_data },
+          },
+        } = res;
+        let uploadNames = excel_data.map(({ name }) => name);
+        this.setState({ uploadName: uploadNames });
+      })
+      .catch((error) => {
+        error && console.warn(error);
+      });
   };
 
   uploadClick = (e) => {
@@ -157,7 +174,7 @@ class ExcelForm extends Component {
           isOpen: false,
           dataLoaded: false,
           isFormInvalid: false,
-          uploadedSheetName: [],
+          uploadName: [],
           rows: null,
           cols: null,
           fileObj: null,
@@ -165,7 +182,8 @@ class ExcelForm extends Component {
         });
       })
       .catch((err) => {
-        console.log(err);
+        console.log("err : ", err);
+        alert("같은파일입니다.");
       });
   };
 
@@ -174,34 +192,27 @@ class ExcelForm extends Component {
       isOpen,
       dataLoaded,
       isFormInvalid,
-      uploadedSheetName,
+      uploadName,
       rows,
       cols,
       name,
     } = this.state;
     const { sheetDataClick } = this;
 
-    const sheets = uploadedSheetName.map((sheet, i) => (
+    const sheets = uploadName.map((sheet, i) => (
       <li className="sheet_btn" key={i} onClick={() => this.sheetDataClick(i)}>
         {sheet}
       </li>
     ));
     return (
       <div>
-        <div>
-          <Jumbotron className="jumbotron-background">
-            <div className="header_color">
-              <h1 className="kmap_header_title">Kmap</h1>
-            </div>
-            <p style={{ color: "white" }}>Kmap Excel</p>
-          </Jumbotron>
-        </div>
         <Container>
           <div className="form_box">
             <form>
               <FormGroup row>
-                <button className="upload_btn">업로드</button>
-                <button className="upload_btn">데이터 조회</button>
+                <button className="upload_btn" onClick={this.ExcelData}>
+                  데이터 조회
+                </button>
                 <Col xs={4} sm={8} lg={10}>
                   <div className="sheet_box">
                     <li className="ul_style">{sheets}</li>

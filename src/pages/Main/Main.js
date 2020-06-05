@@ -1,12 +1,17 @@
 import React from "react";
 import ExcelForm from "../../components/ExcelForm/ExcelForm";
-import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
+import Navigation from "../../components/Navigation/Navigation";
+import "./Main.css";
 import CSVReader from "react-csv-reader";
 
 const Main = () => {
   return (
     <div>
-      <ExcelForm />
+      <Navigation />
+      <div className="main">
+        업로드 페이지입니다.
+        <ExcelForm />
+      </div>
     </div>
   );
 };

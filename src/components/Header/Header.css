@@ -1,0 +1,21 @@
+.jumbotron-background {
+    background: black;
+    border-radius: 0rem !important;
+    color: black;
+    border: 1px solid black;
+}
+
+.header_color {
+    background: black;
+}
+
+.kmap_header_title {
+    color: white;
+    top: 0;
+    right: 0;
+    height: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
