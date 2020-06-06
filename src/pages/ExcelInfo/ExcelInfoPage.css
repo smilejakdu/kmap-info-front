@@ -5,3 +5,16 @@
     /* Increased text to enable scrolling */
     padding: 0px 10px;
 }
+
+.search_box {
+    text-align: left;
+}
+
+.search_input {
+    width: 20%;
+    margin: 10px 20px;
+    background: white;
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

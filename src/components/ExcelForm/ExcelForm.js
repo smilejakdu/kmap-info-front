@@ -183,7 +183,7 @@ class ExcelForm extends Component {
       })
       .catch((err) => {
         console.log("err : ", err);
-        alert("같은파일입니다.");
+        alert("파일이름이 존재합니다.");
       });
   };
 
@@ -200,19 +200,21 @@ class ExcelForm extends Component {
     const { sheetDataClick } = this;
 
     const sheets = uploadName.map((sheet, i) => (
-      <li className="sheet_btn" key={i} onClick={() => this.sheetDataClick(i)}>
+      <li
+        className="sheet_click_btn"
+        key={i}
+        onClick={() => this.sheetDataClick(i)}
+      >
         {sheet}
       </li>
     ));
     return (
       <div>
+        업로드 페이지입니다.
         <Container>
           <div className="form_box">
             <form>
               <FormGroup row>
-                <button className="upload_btn" onClick={this.ExcelData}>
-                  데이터 조회
-                </button>
                 <Col xs={4} sm={8} lg={10}>
                   <div className="sheet_box">
                     <li className="ul_style">{sheets}</li>
@@ -238,13 +240,13 @@ class ExcelForm extends Component {
                     >
                       파일찾기
                     </Button>
-                    <button
+                    <Button
                       className="file_search_btn"
                       type="submit"
                       onClick={this.uploadClick}
                     >
                       업로드 시작
-                    </button>
+                    </Button>
                   </div>
                 </InputGroupAddon>
                 <p>.xlsx 파일만 가능합니다.</p>

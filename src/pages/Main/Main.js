@@ -9,7 +9,6 @@ const Main = () => {
     <div>
       <Navigation />
       <div className="main">
-        업로드 페이지입니다.
         <ExcelForm />
       </div>
     </div>
