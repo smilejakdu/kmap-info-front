@@ -27,6 +27,7 @@ class ExcelInfoPage extends Component {
             data: { excel_data },
           },
         } = res;
+
         this.setState({ exceldata: excel_data });
       })
       .catch((error) => {
@@ -49,7 +50,6 @@ class ExcelInfoPage extends Component {
           />
         </div>
         <ExcelInfoList
-          className=""
           data={this.state.exceldata.filter(
             (info) => info.name.indexOf(this.state.keyword) > -1
           )}

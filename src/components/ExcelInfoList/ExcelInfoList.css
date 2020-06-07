@@ -7,3 +7,36 @@
     color: coral;
     cursor: pointer
 }
+
+.table_size {
+    width: 500px;
+    max-width: 500px;
+}
+
+tr th {
+    background: black;
+    color: white;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+tr td {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.paging_position {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.sheet_data {
+    font-size: 20px;
+    padding: 10px
+}
+
+.sheet_data:hover {
+    color: coral;
+    cursor: pointer
+}
