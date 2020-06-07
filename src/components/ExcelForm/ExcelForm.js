@@ -121,6 +121,8 @@ class ExcelForm extends Component {
         if (err) {
           console.log(err);
         } else {
+          console.log("resp.cols : ", resp.cols);
+          console.log("resp.rows : ", resp.rows);
           this.setState({
             dataLoaded: true,
             cols: resp.cols,
@@ -197,7 +199,7 @@ class ExcelForm extends Component {
       cols,
       name,
     } = this.state;
-    const { sheetDataClick } = this;
+    // const { sheetDataClick } = this;
 
     const sheets = uploadName.map((sheet, i) => (
       <li

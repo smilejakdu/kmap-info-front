@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import "./ExcelInfoList.css";
 import Pagination from "../../components/Pagination";
 import axios from "axios";
+import SheetTable from "../SheetTable/SheetTable";
 
 class ExcelInfoList extends Component {
   constructor() {
@@ -10,6 +10,11 @@ class ExcelInfoList extends Component {
     this.state = {
       pageOfItems: [],
       sheet_data: [],
+      sheet_table: [],
+      dataLoaded: false,
+      cols: [],
+      rows: [],
+      excel_name: "",
     };
     this.onChangePage = this.onChangePage.bind(this);
   }
@@ -20,6 +25,24 @@ class ExcelInfoList extends Component {
     this.setState({ pageOfItems: pageOfItems });
   }
 
+  getSheets = (excel, sheet) => {
+    return axios
+      .get("http://localhost:8000/excel/" + excel + "/" + sheet)
+      .then((res) => {
+        let {
+          data: { sheet_table },
+        } = res;
+        this.setState({
+          dataLoaded: true,
+          cols: sheet_table.cols,
+          rows: sheet_table.rows,
+        });
+      })
+      .catch((err) => {
+        err && console.log(err);
+      });
+  };
+
   ExcelNameClick = (e) => {
     return axios
       .get("http://localhost:8000/excel/" + e)
@@ -28,8 +51,12 @@ class ExcelInfoList extends Component {
           data: { sheet_data },
         } = res;
         let sheet = sheet_data.map(({ name }) => name);
-        this.setState({ sheet_data: sheet });
-        console.log(this.state.sheet_data);
+        this.setState({
+          sheet_data: sheet,
+          excel_name: e,
+          cols: [],
+          rows: [],
+        });
       })
       .catch((error) => {
         error && console.warn(error);
@@ -38,8 +65,14 @@ class ExcelInfoList extends Component {
 
   render() {
     const { data } = this.props;
+
     return (
       <div>
+        <Pagination
+          className="paging_position"
+          items={data}
+          onChangePage={this.onChangePage}
+        />
         <table className="table table_size">
           <thead className="thead-dark">
             <tr>
@@ -68,16 +101,22 @@ class ExcelInfoList extends Component {
           <thead>
             <tr>
               {this.state.sheet_data.map((sheet) => (
-                <td className="sheet_data">{sheet}</td>
+                <td
+                  key={sheet.id}
+                  className="sheet_data"
+                  onClick={() => this.getSheets(this.state.excel_name, sheet)}
+                >
+                  {sheet}
+                </td>
               ))}
             </tr>
           </thead>
         </table>
-        <Pagination
-          className="paging_position"
-          items={data}
-          onChangePage={this.onChangePage}
-        />
+        {this.state.dataLoaded && (
+          <div>
+            <SheetTable cols={this.state.cols} rows={this.state.rows} />
+          </div>
+        )}
       </div>
     );
   }
