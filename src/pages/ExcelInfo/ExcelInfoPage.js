@@ -39,7 +39,6 @@ class ExcelInfoPage extends Component {
     return (
       <div className="main">
         <Navigation />
-        데이터 조회 페이지 입니다.
         <div className="search_box">
           <input
             className="search_input"

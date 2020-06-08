@@ -212,7 +212,6 @@ class ExcelForm extends Component {
     ));
     return (
       <div>
-        업로드 페이지입니다.
         <Container>
           <div className="form_box">
             <form>
