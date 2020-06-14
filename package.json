@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/user-event": "^11.4.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-less": "^3.3.8",
@@ -22,7 +22,8 @@
     "react-papaparse": "^3.3.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1",
-    "read-excel-file": "^4.0.6"
+    "read-excel-file": "^4.0.6",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
