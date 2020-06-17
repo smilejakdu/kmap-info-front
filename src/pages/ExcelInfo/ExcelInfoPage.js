@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
 import Navigation from "../../components/Navigation/Navigation";
 import "./ExcelInfoPage.css";
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import request from "../../util/request";
 
@@ -21,7 +20,7 @@ class ExcelInfoPage extends Component {
 
   componentDidMount = () => {
     return (
-      axios
+      request
         // .get("http://localhost:8000/excel/upload")
         .get("/excel/upload")
         .then((res) => {

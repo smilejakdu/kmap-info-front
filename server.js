@@ -7,7 +7,7 @@ const proxy = httpProxy.createProxyServer({});
 
 const app = express();
 const apiHost = "http://localhost:8000";
-app.use("/kmapinfo/api", (req, res) => {
+app.use("//api", (req, res) => {
   proxy.web(req, res, { target: `${apiHost}`, changeOrigin: true });
 });
 
