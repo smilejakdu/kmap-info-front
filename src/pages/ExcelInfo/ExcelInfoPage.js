@@ -19,23 +19,20 @@ class ExcelInfoPage extends Component {
   };
 
   componentDidMount = () => {
-    return (
-      request
-        // .get("http://localhost:8000/excel/upload")
-        .get("/excel/upload")
-        .then((res) => {
-          let {
-            data: {
-              data: { excel_data },
-            },
-          } = res;
+    return request
+      .get("/excel/upload")
+      .then((res) => {
+        let {
+          data: {
+            data: { excel_data },
+          },
+        } = res;
 
-          this.setState({ exceldata: excel_data });
-        })
-        .catch((error) => {
-          error && console.warn(error);
-        })
-    );
+        this.setState({ exceldata: excel_data });
+      })
+      .catch((error) => {
+        error && console.warn(error);
+      });
   };
 
   render() {

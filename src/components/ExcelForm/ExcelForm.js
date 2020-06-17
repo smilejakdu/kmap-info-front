@@ -143,8 +143,8 @@ class ExcelForm extends Component {
 
   ExcelData = (e) => {
     e.preventDefault();
-    return axios
-      .get("http://localhost:8000/excel/upload")
+    return request
+      .get("/excel/upload")
       .then((res) => {
         let {
           data: {
@@ -169,8 +169,8 @@ class ExcelForm extends Component {
       console.log(pair[0] + " , " + pair[1]);
     }
 
-    axios
-      .post("http://localhost:8000/excel/upload", formData)
+    request
+      .post("/excel/upload", formData)
       .then((res) => {
         console.log(res);
         this.setState({
