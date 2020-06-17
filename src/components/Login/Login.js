@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Container, InputForm } from "./LoginInput.style";
+import request from "../../util/request";
 
 class Login extends Component {
   state = {};

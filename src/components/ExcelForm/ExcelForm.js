@@ -12,6 +12,7 @@ import {
   Container,
   Card,
 } from "reactstrap";
+import request from "../../util/request";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
