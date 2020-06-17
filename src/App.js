@@ -8,8 +8,12 @@ class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <Route exact path="/" component={Main}></Route>
-          <Route exact path="/excelinfo" component={ExcelInfoPage}></Route>
+          <Route exact path="/kmapinfo/" component={Main}></Route>
+          <Route
+            exact
+            path="/kmapinfo/excelinfo"
+            component={ExcelInfoPage}
+          ></Route>
         </BrowserRouter>
       </div>
     );
