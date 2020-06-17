@@ -1,11 +1,21 @@
 .excel_click_btn {
     margin-bottom: 10px;
     margin-top: 10px;
+
+    &:hover {
+        color: coral;
+        cursor: pointer;
+    }
 }
 
-.excel_click_btn:hover {
-    color: coral;
-    cursor: pointer
+.sheet_data {
+    font-size: 20px;
+    padding: 10px;
+
+    &:hover {
+        color: coral;
+        cursor: pointer;
+    }
 }
 
 .table_size {
@@ -29,14 +39,4 @@ tr td {
     display: flex;
     justify-content: center;
     text-align: center;
-}
-
-.sheet_data {
-    font-size: 20px;
-    padding: 10px
-}
-
-.sheet_data:hover {
-    color: coral;
-    cursor: pointer
 }

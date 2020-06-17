@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ExcelInfoList.css";
+import "./ExcelInfoList.scss";
 import Pagination from "../../components/Pagination";
 import axios from "axios";
 import SheetTable from "../SheetTable/SheetTable";
@@ -27,7 +27,7 @@ class ExcelInfoList extends Component {
 
   getSheets = (excel, sheet) => {
     return axios
-      .get("http://localhost:8000/excel/" + excel + "/" + sheet)
+      .get(`http://localhost:8000/excel/${excel}/${sheet}`)
       .then((res) => {
         let {
           data: { sheet_table },
@@ -45,7 +45,7 @@ class ExcelInfoList extends Component {
 
   ExcelNameClick = (e) => {
     return axios
-      .get("http://localhost:8000/excel/" + e)
+      .get(`http://localhost:8000/excel/${e}`)
       .then((res) => {
         let {
           data: { sheet_data },

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./ExcelForm.css";
+import "./ExcelForm.scss";
 import { OutTable } from "react-excel-renderer";
 import XLSX from "xlsx";
 import {

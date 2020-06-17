@@ -41,60 +41,60 @@
   border-spacing: 0px;
   border-collapse: collapse;
   padding: 10px;
-}
 
-.ExcelTable TH {
-  background-repeat: repeat-x;
-  font-weight: bold;
-  font-size: 14px;
-  border: 1px solid #9eb6ce;
-  border-width: 0px 1px 1px 0px;
-  height: 17px;
-  line-height: 17px;
-}
+  TH {
+    background-repeat: repeat-x;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #9eb6ce;
+    border-width: 0px 1px 1px 0px;
+    height: 17px;
+    line-height: 17px;
+  }
 
-.ExcelTable TD {
-  border: 0px;
-  background-color: white;
-  padding: 0px 4px 0px 2px;
-  border: 1px solid #d0d7e5;
-  border-width: 0px 1px 1px 0px;
-}
+  TD {
+    border: 0px;
+    background-color: white;
+    padding: 0px 4px 0px 2px;
+    border: 1px solid #d0d7e5;
+    border-width: 0px 1px 1px 0px;
 
-.ExcelTable TD B {
-  border: 0px;
-  background-color: white;
-  font-weight: bold;
-}
+    B {
+      border: 0px;
+      background-color: white;
+      font-weight: bold;
+    }
+  }
 
-.ExcelTable TD.heading {
-  background-color: #e4ecf7;
-  text-align: center;
-  border: 1px solid #9eb6ce;
-  border-width: 0px 1px 1px 0px;
-  font-weight: bold;
-}
+  TD.heading {
+    background-color: #e4ecf7;
+    text-align: center;
+    border: 1px solid #9eb6ce;
+    border-width: 0px 1px 1px 0px;
+    font-weight: bold;
+  }
 
-.ExcelTable TH.heading {
-  background-repeat: none;
+  TH.heading {
+    background-repeat: none;
+  }
 }
 
 TH {
   text-align: center;
 }
 
-
 .jumbotron-button {
   color: #fff !important;
   background-color: transparent !important;
   border-color: lightgrey !important;
+
+  &:hover {
+    color: #fff !important;
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+  }
 }
 
-.jumbotron-button:hover {
-  color: #fff !important;
-  background-color: #5a6268 !important;
-  border-color: #545b62 !important;
-}
 
 .restrict-card {
   overflow-y: overlay;
@@ -111,13 +111,14 @@ TH {
   height: 40px;
   width: 80px;
   color: black;
+
+  &:hover {
+    color: white;
+    background: black;
+    cursor: pointer;
+  }
 }
 
-.file_search_btn:hover {
-  color: white;
-  background: black;
-  cursor: pointer;
-}
 
 .upload_btn {
   border: 1px solid black;
@@ -125,11 +126,11 @@ TH {
   background: white;
   padding: 10px 20px;
   border-radius: 6px;
-}
 
-.upload_btn:hover {
-  background: bisque;
-  cursor: pointer;
+  &:hover {
+    background: bisque;
+    cursor: pointer;
+  }
 }
 
 .input_border {
@@ -174,9 +175,9 @@ TH {
 .sheet_click_btn {
   margin-bottom: 10px;
   margin-top: 10px;
-}
 
-.sheet_click_btn:hover {
-  color: coral;
-  cursor: pointer
+  &:hover {
+    color: coral;
+    cursor: pointer;
+  }
 }
