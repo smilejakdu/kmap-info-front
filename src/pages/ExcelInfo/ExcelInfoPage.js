@@ -15,7 +15,6 @@ class ExcelInfoPage extends Component {
     this.setState({
       keyword: e.target.value,
     });
-    console.log(e);
   };
 
   componentDidMount = () => {
