@@ -21,6 +21,8 @@ class ExcelInfoList extends Component {
   };
 
   getSheets = (excel, sheet) => {
+    // 드디어 방버을 알안새습니다
+    //와우 가시죠 잘보세여
     return request
       .get(`/excel/${excel}/${sheet}`)
       .then((res) => {
@@ -58,15 +60,33 @@ class ExcelInfoList extends Component {
       });
   };
 
-  RemoveClick = (e) => {
-    console.log(e);
+  GetHandle = () => {
     return request
-      .delete(`/excel/${e}`)
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
+      .get("/excel/upload")
+      .then((res) => {
+        let {
+          data: {
+            data: { excel_data },
+          },
+        } = res;
+
+        this.setState({ exceldata: excel_data });
       })
-      .catch((error) => console.log("error ", error));
+      .catch((error) => {
+        error && console.warn(error);
+      });
+  };
+
+  removeClick = (itemId, itemName) => async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    try {
+      await request.delete(`/excel/${itemName}`);
+      await this.props.handleChangeExcelData(itemId);
+    } catch (e) {
+      console.error("error", e);
+    }
   };
 
   render() {
@@ -85,14 +105,14 @@ class ExcelInfoList extends Component {
               <div className="excel_data_list" key={item.id}>
                 <div
                   className="text"
-                  onClick={() => this.ExcelNameClick(item.name)}
+                  onClick={(e) => this.ExcelNameClick(item.name)}
                 >
                   {item.name}
                 </div>
                 <div className="date">{item.create_at}</div>
                 <div
                   className="remove"
-                  onClick={() => this.RemoveClick(item.name)}
+                  onClick={this.removeClick(item.id, item.name)}
                 >
                   <MdRemoveCircleOutline />
                 </div>
