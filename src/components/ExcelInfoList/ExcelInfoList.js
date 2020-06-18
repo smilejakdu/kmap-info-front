@@ -21,8 +21,6 @@ class ExcelInfoList extends Component {
   };
 
   getSheets = (excel, sheet) => {
-    // 드디어 방버을 알안새습니다
-    //와우 가시죠 잘보세여
     return request
       .get(`/excel/${excel}/${sheet}`)
       .then((res) => {
