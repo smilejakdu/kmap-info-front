@@ -78,7 +78,6 @@ class ExcelInfoList extends Component {
 
   render() {
     const { data } = this.props;
-    const { sheet_data, cols, rows, dataLoaded } = this.state;
 
     return (
       <div>
@@ -111,7 +110,7 @@ class ExcelInfoList extends Component {
         <table>
           <thead>
             <tr>
-              {sheet_data.map((sheet) => (
+              {this.state.sheet_data.map((sheet) => (
                 <td
                   key={sheet.id}
                   className="sheet_data"
@@ -123,9 +122,9 @@ class ExcelInfoList extends Component {
             </tr>
           </thead>
         </table>
-        {dataLoaded && (
+        {this.state.dataLoaded && (
           <div>
-            <SheetTable cols={cols} rows={rows} />
+            <SheetTable cols={this.state.cols} rows={this.state.rows} />
           </div>
         )}
       </div>
