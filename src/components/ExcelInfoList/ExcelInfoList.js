@@ -5,8 +5,8 @@ import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
 
 class ExcelInfoList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       sheet_data: [],
       sheet_table: [],
@@ -16,6 +16,7 @@ class ExcelInfoList extends Component {
       excel_name: "",
     };
   }
+
   static defaultProps = {
     data: [],
   };
@@ -58,23 +59,6 @@ class ExcelInfoList extends Component {
       });
   };
 
-  GetHandle = () => {
-    return request
-      .get("/excel/upload")
-      .then((res) => {
-        let {
-          data: {
-            data: { excel_data },
-          },
-        } = res;
-
-        this.setState({ exceldata: excel_data });
-      })
-      .catch((error) => {
-        error && console.warn(error);
-      });
-  };
-
   removeClick = (itemId, itemName) => async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -82,6 +66,11 @@ class ExcelInfoList extends Component {
     try {
       await request.delete(`/excel/${itemName}`);
       await this.props.handleChangeExcelData(itemId);
+      this.setState({
+        sheet_data: [],
+        cols: [],
+        rows: [],
+      });
     } catch (e) {
       console.error("error", e);
     }
@@ -89,6 +78,7 @@ class ExcelInfoList extends Component {
 
   render() {
     const { data } = this.props;
+    const { sheet_data, cols, rows, dataLoaded } = this.state;
 
     return (
       <div>
@@ -121,7 +111,7 @@ class ExcelInfoList extends Component {
         <table>
           <thead>
             <tr>
-              {this.state.sheet_data.map((sheet) => (
+              {sheet_data.map((sheet) => (
                 <td
                   key={sheet.id}
                   className="sheet_data"
@@ -133,9 +123,9 @@ class ExcelInfoList extends Component {
             </tr>
           </thead>
         </table>
-        {this.state.dataLoaded && (
+        {dataLoaded && (
           <div>
-            <SheetTable cols={this.state.cols} rows={this.state.rows} />
+            <SheetTable cols={cols} rows={rows} />
           </div>
         )}
       </div>
