@@ -11,6 +11,9 @@
 .table_size {
     width: 500px;
     max-width: 500px;
+    max-height: 1000px;
+    overflow-y: scroll;
+    border: 1px solid darkgray;
 }
 
 tr th {
@@ -59,4 +62,12 @@ tr th {
     & {
         border-top: 1px solid #dee2e6;
     }
+}
+
+.cols_header {
+    font-size: 13.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    text-align: center;
 }

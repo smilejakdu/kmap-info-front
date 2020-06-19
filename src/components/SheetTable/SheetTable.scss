@@ -1,0 +1,42 @@
+.div_test {
+    display: inline-block;
+    overflow-y: scroll;
+    height: 600px;
+}
+
+.sheet_body {
+    font-size: 13.5px;
+}
+
+.cols_header {
+    font-size: 13.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table_size {
+    width: 500px;
+    max-width: 500px;
+    max-height: 1000px;
+    overflow-y: scroll;
+    border: 1px solid darkgray;
+}
+
+.row_border {
+    width: 500px;
+    max-width: 500px;
+    max-height: 1000px;
+    border: 1px solid darkgray;
+}
+
+.container {
+    height: 500px;
+    overflow: auto;
+}
+
+.fixedHeader {
+    position: sticky;
+    top: 0;
+}

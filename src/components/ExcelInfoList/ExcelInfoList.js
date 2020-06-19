@@ -78,35 +78,37 @@ class ExcelInfoList extends Component {
 
   render() {
     const { data } = this.props;
-
     return (
       <div>
-        <table className="table table_size">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">excel list</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item) => (
-              <div className="excel_data_list" key={item.id}>
-                <div
-                  className="text"
-                  onClick={(e) => this.ExcelNameClick(item.name)}
-                >
-                  {item.name}
+        <div>
+          <table className="table table_size">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">excel list</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item) => (
+                <div className="excel_data_list" key={item.id}>
+                  <div
+                    className="text"
+                    onClick={(e) => this.ExcelNameClick(item.name)}
+                  >
+                    {item.name}
+                  </div>
+                  <div className="date">{item.create_at}</div>
+                  <div
+                    className="remove"
+                    onClick={this.removeClick(item.id, item.name)}
+                  >
+                    <MdRemoveCircleOutline />
+                  </div>
                 </div>
-                <div className="date">{item.create_at}</div>
-                <div
-                  className="remove"
-                  onClick={this.removeClick(item.id, item.name)}
-                >
-                  <MdRemoveCircleOutline />
-                </div>
-              </div>
-            ))}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
         <table>
           <thead>
             <tr>
