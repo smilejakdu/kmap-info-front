@@ -204,62 +204,60 @@ class ExcelForm extends Component {
     ));
     return (
       <div>
-        <Container>
-          <div className="form_box">
-            <form>
-              <FormGroup row>
-                <Col xs={4} sm={8} lg={10}>
-                  <div className="sheet_box">
-                    <li className="ul_style">{sheets}</li>
-                  </div>
-                  <input
-                    type="file"
-                    hidden
-                    onChange={this.fileHandler.bind(this)}
-                    ref={this.fileInput}
-                    onClick={(event) => {
-                      event.target.value = null;
-                    }}
-                    style={{ padding: "10px" }}
-                  />
-                </Col>
-              </FormGroup>
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <div className="test">
-                    <Button
-                      className="file_search_btn"
-                      onClick={this.openFileBrowser.bind(this)}
-                    >
-                      파일찾기
-                    </Button>
-                    <Button
-                      className="file_search_btn"
-                      type="submit"
-                      onClick={this.uploadClick}
-                    >
-                      업로드 시작
-                    </Button>
-                  </div>
-                </InputGroupAddon>
-                <p>.xlsx 파일만 가능합니다.</p>
-              </InputGroup>
-            </form>
-          </div>
-          {this.state.excelFileName}
-          {this.state.dataLoaded && (
-            <div>
-              <Card className="restrict-card">
-                <OutTable
-                  data={this.state.rows}
-                  columns={this.state.cols}
-                  tableClassName="ExcelTable"
-                  tableHeaderRowClass="heading"
+        <div className="form_box">
+          <form>
+            <FormGroup row>
+              <Col xs={4} sm={8} lg={10}>
+                <div className="sheet_box">
+                  <li className="ul_style">{sheets}</li>
+                </div>
+                <input
+                  type="file"
+                  hidden
+                  onChange={this.fileHandler.bind(this)}
+                  ref={this.fileInput}
+                  onClick={(event) => {
+                    event.target.value = null;
+                  }}
+                  style={{ padding: "10px" }}
                 />
-              </Card>
-            </div>
-          )}
-        </Container>
+              </Col>
+            </FormGroup>
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <div className="test">
+                  <Button
+                    className="file_search_btn"
+                    onClick={this.openFileBrowser.bind(this)}
+                  >
+                    파일찾기
+                  </Button>
+                  <Button
+                    className="file_search_btn"
+                    type="submit"
+                    onClick={this.uploadClick}
+                  >
+                    업로드 시작
+                  </Button>
+                </div>
+              </InputGroupAddon>
+              <p>.xlsx 파일만 가능합니다.</p>
+            </InputGroup>
+          </form>
+        </div>
+        {this.state.excelFileName}
+        {this.state.dataLoaded && (
+          <div>
+            <Card className="restrict-card">
+              <OutTable
+                data={this.state.rows}
+                columns={this.state.cols}
+                tableClassName="ExcelTable"
+                tableHeaderRowClass="heading"
+              />
+            </Card>
+          </div>
+        )}
       </div>
     );
   }

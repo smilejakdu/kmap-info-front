@@ -5,6 +5,7 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
+  border: 1px solid red;
 }
 
 .App-header {
@@ -101,7 +102,7 @@ TH {
   border: 1px solid black;
   max-width: 70%;
   min-width: 15rem;
-  max-height: 500px;
+  max-height: 1000px;
 }
 
 .file_search_btn {
