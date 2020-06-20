@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./ExcelForm.scss";
-import { OutTable } from "react-excel-renderer";
 import XLSX from "xlsx";
 import {
   Col,
@@ -8,10 +7,9 @@ import {
   InputGroupAddon,
   FormGroup,
   Button,
-  Container,
-  Card,
 } from "reactstrap";
 import request from "../../util/request";
+import SheetTable from "../SheetTable/SheetTable";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
@@ -245,19 +243,16 @@ class ExcelForm extends Component {
             </InputGroup>
           </form>
         </div>
-        {this.state.excelFileName}
-        {this.state.dataLoaded && (
+        <div>
+          <div className="excel_name">{this.state.excelFileName}</div>
           <div>
-            <Card className="restrict-card">
-              <OutTable
-                data={this.state.rows}
-                columns={this.state.cols}
-                tableClassName="ExcelTable"
-                tableHeaderRowClass="heading"
-              />
-            </Card>
+            {this.state.dataLoaded && (
+              <div>
+                <SheetTable cols={this.state.cols} rows={this.state.rows} />
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     );
   }
