@@ -154,6 +154,7 @@ TH {
 .sheet_box {
   margin: 10px;
   border: 1px solid black;
+  overflow-y: scroll;
   position: relative;
   width: 50%;
   min-height: 10rem;

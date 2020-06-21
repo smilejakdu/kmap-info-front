@@ -23,6 +23,12 @@ tr th {
     border: 1px solid gray;
 }
 
+.excel_list_box {
+    overflow-y: scroll;
+    max-height: 500px;
+    width: 500px;
+}
+
 .excel_data_list {
     padding: 1rem;
     display: flex;

@@ -3,8 +3,6 @@ import styled from "styled-components";
 import "./SheetTable.scss";
 
 const SheetTable = (props) => {
-  console.log("cols : ", props.cols);
-  console.log("rows : ", props.rows);
   return (
     <div className="sheet_body container">
       <table className="table">

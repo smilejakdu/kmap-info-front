@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
+import Login from "./components/Login/Login";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             path="/kmapinfo/excelinfo"
             component={ExcelInfoPage}
           ></Route>
+          <Route exact path="/kmapinfo/login" component={Login} />
           <Route
             render={({ location }) => (
               <div>

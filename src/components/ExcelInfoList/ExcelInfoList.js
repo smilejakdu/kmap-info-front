@@ -80,7 +80,7 @@ class ExcelInfoList extends Component {
     const { data } = this.props;
     return (
       <div>
-        <div>
+        <div className="excel_list_box">
           <table className="table table_size">
             <thead className="thead-dark">
               <tr>
@@ -133,4 +133,5 @@ class ExcelInfoList extends Component {
     );
   }
 }
-export default ExcelInfoList;
+
+export default React.memo(ExcelInfoList);

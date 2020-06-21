@@ -5,6 +5,12 @@ const Container = styled.div`
   width: 100%;
 `;
 
+const LoginLogo = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+`;
+
 const InputForm = styled.div`
   margin: 80px auto 20px;
   padding-top: 60px;
@@ -31,13 +37,22 @@ const InputForm = styled.div`
     height: 100%;
   }
 
+  label {
+  }
+
   button {
     margin: 20px;
     width: 80px;
     height: 30px;
-    background-color: gold;
+    background: black;
+    color: white;
     border-radius: 5px;
+
+    &:hover {
+      background: white;
+      color: black;
+    }
   }
 `;
 
-export { Container, InputForm };
+export { Container, InputForm, LoginLogo };
