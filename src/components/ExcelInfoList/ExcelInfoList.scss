@@ -34,6 +34,8 @@ tr th {
     display: flex;
     align-items: center;
     font-size: 20px;
+    border: 1px solid red;
+    min-height: 70px;
 
     &:nth-child(even) {
         background: #f8f9fa;

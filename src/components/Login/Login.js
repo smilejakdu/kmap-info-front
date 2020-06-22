@@ -5,6 +5,9 @@ import request from "../../util/request";
 import logo from "./kaipharm_logo_small.png";
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {};
   render() {
     return (
