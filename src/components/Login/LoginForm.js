@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Container, InputForm, LoginLogo } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
-import image from "/home/kmapinfo/front/kmap-info-front/src/components/Login/logo.png";
-// https://apps.kaipharm.com/kmapinfo/login
+import image from "./logo.png";
+
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +29,8 @@ const LoginForm = ({ authenticated, login, location }) => {
   return (
     <>
       <LoginLogo>
-        <img src={image} alt="logo" />
+        <img src={process.env.PUBLIC_URL + image} />;
+        {/* <img src={image} alt="logo" /> */}
       </LoginLogo>
       <Container>
         <InputForm>
