@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, InputForm, LoginLogo } from "./LoginInput.style";
-import logo from "./kai_logo.png";
 import { Redirect } from "react-router-dom";
+import image from "../../../dist/kai_logo.png";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
@@ -35,7 +35,7 @@ const LoginForm = ({ authenticated, login, location }) => {
   return (
     <>
       <LoginLogo>
-        <img src={logo} alt="logo" />
+        <img src={image} alt="logo" />
       </LoginLogo>
       <h1 style={test_font}>ID : 123</h1>
       <h1 style={test_font}>PW : 1234</h1>
