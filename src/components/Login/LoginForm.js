@@ -34,7 +34,9 @@ const LoginForm = ({ authenticated, login, location }) => {
 
   return (
     <>
-      <img src={logo} alt="image" />
+      <LoginLogo>
+        <img src={logo} alt="logo" />
+      </LoginLogo>
       <h1 style={test_font}>ID : 123</h1>
       <h1 style={test_font}>PW : 1234</h1>
       <Container>
