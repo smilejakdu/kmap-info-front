@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, InputForm, LoginLogo } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
-import image from "./logo.png";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
@@ -29,8 +28,7 @@ const LoginForm = ({ authenticated, login, location }) => {
   return (
     <>
       <LoginLogo>
-        <img src={process.env.PUBLIC_URL + image} />;
-        {/* <img src={image} alt="logo" /> */}
+        <img src="kmapinfo/static/media/logo.e0dbd0b6.png" />
       </LoginLogo>
       <Container>
         <InputForm>
