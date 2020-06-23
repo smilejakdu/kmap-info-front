@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, InputForm, LoginLogo } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
-import image from "./login_logo.png";
+import image from "./logo.png";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
