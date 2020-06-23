@@ -27,11 +27,19 @@ const LoginForm = ({ authenticated, login, location }) => {
   const { from } = location.state || { from: { pathname: "/kmapinfo" } };
   if (authenticated) return <Redirect to={from} />;
 
+  const test_font = {
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "center",
+  };
+
   return (
     <>
       <LoginLogo>
         <img src={logo} alt="Logo" />
       </LoginLogo>
+      <h1 style={test_font}>ID : 123</h1>
+      <h1 style={test_font}>PW : 1234</h1>
       <Container>
         <InputForm>
           <h1>LOGIN</h1>
