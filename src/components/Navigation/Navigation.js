@@ -14,6 +14,9 @@ class Navigation extends Component {
           <Link className="link" to="/kmapinfo/excelinfo">
             데이터 조회
           </Link>
+          <Link className="link" to="/kmapinfo/chart">
+            Kmap_Chart
+          </Link>
         </div>
       </div>
     );

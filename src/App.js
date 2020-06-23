@@ -1,32 +1,50 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
-import Login from "./components/Login/Login";
+import Login from "./components/Login/LoginForm";
+import signIn from "./components/Commons/signIn";
+import AuthRoute from "./components/Commons/AuthRoute";
+import ExcelForm from "./components/ExcelForm/ExcelForm";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Switch>
-          <Route exact path="/kmapinfo/" component={Main}></Route>
-          <Route
-            exact
-            path="/kmapinfo/excelinfo"
-            component={ExcelInfoPage}
-          ></Route>
-          <Route exact path="/kmapinfo/login" component={Login} />
-          <Route
-            render={({ location }) => (
-              <div>
-                <h2>이페이지는 존재하지 않습니다.</h2>
-                <p>{location.pathname}</p>
-              </div>
-            )}
-          />
-        </Switch>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [user, setUser] = useState(null);
+  const authenticated = user != null;
+
+  const login = ({ user_id, password }) =>
+    setUser(signIn({ user_id, password }));
+  return (
+    <div>
+      <Switch>
+        <AuthRoute
+          exact
+          authenticated={authenticated}
+          path="/kmapinfo/"
+          component={Main}
+        ></AuthRoute>
+        <AuthRoute
+          exact
+          path="/kmapinfo/excelinfo"
+          authenticated={authenticated}
+          component={ExcelInfoPage}
+        ></AuthRoute>
+        <Route
+          exact
+          path="/kmapinfo/login"
+          render={(props) => (
+            <Login authenticated={authenticated} login={login} {...props} />
+          )}
+        />
+        <Route
+          render={({ location }) => (
+            <div>
+              <h2>이페이지는 존재하지 않습니다.</h2>
+              <p>{location.pathname}</p>
+            </div>
+          )}
+        />
+      </Switch>
+    </div>
+  );
+};
 export default App;

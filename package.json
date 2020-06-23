@@ -23,10 +23,12 @@
     "react-icons": "^3.10.0",
     "react-js-pagination": "^3.0.3",
     "react-papaparse": "^3.3.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1",
     "read-excel-file": "^4.0.6",
+    "redux": "^4.0.5",
     "styled-components": "^5.1.1"
   },
   "scripts": {

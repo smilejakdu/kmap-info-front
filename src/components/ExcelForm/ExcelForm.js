@@ -190,6 +190,8 @@ class ExcelForm extends Component {
   render() {
     const { uploadName } = this.state;
     // const { sheetDataClick } = this;
+    const { data } = this.props;
+    console.log("data : ", data);
 
     const sheets = uploadName.map((sheet, i) => (
       <li

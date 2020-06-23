@@ -46,6 +46,8 @@ class ExcelInfoPage extends Component {
 
   render() {
     console.log(this.state.exceldata);
+    const { user } = this.props;
+    console.log(user);
     return (
       <div className="main">
         <Navigation />
