@@ -5,14 +5,12 @@ import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
 import Login from "./components/Login/LoginForm";
 import signIn from "./components/Commons/signIn";
 import AuthRoute from "./components/Commons/AuthRoute";
-import ExcelForm from "./components/ExcelForm/ExcelForm";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const authenticated = user != null;
 
-  const login = ({ user_id, password }) =>
-    setUser(signIn({ user_id, password }));
+  const login = ({ status }) => setUser(signIn({ status }));
   return (
     <div>
       <Switch>

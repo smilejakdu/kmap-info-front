@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, InputForm, LoginLogo } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
-import image from "../../../dist/kai_logo.png";
+import image from "./login_logo.png";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
@@ -26,19 +26,11 @@ const LoginForm = ({ authenticated, login, location }) => {
   const { from } = location.state || { from: { pathname: "/kmapinfo" } };
   if (authenticated) return <Redirect to={from} />;
 
-  const test_font = {
-    display: "flex",
-    textAlign: "center",
-    justifyContent: "center",
-  };
-
   return (
     <>
       <LoginLogo>
         <img src={image} alt="logo" />
       </LoginLogo>
-      <h1 style={test_font}>ID : 123</h1>
-      <h1 style={test_font}>PW : 1234</h1>
       <Container>
         <InputForm>
           <h1>LOGIN</h1>

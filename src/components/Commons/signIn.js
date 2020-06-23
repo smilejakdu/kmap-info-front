@@ -1,13 +1,24 @@
 import request from "../../util/request";
 
-const users = [{ user_id: "123", password: "1234" }];
-
 const signIn = ({ user_id, password }) => {
-  const user = users.find(
-    (user) => user.user_id === user_id && user.password === password
-  );
-  if (user === undefined) throw new Error();
-  return user;
+  const LoginCheck = () => {
+    return request
+      .post("/account/login", {
+        user_id: user_id,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        error && console.warn(error);
+      });
+  };
+
+  const status_result = LoginCheck();
+
+  if (status_result === undefined) throw new Error();
+  return status_result;
 };
 
 export default signIn;
