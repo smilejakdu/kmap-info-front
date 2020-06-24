@@ -3,6 +3,7 @@
     display: flex;
     left: 0;
     top: 0;
+    z-index: 1;
     right: 0;
     min-width: 160px;
     position: fixed;
@@ -15,13 +16,19 @@
         color: coral;
         text-decoration: none;
     }
+
+    .logout {
+        position: absolute;
+        margin-right: 10px;
+        right: 0;
+    }
 }
 
 .kmap_nav_title {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #111;
+    color: coral;
     display: block;
 }
 

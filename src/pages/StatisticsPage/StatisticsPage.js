@@ -9,6 +9,7 @@ import "./StatisticsPage.scss";
 // 막대기 차트
 // 거미줄 차트
 // 에 맞게 데이터를 뿌려주면 됨.
+
 const StatisticsPage = () => {
   return (
     <div>
@@ -17,15 +18,17 @@ const StatisticsPage = () => {
       </div>
       <div>
         <div className="statistics_logo">
-          <img src={"/kmapinfo" + image} width="250" height="100" />
-          {/* <img src={image} width="250" height="100" /> */}
+          {/* <img src={"/kmapinfo" + image} width="250" height="100" /> */}
+          <img src={image} width="250" height="100" />
         </div>
       </div>
-      <div className="chart_border">
-        <Statistics />
+      <div>
+        <div className="circle_border">
+          <Statistics />
+        </div>
+        <div className="bar_border">bar_test</div>
+        <div className="svg_border">svg_test</div>
       </div>
-      <div></div>
-      <div></div>
     </div>
   );
 };

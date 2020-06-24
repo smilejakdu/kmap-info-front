@@ -3,11 +3,30 @@
     padding: 0px 10px;
 }
 
-.chart_border {
+.circle_border {
     border: 1px solid gray;
-    border-radius: 10px;
-    max-width: 30%;
+    border-radius: 30px;
+    max-width: 25%;
     margin-left: 20px;
+    float: left;
+}
+
+.bar_border {
+    border: 1px solid gray;
+    border-radius: 30px;
+    margin-left: 20px;
+    min-width: 25%;
+    min-height: 430px;
+    float: left;
+}
+
+.svg_border {
+    border: 1px solid gray;
+    border-radius: 30px;
+    min-width: 40%;
+    min-height: 430px;
+    margin-left: 20px;
+    float: left;
 }
 
 .nav {
@@ -18,4 +37,5 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    margin-bottom: 10px;
 }
