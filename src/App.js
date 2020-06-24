@@ -6,6 +6,7 @@ import CompoundInfoPage from "./pages/CompoundInfoPage/CompoundInfoPage";
 import Login from "./components/Login/LoginForm";
 import signIn from "./components/Commons/signIn";
 import AuthRoute from "./components/Commons/AuthRoute";
+import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -32,6 +33,12 @@ const App = () => {
           path="/kmapinfo/compoundinfo"
           // authenticated={authenticated}
           component={CompoundInfoPage}
+        ></Route>
+        <Route
+          exact
+          path="/kmapinfo/statistics"
+          // authenticated={authenticated}
+          component={StatisticsPage}
         ></Route>
         <Route
           exact

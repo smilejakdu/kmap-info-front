@@ -17,6 +17,9 @@ class Navigation extends Component {
           <Link className="link" to="/kmapinfo/compoundinfo">
             CompoundInfo
           </Link>
+          <Link className="link" to="/kmapinfo/statistics">
+            Statistics
+          </Link>
         </div>
       </div>
     );
