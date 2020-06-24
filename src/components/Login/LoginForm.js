@@ -29,8 +29,8 @@ const LoginForm = ({ authenticated, login, location }) => {
   return (
     <>
       <LoginLogo>
+        <img src={image} />
         {/* <img src={"/kmapinfo" + image} /> */}
-        <img src={"/kmapinfo" + image} />
       </LoginLogo>
       <Container>
         <InputForm>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
+import ChartPage from "./pages/ChartPage/ChartPage";
 import Login from "./components/Login/LoginForm";
 import signIn from "./components/Commons/signIn";
 import AuthRoute from "./components/Commons/AuthRoute";
@@ -26,6 +27,12 @@ const App = () => {
           authenticated={authenticated}
           component={ExcelInfoPage}
         ></AuthRoute>
+        <Route
+          exact
+          path="/kmapinfo/chart"
+          // authenticated={authenticated}
+          component={ChartPage}
+        ></Route>
         <Route
           exact
           path="/kmapinfo/login"
