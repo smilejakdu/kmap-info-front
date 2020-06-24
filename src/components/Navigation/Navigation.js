@@ -8,6 +8,9 @@ class Navigation extends Component {
       <div>
         <div className="sidenav">
           <div className="kmap_nav_title">KMAP</div>
+          <Link className="link" to="/kmapinfo/statistics">
+            Statistics
+          </Link>
           <Link className="link" to="/kmapinfo/">
             업로드
           </Link>
@@ -16,9 +19,6 @@ class Navigation extends Component {
           </Link>
           <Link className="link" to="/kmapinfo/compoundinfo">
             CompoundInfo
-          </Link>
-          <Link className="link" to="/kmapinfo/statistics">
-            Statistics
           </Link>
         </div>
       </div>

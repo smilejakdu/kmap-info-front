@@ -6,7 +6,9 @@ import "./Main.css";
 const Main = () => {
   return (
     <div>
-      <Navigation />
+      <div className="nav">
+        <Navigation />
+      </div>
       <div className="main">
         <ExcelForm />
       </div>

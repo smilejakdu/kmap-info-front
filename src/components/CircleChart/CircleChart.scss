@@ -1,9 +1,3 @@
-.test_title {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-
 /*
  * react-circular-progressbar styles
  * All of the styles in this file are configurable!
@@ -71,6 +65,28 @@
     stroke: transparent;
 }
 
-.statistics_border {
-    margin: 30px;
+.circle_parent {
+    position: relative;
+}
+
+.hr {
+    border: 1px solid #ddd
+}
+
+.compound-title {
+    justify-content: center;
+    display: flex;
+}
+
+.circle_chart {
+    margin: 60px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.compound_circle_count {
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
 }

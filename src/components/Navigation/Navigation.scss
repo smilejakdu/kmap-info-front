@@ -1,16 +1,19 @@
 .sidenav {
-    height: 100%;
+    width: 100%;
+    display: flex;
+    left: 0;
+    top: 0;
+    right: 0;
     min-width: 160px;
     position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
+    background-color: white;
+    border-bottom: 1px solid #111;
     overflow-x: hidden;
     padding-top: 20px;
 
     a:hover {
-        color: #f1f1f1;
+        color: coral;
+        text-decoration: none;
     }
 }
 
@@ -18,7 +21,7 @@
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: white;
+    color: #111;
     display: block;
 }
 

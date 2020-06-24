@@ -49,23 +49,27 @@ class ExcelInfoPage extends Component {
     const { user } = this.props;
     console.log(user);
     return (
-      <div className="main">
-        <Navigation />
-        <div className="search_box">
-          <input
-            className="search_input"
-            value={this.state.keyword}
-            onChange={this.handleChange}
-            placeholder="검색"
-            type="text"
+      <div>
+        <div className="nav">
+          <Navigation />
+        </div>
+        <div className="main">
+          <div className="search_box">
+            <input
+              className="search_input"
+              value={this.state.keyword}
+              onChange={this.handleChange}
+              placeholder="검색"
+              type="text"
+            />
+          </div>
+          <ExcelInfoList
+            data={this.state.exceldata.filter(
+              (info) => info.name.indexOf(this.state.keyword) > -1
+            )}
+            handleChangeExcelData={this.handleChangeExcelData}
           />
         </div>
-        <ExcelInfoList
-          data={this.state.exceldata.filter(
-            (info) => info.name.indexOf(this.state.keyword) > -1
-          )}
-          handleChangeExcelData={this.handleChangeExcelData}
-        />
       </div>
     );
   }

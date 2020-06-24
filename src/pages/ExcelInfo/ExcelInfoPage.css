@@ -1,8 +1,11 @@
 .main {
-    margin-left: 260px;
+    margin-top: 5px;
+    margin-left: 0px;
     font-size: 28px;
     padding: 0px 10px;
 }
+
+.nav {}
 
 .search_box {
     text-align: left;
