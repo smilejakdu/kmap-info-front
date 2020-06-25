@@ -23,11 +23,9 @@ const StatisticsPage = () => {
         </div>
       </div>
       <div>
-        <div className="circle_border">
+        <div>
           <Statistics />
         </div>
-        <div className="bar_border">bar_test</div>
-        <div className="svg_border">svg_test</div>
       </div>
     </div>
   );

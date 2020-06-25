@@ -67,10 +67,7 @@
 
 .circle_parent {
     position: relative;
-}
-
-.hr {
-    border: 1px solid #ddd
+    border-radius: 15px;
 }
 
 .compound-title {
@@ -88,5 +85,5 @@
 .compound_circle_count {
     justify-content: center;
     display: flex;
-    margin-top: 30px;
+    margin-top: 10px;
 }

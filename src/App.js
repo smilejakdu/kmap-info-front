@@ -34,12 +34,12 @@ const App = () => {
           authenticated={authenticated}
           component={CompoundInfoPage}
         ></AuthRoute>
-        <AuthRoute
+        <Route
           exact
           path="/kmapinfo/statistics"
-          authenticated={authenticated}
+          // authenticated={authenticated}
           component={StatisticsPage}
-        ></AuthRoute>
+        ></Route>
         <Route
           exact
           path="/kmapinfo/login"

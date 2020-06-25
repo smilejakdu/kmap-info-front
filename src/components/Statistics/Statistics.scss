@@ -71,6 +71,30 @@
     stroke: transparent;
 }
 
-.statistics_border {
-    margin: 30px;
+.circle_border {
+    display: flex;
+    float: left;
+    max-width: 25%;
+    margin-left: 20px;
+    max-height: 420px;
+    border: 1px solid orange;
+    border-radius: 15px;
+}
+
+.column_border {
+    display: flex;
+    float: left;
+    max-width: 35%;
+    margin-left: 20px;
+    border: 1px solid orange;
+    border-radius: 15px;
+}
+
+.svg_border {
+    display: flex;
+    max-width: 40%;
+    float: left;
+    margin-left: 20px;
+    border: 1px solid orange;
+    border-radius: 15px;
 }

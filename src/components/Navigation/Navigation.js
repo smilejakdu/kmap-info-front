@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Navigation.scss";
 
 class Navigation extends Component {
@@ -26,4 +26,5 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+// export default Navigation;
+export default withRouter(Navigation);
