@@ -32,7 +32,7 @@ const ColumnChart = () => {
     <div className="columns_border">
       <BarChart
         width={400}
-        height={400}
+        height={460}
         data={data}
         margin={{
           top: 5,

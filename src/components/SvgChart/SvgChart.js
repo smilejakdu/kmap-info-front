@@ -34,7 +34,7 @@ const SvgChart = () => {
     <div className="border">
       <LineChart
         width={440}
-        height={420}
+        height={475}
         data={data}
         margin={{
           top: 5,

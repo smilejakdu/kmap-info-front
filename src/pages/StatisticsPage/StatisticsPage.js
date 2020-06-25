@@ -18,8 +18,8 @@ const StatisticsPage = () => {
       </div>
       <div>
         <div className="statistics_logo">
-          {/* <img src={"/kmapinfo" + image} width="250" height="100" /> */}
-          <img src={image} width="250" height="100" />
+          <img src={"/kmapinfo" + image} width="250" height="100" />
+          {/* <img src={image} width="250" height="100" /> */}
         </div>
       </div>
       <div>
