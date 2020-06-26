@@ -28,18 +28,18 @@ const App = () => {
           authenticated={authenticated}
           component={ExcelInfoPage}
         ></AuthRoute>
-        <AuthRoute
-          exact
-          path="/kmapinfo/compoundinfo"
-          authenticated={authenticated}
-          component={CompoundInfoPage}
-        ></AuthRoute>
         <Route
           exact
-          path="/kmapinfo/statistics"
+          path="/kmapinfo/compoundinfo"
           // authenticated={authenticated}
-          component={StatisticsPage}
+          component={CompoundInfoPage}
         ></Route>
+        <AuthRoute
+          exact
+          path="/kmapinfo/statistics"
+          authenticated={authenticated}
+          component={StatisticsPage}
+        ></AuthRoute>
         <Route
           exact
           path="/kmapinfo/login"
