@@ -12,28 +12,14 @@ import {
 } from "recharts";
 import "./ColumnChart.scss";
 
-const data = [
-  {
-    name: "6month",
-    value: 4000,
-  },
-  {
-    name: "7month",
-    value: 3000,
-  },
-  {
-    name: "8month",
-    value: 2000,
-  },
-];
-
-const ColumnChart = () => {
+const ColumnChart = (data) => {
+  console.log(data);
   return (
     <div className="columns_border">
       <BarChart
         width={400}
         height={460}
-        data={data}
+        data={data.data}
         margin={{
           top: 5,
           right: 30,

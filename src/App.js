@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
@@ -12,7 +12,10 @@ const App = () => {
   const [user, setUser] = useState(null);
   const authenticated = user != null;
 
-  const login = ({ status }) => setUser(signIn({ status }));
+  const login = ({ user_id, password }) =>
+    setUser(signIn({ user_id, password }));
+
+  console.log("App login  : ", login);
   return (
     <div>
       <Switch>
@@ -20,25 +23,29 @@ const App = () => {
           exact
           authenticated={authenticated}
           path="/kmapinfo/"
-          component={Main}
+          // component={Main}
+          render={() => <Main />}
         ></AuthRoute>
         <AuthRoute
           exact
           path="/kmapinfo/excelinfo"
           authenticated={authenticated}
-          component={ExcelInfoPage}
+          // component={ExcelInfoPage}
+          render={() => <ExcelInfoPage />}
         ></AuthRoute>
-        <Route
+        <AuthRoute
           exact
           path="/kmapinfo/compoundinfo"
-          // authenticated={authenticated}
-          component={CompoundInfoPage}
-        ></Route>
+          authenticated={authenticated}
+          render={() => <CompoundInfoPage />}
+          // component={CompoundInfoPage}
+        ></AuthRoute>
         <AuthRoute
           exact
           path="/kmapinfo/statistics"
           authenticated={authenticated}
-          component={StatisticsPage}
+          // component={StatisticsPage}
+          render={() => <StatisticsPage />}
         ></AuthRoute>
         <Route
           exact

@@ -9,6 +9,7 @@ const LoginForm = ({ authenticated, login, location }) => {
 
   const handleClick = () => {
     try {
+      console.log("LoginForm : ", user_id, password);
       login({ user_id, password });
     } catch (e) {
       alert("아이디와 비밀번호를 확인하세요 ");
