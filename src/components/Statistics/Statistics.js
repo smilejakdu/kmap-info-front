@@ -39,7 +39,7 @@ const Statistics = () => {
         setCirclepercent(data.circle_number);
         setCirclechemnum(data.kaichem_number);
         setColumn(data.columns_list);
-        console.log("svg_data : ", data);
+        setSvgdata(data.svg_data_list);
       })
       .catch((err) => {
         err && console.log(err);

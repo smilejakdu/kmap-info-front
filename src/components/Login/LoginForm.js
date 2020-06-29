@@ -33,6 +33,10 @@ const LoginForm = ({ authenticated, login, location }) => {
         {/* <img src={image} /> */}
         <img src={"/kmapinfo" + image} />
       </LoginLogo>
+      <div style={{ textAlign: "center" }}>
+        <h2>ID : 123</h2>
+        <h2>PW : 1234</h2>
+      </div>
       <Container>
         <InputForm>
           <h1>LOGIN</h1>
