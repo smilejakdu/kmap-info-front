@@ -10,32 +10,14 @@ import {
   Legend,
 } from "recharts";
 
-const data = [
-  {
-    name: "6month",
-    value: 4000,
-  },
-  {
-    name: "7month",
-    value: 3000,
-  },
-  {
-    name: "8month",
-    value: 3500,
-  },
-  {
-    name: "9month",
-    value: 2780,
-  },
-];
-
-const SvgChart = () => {
+const SvgChart = (data) => {
+  console.log(data);
   return (
     <div className="border">
       <LineChart
         width={440}
         height={475}
-        data={data}
+        data={data.data}
         margin={{
           top: 5,
           right: 30,
