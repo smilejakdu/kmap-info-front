@@ -1,5 +1,92 @@
+$blue-back : #33C7C8;
+$black_border : 1px solid black;
+$green_border : 1px solid #0D8F26;
+
 .test_title {
     display: flex;
     text-align: center;
     justify-content: center;
+}
+
+.table-size {
+    max-width: 300px;
+}
+
+.compound_info_header {
+    // border: 1px solid red;
+    position: relative;
+    height: 50px;
+
+}
+
+.kaichem_id_border {
+    display: flex;
+    bottom: 0;
+}
+
+.kaichem_id {
+    font-weight: bold;
+    background: coral;
+    font-size: 20px;
+    border: 2px solid black;
+    color: black;
+    min-width: 150px;
+    height: 50px;
+}
+
+.kaichem_id_value {
+    min-width: 150px;
+    height: 20px;
+    text-align: center;
+    border: 2px solid black;
+    font-size: 20px;
+    height: 50px;
+}
+
+.kaipharm_chem_index_div {
+    position: relative;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.kaipharm_chem_index_button {
+    float: left;
+    font-size: 35px;
+    color: $blue-back;
+
+    &:hover {
+        cursor: pointer;
+        color: blue;
+    }
+}
+
+.kaipharm_chem_index {
+    float: left;
+}
+
+.kaipharm_chem_index_header {
+    border: $green_border;
+    background: #ACE5B7;
+    text-align: center;
+    color: black;
+    width: 200px;
+    font-size: 15px;
+}
+
+.kaipharm_chem_index_body {
+    border: $green_border;
+    background: #ACE5B7;
+    color: black;
+    max-width: 200px;
+    vertical-align: middle;
+    font-size: 17px;
+    text-align: center;
+}
+
+// 여기까지가 KaiChem header 내용A
+.compound_info_hydrochloride {
+    border: 2px solid black;
+    font-size: 25px;
+    padding: 10px;
 }

@@ -33,13 +33,13 @@ const App = () => {
           // component={ExcelInfoPage}
           render={() => <ExcelInfoPage />}
         ></AuthRoute>
-        <AuthRoute
+        <Route
           exact
           path="/kmapinfo/compoundinfo"
           authenticated={authenticated}
           render={() => <CompoundInfoPage />}
           // component={CompoundInfoPage}
-        ></AuthRoute>
+        ></Route>
         <AuthRoute
           exact
           path="/kmapinfo/statistics"

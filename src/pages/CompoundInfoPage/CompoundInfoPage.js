@@ -16,7 +16,7 @@ const CompoundInfoPage = () => {
           {/* <img src={image} width="250" height="100" /> */}
         </div>
       </div>
-      <div>
+      <div className="div_border">
         <CompoundInfo />
       </div>
     </>
