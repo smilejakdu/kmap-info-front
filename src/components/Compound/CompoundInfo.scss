@@ -1,5 +1,5 @@
 $blue-back : #33C7C8;
-$black_border : 1px solid black;
+$black_border : 2px solid black;
 $green_border : 1px solid #0D8F26;
 
 .test_title {
@@ -7,6 +7,8 @@ $green_border : 1px solid #0D8F26;
     text-align: center;
     justify-content: center;
 }
+
+//KaiChem header 내용A
 
 .table-size {
     max-width: 300px;
@@ -84,9 +86,35 @@ $green_border : 1px solid #0D8F26;
     text-align: center;
 }
 
-// 여기까지가 KaiChem header 내용A
+//Acebutolol hydrochloride
+
 .compound_info_hydrochloride {
     border: 2px solid black;
     font-size: 25px;
     padding: 10px;
+}
+
+// pubchem API image
+
+.compound_info_body {
+    width: 100%;
+    height: 600px;
+}
+
+.pubchem_image_left {
+    border-bottom: $black_border;
+    border-left: $black_border;
+    width: 30%;
+    min-height: 50%;
+    float: left;
+    padding: 30px;
+}
+
+.pubchem_image_right {
+    border-right: $black_border;
+    border-left: $black_border;
+    border-bottom: $black_border;
+    width: 70%;
+    height: 100%;
+    float: right;
 }

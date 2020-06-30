@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from "react";
 import "./CompoundInfo.scss";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import image from "./test.png";
 const CompoundInfo = () => {
   return (
     <>
@@ -33,6 +35,10 @@ const CompoundInfo = () => {
       </div>
       <div className="compound_info_hydrochloride">
         Acebutolol hydrochloride
+      </div>
+      <div className="compound_info_body">
+        <img src={image} className="pubchem_image_left" />
+        <div className="pubchem_image_right">sdf</div>
       </div>
     </>
   );
