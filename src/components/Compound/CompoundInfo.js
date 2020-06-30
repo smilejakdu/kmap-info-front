@@ -46,9 +46,9 @@ const CompoundInfo = () => {
           <div className="pubchem_cid_table_border">
             <table className="table-bordered">
               <tr className="pubchem_cid_tr_border">
-                <th className="pubchem_cid">pubchem CID</th>
+                <td className="pubchem_cid">pubchem CID</td>
                 <td className="pubchem_cid_value">441307</td>
-                <th className="pubchem_cid">InChIKey</th>
+                <td className="pubchem_cid">InChIKey</td>
                 <td className="inchikey_value">KDSFLKJDLFKJSDFk</td>
               </tr>
               <tr>
