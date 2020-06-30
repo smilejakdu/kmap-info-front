@@ -39,7 +39,8 @@ const CompoundInfo = () => {
       </div>
       <div className="compound_info_body">
         {/* left start */}
-        <img src={image} className="pubchem_body_left" />
+        {/* <img src={image} className="pubchem_body_left" /> */}
+        <img src={"/kmapinfo" + image} className="pubchem_body_left" />
         {/* right start */}
         <div className="pubchem_body_right">
           <div className="pubchem_cid_table_border">
@@ -84,8 +85,14 @@ const CompoundInfo = () => {
               <td>SelleckChem</td>
             </tr>
           </table>
-          <img
+          {/* <img
             src={image}
+            width="200px"
+            height="200px"
+            className="pubchem-right-image"
+          /> */}
+          <img
+            src={"/kmapinfo" + image}
             width="200px"
             height="200px"
             className="pubchem-right-image"
