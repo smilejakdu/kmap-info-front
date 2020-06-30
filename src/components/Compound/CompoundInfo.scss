@@ -1,4 +1,4 @@
-$blue-back : #33C7C8;
+$blue-back : #81B8CF;
 $black_border : 2px solid black;
 $green_border : 1px solid #0D8F26;
 
@@ -9,10 +9,6 @@ $green_border : 1px solid #0D8F26;
 }
 
 //KaiChem header 내용A
-
-.table-size {
-    max-width: 300px;
-}
 
 .compound_info_header {
     // border: 1px solid red;
@@ -98,10 +94,10 @@ $green_border : 1px solid #0D8F26;
 
 .compound_info_body {
     width: 100%;
-    height: 600px;
+    height: 700px;
 }
 
-.pubchem_image_left {
+.pubchem_body_left {
     border-bottom: $black_border;
     border-left: $black_border;
     width: 30%;
@@ -110,11 +106,93 @@ $green_border : 1px solid #0D8F26;
     padding: 30px;
 }
 
-.pubchem_image_right {
+.pubchem_body_right {
     border-right: $black_border;
     border-left: $black_border;
     border-bottom: $black_border;
     width: 70%;
     height: 100%;
     float: right;
+}
+
+.pubchem_cid_table_border {
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.pubchem_cid_tr_border {
+    text-align: center;
+    justify-content: center;
+}
+
+.table-bordered tr {
+    border: $black_border;
+}
+
+
+.table-bordered tr td {
+    border: $black_border;
+}
+
+.pubchem_cid {
+    background: $blue-back;
+    color: black;
+    min-width: 120px;
+    font-weight: bold;
+    height: 50px;
+    font-size: 13px;
+}
+
+.pubchem_cid_value {
+    min-width: 150px;
+    max-width: 200px;
+    font-size: 15px;
+}
+
+.inchikey_value {
+    width: 100%;
+    font-size: 14px;
+}
+
+.kmap-2k-subset-border {
+    margin-left: 20px;
+    margin-top: 30px;
+    float: left;
+}
+
+.kmap-2k-subset {
+    font-size: 14px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.kmap-2k-subset-value {
+    padding: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ipk_border {
+    margin-left: 40px;
+    margin-top: 30px;
+    float: left;
+
+    td {
+        font-size: 22px;
+        padding-left: 5px;
+    }
+}
+
+.pubchem-right-image {
+    border: $black_border;
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 30%;
+    min-height: 50%;
+    float: right;
+    padding: 30px;
 }
