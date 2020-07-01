@@ -139,8 +139,12 @@ const CompoundInfo = () => {
                   <td className="right_body_footer_header_target" rowSpan="2">
                     Adrenergic Receptor
                   </td>
-                  <td>Chem Group</td>
-                  <td>CID</td>
+                  <td className="right_body_footer_header_gray_border_chem">
+                    Chem Group
+                  </td>
+                  <td className="right_body_footer_header_gray_border_cid">
+                    CID
+                  </td>
                 </tr>
                 <tr className="pubchem_cid_tr_border">
                   <td>Acebutolo</td>
