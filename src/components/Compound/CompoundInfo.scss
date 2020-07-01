@@ -286,7 +286,9 @@ $green_border: 1px solid #0d8f26;
   }
 }
 textarea {
+  resize: none;
   padding: 10px;
+  border: $black_border;
   width: 100%;
   max-height: 14rem;
   font-size: 15px;
