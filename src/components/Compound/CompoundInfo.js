@@ -5,6 +5,8 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { IoIosRadioButtonOff } from "react-icons/io";
 import image from "./test.png";
 const CompoundInfo = () => {
+  const circle_checked = true;
+  const checked = true;
   return (
     <>
       <h1 className="test_title">Compound page.</h1>
@@ -40,7 +42,10 @@ const CompoundInfo = () => {
       <div className="compound_info_body">
         {/* left start */}
         {/* <img src={image} className="pubchem_body_left" /> */}
-        <img src={"/kmapinfo" + image} className="pubchem_body_left" />
+        <img
+          src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=441307&t=l`}
+          className="pubchem_body_left"
+        />
         {/* right start */}
         <div className="pubchem_body_right">
           <div className="right_body_header">
@@ -71,7 +76,11 @@ const CompoundInfo = () => {
             <table className="ipk_border">
               <tr>
                 <td>
-                  <span className="dot"></span>
+                  {circle_checked ? (
+                    <span className="dot" />
+                  ) : (
+                    <span className="dot_active" />
+                  )}
                 </td>
                 <td>IPK Expansion</td>
               </tr>
@@ -92,7 +101,11 @@ const CompoundInfo = () => {
               <table>
                 <tr>
                   <td>
-                    <input type="checkbox" />
+                    {checked ? (
+                      <input type="checkbox" checked="checked" />
+                    ) : (
+                      <input type="checkbox" />
+                    )}
                   </td>
                   <td>US FDA approved</td>
                 </tr>
@@ -123,9 +136,7 @@ const CompoundInfo = () => {
             className="pubchem-right-image"
           /> */}
             <img
-              src={"/kmapinfo" + image}
-              width="200px"
-              height="250px"
+              src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=1978&t=l`}
               className="pubchem-right-image"
             />
           </div>
@@ -156,12 +167,8 @@ const CompoundInfo = () => {
                 <tr>
                   <td className="information">information</td>
                   <td>
-                    <textarea name="" cols="150" rows="8">
-                      sladfkjsaldkfjasldfkhlhvlasjhdflkjsahf
-                      lkjhasdflkjhsdflkjashfalkjsdfhslkdfjhaskdlfjhasf
-                      asdlkfjhsdfljkhsafljasklfhkashfd 가나다라마바사 abcdefg
-                      마하반야바라밀다
-                    </textarea>
+                    <textarea name="" cols="150" rows="8"></textarea>
+                    {/* 공란일 경우 NA */}
                   </td>
                 </tr>
               </table>

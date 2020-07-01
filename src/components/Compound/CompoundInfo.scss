@@ -218,6 +218,9 @@ $green_border: 1px solid #0d8f26;
 
 .pubchem-right-image {
   border: $black_border;
+  position: absolute;
+  top: 0;
+  right: 0;
   margin-left: 50px;
   margin-top: 20px;
   margin-right: 20px;
