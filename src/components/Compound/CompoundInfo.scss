@@ -115,6 +115,11 @@ $green_border : 1px solid #0D8F26;
     float: right;
 }
 
+.right_body_header {
+    border: 1px solid blue;
+    height: 20%;
+}
+
 .pubchem_cid_table_border {
     text-align: center;
     justify-content: center;
@@ -159,6 +164,12 @@ $green_border : 1px solid #0D8F26;
     font-size: 14px;
 }
 
+.right_body_body {
+    border: 1px solid red;
+    height: 50%;
+    position: relative;
+}
+
 .kmap-2k-subset-border {
     margin-left: 20px;
     margin-top: 30px;
@@ -191,10 +202,43 @@ $green_border : 1px solid #0D8F26;
 .pubchem-right-image {
     border: $black_border;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-right: 20px;
     width: 30%;
-    min-height: 50%;
+    min-height: 94%;
     float: right;
     padding: 30px;
+}
+
+.right_body_left {
+    border: 1px solid red;
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    margin: 20px;
+
+    td {
+        padding-left: 5px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.right_body_footer {
+    border: 1px solid blue;
+    height: 30%;
+}
+
+.right_body_footer_header {
+    text-align: center;
+    justify-content: center;
+    border: 1px solid coral;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.right_body_footer_header_target {
+    width: 66%;
+    font-size: 14px;
 }
