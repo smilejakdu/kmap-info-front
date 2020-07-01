@@ -151,6 +151,20 @@ const CompoundInfo = () => {
                   <td>1978</td>
                 </tr>
               </table>
+              <div></div>
+              <table className="right_body_footer_body">
+                <tr>
+                  <td className="information">information</td>
+                  <td>
+                    <textarea name="" cols="150" rows="8">
+                      sladfkjsaldkfjasldfkhlhvlasjhdflkjsahf
+                      lkjhasdflkjhsdflkjashfalkjsdfhslkdfjhaskdlfjhasf
+                      asdlkfjhsdfljkhsafljasklfhkashfd 가나다라마바사 abcdefg
+                      마하반야바라밀다
+                    </textarea>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
