@@ -116,7 +116,6 @@ $green_border: 1px solid #0d8f26;
 }
 
 .right_body_header {
-  border: 1px solid blue;
   height: 20%;
 }
 
@@ -164,7 +163,6 @@ $green_border: 1px solid #0d8f26;
 }
 
 .right_body_body {
-  border: 1px solid red;
   height: 50%;
   position: relative;
 }
@@ -222,7 +220,7 @@ $green_border: 1px solid #0d8f26;
   top: 0;
   right: 0;
   margin-left: 50px;
-  margin-top: 20px;
+  //   margin-top: 20px;
   margin-right: 20px;
   width: 30%;
   min-height: 94%;
@@ -231,7 +229,6 @@ $green_border: 1px solid #0d8f26;
 }
 
 .right_body_left {
-  border: 1px solid red;
   position: absolute;
   padding: 10px;
   bottom: 0;
@@ -246,14 +243,12 @@ $green_border: 1px solid #0d8f26;
 }
 
 .right_body_footer {
-  border: 1px solid blue;
   height: 30%;
 }
 
 .right_body_footer_header {
   text-align: center;
   justify-content: center;
-  border: 1px solid coral;
   margin-left: 20px;
   margin-right: 20px;
   max-height: 200px;
@@ -278,7 +273,9 @@ $green_border: 1px solid #0d8f26;
 .right_body_footer_body {
   .information {
     background: $blue-back;
-    border: $black_border;
+    border-left: $black_border;
+    border-bottom: $black_border;
+    border-right: $black_border;
     color: black;
     float: left;
     min-width: 122px;
@@ -291,8 +288,10 @@ $green_border: 1px solid #0d8f26;
 textarea {
   resize: none;
   padding: 10px;
-  border: $black_border;
   width: 100%;
+  border-right: $black_border;
+  border-bottom: $black_border;
+  border-left: $black_border;
   max-height: 14rem;
   font-size: 15px;
 }

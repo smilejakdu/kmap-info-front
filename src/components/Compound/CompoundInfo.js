@@ -129,12 +129,6 @@ const CompoundInfo = () => {
                 </tr>
               </table>
             </div>
-            {/* <img
-            src={image}
-            width="200px"
-            height="200px"
-            className="pubchem-right-image"
-          /> */}
             <img
               src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=1978&t=l`}
               className="pubchem-right-image"
@@ -167,7 +161,7 @@ const CompoundInfo = () => {
                 <tr>
                   <td className="information">information</td>
                   <td>
-                    <textarea name="" cols="150" rows="8"></textarea>
+                    <textarea name="" cols="150" rows="4"></textarea>
                     {/* 공란일 경우 NA */}
                   </td>
                 </tr>
