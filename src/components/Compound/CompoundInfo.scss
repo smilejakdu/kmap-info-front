@@ -198,6 +198,24 @@ $green_border: 1px solid #0d8f26;
   }
 }
 
+.dot {
+  height: 20px;
+  width: 20px;
+  border: $black_border;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot_active {
+  height: 20px;
+  width: 20px;
+  border: $black_border;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .pubchem-right-image {
   border: $black_border;
   margin-left: 50px;

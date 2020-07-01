@@ -70,20 +70,20 @@ const CompoundInfo = () => {
             </table>
             <table className="ipk_border">
               <tr>
-                <td className="ipk-library">
-                  <IoIosRadioButtonOff />
+                <td>
+                  <span className="dot"></span>
                 </td>
                 <td>IPK Expansion</td>
               </tr>
               <tr>
                 <td>
-                  <IoIosRadioButtonOff />
+                  <span className="dot_active"></span>
                 </td>
                 <td>Prestwick</td>
               </tr>
               <tr>
                 <td>
-                  <IoIosRadioButtonOff />
+                  <span className="dot_active"></span>
                 </td>
                 <td>SelleckChem</td>
               </tr>
