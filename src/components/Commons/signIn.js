@@ -21,9 +21,7 @@ const signIn = ({ user_id, password }) => {
 
   // userApi(user_id, password);
 
-  const user = users.find(
-    (user) => user.user_id === user_id && user.password === password
-  );
+  const user = users.find((user) => user.user_id === user_id);
   console.log(user); // undefined
 
   if (user === undefined) throw new Error();

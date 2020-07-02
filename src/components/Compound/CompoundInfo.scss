@@ -128,6 +128,7 @@ $green_border: 1px solid #0d8f26;
 }
 
 .pubchem_cid_tr_border {
+  font-size: 14px;
   text-align: center;
   justify-content: center;
 }
@@ -262,13 +263,15 @@ $green_border: 1px solid #0d8f26;
 .right_body_footer_header_gray_border_chem {
   background: $gray-back;
   text-align: center;
-  width: 30%;
+  font-size: 14px;
+  width: 25%;
 }
 
 .right_body_footer_header_gray_border_cid {
   background: $gray-back;
   text-align: center;
-  width: 10%;
+  font-size: 14px;
+  width: 15%;
 }
 .right_body_footer_body {
   .information {

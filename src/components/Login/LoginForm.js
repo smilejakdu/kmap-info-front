@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, InputForm, LoginLogo } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
 import image from "./logo.png";
+import request from "../../util/request";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
