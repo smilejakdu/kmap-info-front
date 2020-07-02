@@ -4,7 +4,7 @@ import Main from "./pages/Main/Main";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
 import CompoundInfoPage from "./pages/CompoundInfoPage/CompoundInfoPage";
 import Login from "./components/Login/LoginForm";
-import SignIn from "./components/Commons/SignIn";
+import signIn from "./components/Commons/signIn";
 import AuthRoute from "./components/Commons/AuthRoute";
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
@@ -13,7 +13,7 @@ const App = () => {
   const authenticated = user != null;
 
   const login = ({ user_id, password }) =>
-    setUser(SignIn({ user_id, password }));
+    setUser(signIn({ user_id, password }));
 
   console.log("App login  : ", login);
   return (
