@@ -9,14 +9,23 @@ const LoginForm = ({ authenticated, login, location }) => {
   const [password, setPassword] = useState("");
 
   const handleClick = () => {
-    try {
-      console.log("LoginForm : ", user_id, password);
-      login({ user_id, password });
-    } catch (e) {
-      alert("아이디와 비밀번호를 확인하세요 ");
-      setUserId("");
-      setPassword("");
-    }
+    request
+      .post("/account/login", {
+        user_id: user_id,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res);
+        setUserId(user_id);
+        setPassword(password);
+        login({ user_id, password });
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("아이디와 비밀번호를 확인하세요");
+        setUserId("");
+        setPassword("");
+      });
   };
 
   const handleKeyPress = (e) => {

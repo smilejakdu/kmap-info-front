@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Main from "./pages/Main/Main";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
 import CompoundInfoPage from "./pages/CompoundInfoPage/CompoundInfoPage";
 import Login from "./components/Login/LoginForm";
-import signIn from "./components/Commons/signIn";
 import AuthRoute from "./components/Commons/AuthRoute";
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 
@@ -12,10 +11,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const authenticated = user != null;
 
-  const login = ({ user_id, password }) =>
-    setUser(signIn({ user_id, password }));
-
-  console.log("App login  : ", login);
+  const login = ({ user_id, password }) => setUser({ user_id, password });
   return (
     <div>
       <Switch>
