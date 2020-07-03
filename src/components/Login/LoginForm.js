@@ -15,7 +15,6 @@ const LoginForm = ({ authenticated, login, location }) => {
         password: password,
       })
       .then((res) => {
-        console.log(res);
         setUserId(user_id);
         setPassword(password);
         login({ user_id, password });
