@@ -9,6 +9,8 @@ $green_border: 1px solid #0d8f26;
   justify-content: center;
 }
 
+
+
 //KaiChem header 내용A
 
 .compound_info_header {
@@ -273,6 +275,7 @@ $green_border: 1px solid #0d8f26;
   font-size: 14px;
   width: 15%;
 }
+
 .right_body_footer_body {
   .information {
     background: $blue-back;
@@ -288,6 +291,7 @@ $green_border: 1px solid #0d8f26;
     font-size: 13px;
   }
 }
+
 textarea {
   resize: none;
   padding: 10px;

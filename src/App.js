@@ -12,6 +12,7 @@ const App = () => {
   const authenticated = user != null;
 
   const login = ({ user_id, password }) => setUser({ user_id, password });
+
   return (
     <div>
       <Switch>

@@ -5,7 +5,10 @@ import "./CompoundInfo.scss";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import request from "../../util/request";
 
-const CompoundInfo = () => {
+const CompoundInfo = (search_data) => {
+  console.log("CompoundInfo :", search_data);
+  console.log("CompoundInfo :", search_data.data);
+  console.log("CompoundInfo :", search_data.data[0]);
   const [chemindex, setChemindex] = useState(1);
   const [compoundinfo, setCompoundinfo] = useState([]);
 
