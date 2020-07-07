@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { Container, InputForm, LoginLogo } from "./LoginInput.style";
+import {
+  Container,
+  InputForm,
+  LoginLogo,
+  Input,
+  Button,
+} from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
 import image from "./logo.png";
 import request from "../../util/request";
+import styled from "styled-components";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
@@ -51,8 +58,7 @@ const LoginForm = ({ authenticated, login, location }) => {
           <h1>LOGIN</h1>
           {/* <form onSubmit={handleSubmit}> */}
           <div className="form-group">
-            <label>ID</label>
-            <input
+            <Input
               type="text"
               placeholder="ID"
               name="user_id"
@@ -63,8 +69,7 @@ const LoginForm = ({ authenticated, login, location }) => {
             />
           </div>
           <div className="form-group">
-            <label>비밀번호</label>
-            <input
+            <Input
               type="password"
               placeholder="비밀번호"
               name="password"
@@ -74,9 +79,9 @@ const LoginForm = ({ authenticated, login, location }) => {
               required
             />
           </div>
-          <button type="button" onClick={handleClick}>
+          <Button type="button" onClick={handleClick}>
             Login
-          </button>
+          </Button>
           {/* </form> */}
         </InputForm>
       </Container>

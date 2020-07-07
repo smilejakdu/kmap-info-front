@@ -14,45 +14,48 @@ const LoginLogo = styled.div`
 const InputForm = styled.div`
   margin: 80px auto 20px;
   padding-top: 60px;
-  height: 280px;
-  width: 350px;
+  height: 400px;
+  width: 400px;
   border-radius: 15px;
   background: #f2f3f7;
 
   h1 {
-    text-align: center;
-  }
-
-  .form-group {
     display: flex;
-    flex-direction: column;
-    height: 70px;
-    margin: 0 20px 0;
-    font-size: 1.2rem;
-  }
-  label {
-    margin: 10px 0 0;
-  }
-  input {
-    height: 100%;
-  }
-
-  label {
-  }
-
-  button {
-    margin: 20px;
-    width: 80px;
-    height: 30px;
-    background: black;
-    color: white;
-    border-radius: 5px;
-
-    &:hover {
-      background: white;
-      color: black;
-    }
+    text-align: center;
+    justify-content: center;
   }
 `;
 
-export { Container, InputForm, LoginLogo };
+const Button = styled.button`
+  border: none;
+  outline: none;
+  background: coral;
+  font-size: 3rem;
+  margin: 30px;
+  width: 80%;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+    background: white;
+    color: coral;
+  }
+`;
+
+const Input = styled.input`
+  font-size: 2rem;
+  display: flex;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  background: #f2f3f7;
+  width: 80%;
+  margin: 30px;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid coral;
+  }
+`;
+
+export { Container, InputForm, LoginLogo, Button, Input };

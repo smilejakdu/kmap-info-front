@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./CompoundInfo.scss";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import request from "../../util/request";
 
 const CompoundInfo = (compoundinfo) => {
   console.log("CompoundInfo.js :", compoundinfo.data);
