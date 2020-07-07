@@ -72,6 +72,7 @@ const CompoundInfoPage = () => {
           usa: data[0].usa,
         });
         setResult([]);
+        setQuery("");
       })
       .catch((error) => {
         error && console.warn(error);
@@ -138,6 +139,7 @@ const CompoundInfoPage = () => {
           usa: data[0].usa,
         });
         setChemindex(data[0].id);
+        setResult([]);
       })
       .catch((error) => {
         console.log(error);
