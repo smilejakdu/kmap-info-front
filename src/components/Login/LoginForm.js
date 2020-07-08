@@ -42,19 +42,11 @@ const LoginForm = ({ authenticated, login, location }) => {
   const { from } = location.state || { from: { pathname: "/kmapinfo" } };
   if (authenticated) return <Redirect to={from} />;
 
-  const Background = {
-    width: "100%",
-    // height: "100%",
-    height: "fit-content",
-    // backgroundImage: `url(${background})`,
-    backgroundImage: `url(/kmapinfo${background})`,
-  };
-
   return (
-    <div style={Background}>
+    <div>
       <LoginLogo>
-        {/* <img src={image} /> */}
-        <img src={"/kmapinfo" + image} />
+        <img src={image} />
+        {/* <img src={"/kmapinfo" + image} /> */}
       </LoginLogo>
       <div style={{ textAlign: "center" }}>
         <h2>ID : 123</h2>
