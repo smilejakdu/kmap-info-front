@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
+import React from "react";
 import "./SheetTable.scss";
 
 const SheetTable = (props) => {

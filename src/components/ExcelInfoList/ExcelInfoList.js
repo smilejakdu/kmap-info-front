@@ -9,7 +9,6 @@ class ExcelInfoList extends Component {
     super(props);
     this.state = {
       sheet_data: [],
-      sheet_table: [],
       dataLoaded: false,
       cols: [],
       rows: [],

@@ -31,6 +31,7 @@ const CompoundInfoPage = () => {
   };
 
   const previousBtn = () => {
+    console.log("previousBtn : ", chemindex);
     if (chemindex === 1) {
       return;
     }
@@ -47,7 +48,6 @@ const CompoundInfoPage = () => {
         let {
           data: { data },
         } = res;
-        console.log("searchDataClick : ", data);
         setCompoundinfo({
           id: data[0].id,
           chem_series: data[0].chem_series,
@@ -71,6 +71,7 @@ const CompoundInfoPage = () => {
         });
         setResult([]);
         setQuery("");
+        setChemindex(data[0].kaipharm_chem_index);
       })
       .catch((error) => {
         error && console.warn(error);
@@ -114,7 +115,6 @@ const CompoundInfoPage = () => {
         let {
           data: { data },
         } = res;
-        console.log("useEffect : ", data);
         setCompoundinfo({
           id: data[0].id,
           chem_series: data[0].chem_series,

@@ -160,10 +160,6 @@ class ExcelForm extends Component {
     formData.append("file", this.state.fileObj);
     formData.entries();
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + " , " + pair[1]);
-    }
-
     request
       .post("/excel/upload", formData)
       .then((res) => {

@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from "react";
+import React from "react";
 import "./SvgChart.scss";
 import {
   LineChart,
