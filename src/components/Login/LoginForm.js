@@ -44,7 +44,8 @@ const LoginForm = ({ authenticated, login, location }) => {
 
   const Background = {
     width: "100%",
-    height: "100%",
+    // height: "100%",
+    height: "fit-content",
     // backgroundImage: `url(${background})`,
     backgroundImage: `url(/kmapinfo${background})`,
   };
