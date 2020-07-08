@@ -3,7 +3,6 @@ import styled from "styled-components";
 const Container = styled.div`
   height: 100%;
   width: 100%;
-  padding-bottom: 20px;
 `;
 
 const LoginLogo = styled.div`
