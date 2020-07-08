@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import palette from "../../util/styles/palette";
 
 const Container = styled.div`
   height: 100%;
@@ -30,7 +31,7 @@ const InputForm = styled.div`
 const Button = styled.button`
   border: none;
   outline: none;
-  background: coral;
+  background: ${palette.orange[6]};
   font-size: 3rem;
   margin: 30px;
   width: 80%;
@@ -38,7 +39,7 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
-    background: white;
+    background: ${palette.orange[2]};
     color: coral;
   }
 `;
