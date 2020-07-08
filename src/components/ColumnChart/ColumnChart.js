@@ -13,7 +13,6 @@ import {
 import "./ColumnChart.scss";
 
 const ColumnChart = (data) => {
-  console.log(data);
   return (
     <div className="columns_border">
       <BarChart

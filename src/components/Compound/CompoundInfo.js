@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./CompoundInfo.scss";
 
 const CompoundInfo = (compoundinfo) => {
-  console.log("CompoundInfo.js :", compoundinfo.data);
-  console.log("CompoundInfo.js :", compoundinfo.data.compound);
-
   return (
     <>
       <div className="compound_info_hydrochloride">

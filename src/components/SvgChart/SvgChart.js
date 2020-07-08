@@ -11,7 +11,6 @@ import {
 } from "recharts";
 
 const SvgChart = (data) => {
-  console.log(data);
   return (
     <div className="border">
       <LineChart

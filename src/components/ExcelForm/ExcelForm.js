@@ -119,8 +119,6 @@ class ExcelForm extends Component {
         if (err) {
           console.log(err);
         } else {
-          console.log("resp.cols : ", resp.cols);
-          console.log("resp.rows : ", resp.rows);
           this.setState({
             dataLoaded: true,
             cols: resp.cols,
@@ -169,7 +167,6 @@ class ExcelForm extends Component {
     request
       .post("/excel/upload", formData)
       .then((res) => {
-        console.log(res);
         this.setState({
           isOpen: false,
           dataLoaded: false,
@@ -189,8 +186,6 @@ class ExcelForm extends Component {
 
   render() {
     const { uploadName } = this.state;
-    const { data } = this.props;
-    console.log("data : ", data);
 
     const sheets = uploadName.map((sheet, i) => (
       <li

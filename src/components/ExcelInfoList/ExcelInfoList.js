@@ -38,10 +38,12 @@ class ExcelInfoList extends Component {
         err && console.log(err);
       });
   };
-
-  ExcelNameClick = (e) => {
+  // 이렇게 해야 생성할때마다 함수를 생성하지않는다.
+  // 이전에는 onClick={()=>this.ExcelNameClick,.....}
+  //  onClick={this.ExcelNameClick(item.name)}
+  ExcelNameClick = (itemName) => (event) => {
     return request
-      .get(`/excel/${e}`)
+      .get(`/excel/${itemName}`)
       .then((res) => {
         let {
           data: { sheet_data },
@@ -49,7 +51,7 @@ class ExcelInfoList extends Component {
         let sheet = sheet_data.map(({ name }) => name);
         this.setState({
           sheet_data: sheet,
-          excel_name: e,
+          excel_name: itemName,
           cols: [],
           rows: [],
         });
@@ -92,7 +94,7 @@ class ExcelInfoList extends Component {
                 <div className="excel_data_list" key={item.id}>
                   <div
                     className="text"
-                    onClick={(e) => this.ExcelNameClick(item.name)}
+                    onClick={this.ExcelNameClick(item.name)}
                   >
                     {item.name}
                   </div>

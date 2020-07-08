@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./CompoundInfoPage.scss";
 import Navigation from "../../components/Navigation/Navigation";
 import CompoundInfo from "../../components/Compound/CompoundInfo";
-import image from "./logo.png";
+import image from "../../util/image/logo.png";
 import request from "../../util/request";
 import axios from "axios";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
@@ -21,7 +21,6 @@ const CompoundInfoPage = () => {
         let {
           data: { data },
         } = res;
-        console.log("fetch : ", data);
         setResult(data);
       })
       .catch((error) => {
@@ -42,7 +41,6 @@ const CompoundInfoPage = () => {
   };
 
   const searchDataClick = (search_data) => {
-    console.log("searchDataClick 들어옴 : ", search_data);
     return request
       .get(`/compound/search/${search_data}`)
       .then((res) => {

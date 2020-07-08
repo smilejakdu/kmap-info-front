@@ -7,9 +7,9 @@ import {
   Button,
 } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
-import image from "./logo.png";
+import image from "../../util/image/logo.png";
+import background from "../../util/image/background.png";
 import request from "../../util/request";
-import styled from "styled-components";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
@@ -27,7 +27,6 @@ const LoginForm = ({ authenticated, login, location }) => {
         login({ user_id, password });
       })
       .catch((error) => {
-        console.log(error);
         alert("아이디와 비밀번호를 확인하세요");
         setUserId("");
         setPassword("");
@@ -43,8 +42,15 @@ const LoginForm = ({ authenticated, login, location }) => {
   const { from } = location.state || { from: { pathname: "/kmapinfo" } };
   if (authenticated) return <Redirect to={from} />;
 
+  const Background = {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    backgroundImage: `url(${background})`,
+  };
+
   return (
-    <>
+    <div style={Background}>
       <LoginLogo>
         {/* <img src={image} /> */}
         <img src={"/kmapinfo" + image} />
@@ -85,7 +91,7 @@ const LoginForm = ({ authenticated, login, location }) => {
           {/* </form> */}
         </InputForm>
       </Container>
-    </>
+    </div>
   );
 };
 export default LoginForm;

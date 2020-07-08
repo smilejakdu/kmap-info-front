@@ -1,31 +1,26 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
 import Navigation from "../../components/Navigation/Navigation";
 import "./ExcelInfoPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import request from "../../util/request";
 
-class ExcelInfoPage extends Component {
-  state = {
-    exceldata: [],
-    keyword: "",
+const ExcelInfoPage = () => {
+  const [excelData, setExcelData] = useState([]);
+  const [keyword, setKeyword] = useState("");
+
+  const handleChange = (e) => {
+    setKeyword(e.target.value);
   };
 
-  handleChange = (e) => {
-    this.setState({
-      keyword: e.target.value,
-    });
-    console.log(e);
-  };
-
-  handleChangeExcelData = (id) => {
+  const handleChangeExcelData = (id) => {
     this.setState((prevState) => ({
       exceldata: prevState.exceldata.filter((excel) => excel.id !== id),
     }));
   };
 
-  componentDidMount = () => {
-    return request
+  useEffect(() => {
+    request
       .get("/excel/upload")
       .then((res) => {
         let {
@@ -33,46 +28,35 @@ class ExcelInfoPage extends Component {
             data: { excel_data },
           },
         } = res;
-
-        this.setState({ exceldata: excel_data }, () => {
-          console.log(this.state.exceldata);
-        });
-        console.log(this.state.exceldata);
+        setExcelData(excel_data);
       })
       .catch((error) => {
         error && console.warn(error);
       });
-  };
+  }, []);
 
-  render() {
-    console.log(this.state.exceldata);
-    const { user } = this.props;
-    console.log(user);
-    return (
-      <div>
-        <div className="nav">
-          <Navigation />
-        </div>
-        <div className="main">
-          <div className="search_box">
-            <input
-              className="search_input"
-              value={this.state.keyword}
-              onChange={this.handleChange}
-              placeholder="검색"
-              type="text"
-            />
-          </div>
-          <ExcelInfoList
-            data={this.state.exceldata.filter(
-              (info) => info.name.indexOf(this.state.keyword) > -1
-            )}
-            handleChangeExcelData={this.handleChangeExcelData}
+  return (
+    <div>
+      <div className="nav">
+        <Navigation />
+      </div>
+      <div className="main">
+        <div className="search_box">
+          <input
+            className="search_input"
+            value={keyword}
+            onChange={handleChange}
+            placeholder="검색"
+            type="text"
           />
         </div>
+        <ExcelInfoList
+          data={excelData.filter((info) => info.name.indexOf(keyword) > -1)}
+          handleChangeExcelData={handleChangeExcelData}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default ExcelInfoPage;

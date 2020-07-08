@@ -2,7 +2,7 @@ import React from "react";
 import "./StatisticsPage.scss";
 import Navigation from "../../components/Navigation/Navigation";
 import Statistics from "../../components/Statistics/Statistics";
-import image from "./logo.png";
+import image from "../../util/image/logo.png";
 import "./StatisticsPage.scss";
 // 여기서 백엔드에 데이터를 요청해서
 // 원 차트
