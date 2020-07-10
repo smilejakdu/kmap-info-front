@@ -7,6 +7,10 @@ import {
   ExcelDate,
   FileItemBox,
   ExcelName,
+  LeftBody,
+  RightBody,
+  RightFileName,
+  RightSheetClick,
 } from "./ExcelInfoList.style";
 import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
@@ -87,7 +91,7 @@ class ExcelInfoList extends Component {
     const { data } = this.props;
     return (
       <div>
-        <div>
+        <LeftBody>
           <FileListHeader>File List</FileListHeader>
           <FileListBody>
             {data.map((item) => (
@@ -102,8 +106,15 @@ class ExcelInfoList extends Component {
               </FileItemBox>
             ))}
           </FileListBody>
-        </div>
-
+        </LeftBody>
+        <RightBody>
+          {this.state.excel_name ? (
+            <RightFileName>{this.state.excel_name}</RightFileName>
+          ) : (
+            <RightFileName>File Name.xlsx</RightFileName>
+          )}
+          <RightSheetClick>dsadfa</RightSheetClick>
+        </RightBody>
         <table>
           <thead>
             <tr>

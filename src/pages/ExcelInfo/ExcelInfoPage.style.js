@@ -2,10 +2,9 @@ import styled from "styled-components";
 import palette from "../../util/styles/palette";
 
 const ExcelInfoPageBody = styled.div`
-  border: 1px solid coral;
-  margin-top: 5px;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-top: 5rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
   font-size: 28px;
   padding: 0px 10px;
 `;

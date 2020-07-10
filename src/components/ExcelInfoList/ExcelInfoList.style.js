@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import palette from "../../util/styles/palette";
 
+const LeftBody = styled.div`
+  width: 20%;
+  float: left;
+`;
+
 const FileListHeader = styled.div`
   background: ${palette.blue[7]};
   display: flex;
@@ -8,13 +13,11 @@ const FileListHeader = styled.div`
   border: 1px solid blue;
   align-items: center;
   justify-content: center;
-  width: 20%;
 `;
 
 const FileListBody = styled.div`
   border: 1px solid blue;
   font-size: 2rem;
-  width: 20%;
   min-height: 500px;
   overflow-y: scroll;
   align-items: center;
@@ -23,7 +26,6 @@ const FileListBody = styled.div`
 `;
 
 const FileItemBox = styled.div`
-  border: 1px solid red;
   position: relative;
 `;
 const ExcelName = styled.div`
@@ -60,6 +62,37 @@ const RemoveBtn = styled.div`
   }
 `;
 
+const RightBody = styled.div`
+  border-right: 1px solid ${palette.blue[7]};
+  border-top: 1px solid ${palette.blue[7]};
+  border-bottom: 1px solid ${palette.blue[7]};
+  margin-top: 4.5rem;
+  width: 80%;
+  height: 500px;
+  float: right;
+`;
+
+const RightFileName = styled.div`
+  background: ${palette.blue[1]};
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid ${palette.blue[7]};
+  color: black;
+  width: 50%;
+  float: left;
+  border-bottom: 1px solid ${palette.blue[7]};
+`;
+
+const RightSheetClick = styled.div`
+  background: ${palette.blue[1]};
+  color: black;
+  width: 50%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid ${palette.blue[7]};
+`;
+
 export {
   FileListHeader,
   FileListBody,
@@ -67,4 +100,8 @@ export {
   ExcelDate,
   FileItemBox,
   ExcelName,
+  LeftBody,
+  RightBody,
+  RightFileName,
+  RightSheetClick,
 };
