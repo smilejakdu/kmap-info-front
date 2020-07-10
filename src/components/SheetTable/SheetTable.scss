@@ -1,11 +1,6 @@
-.div_test {
-    display: inline-block;
-    overflow-y: scroll;
-    height: 600px;
-}
-
 .sheet_body {
     font-size: 13.5px;
+    height: 500px;
 }
 
 .cols_header {
@@ -17,16 +12,7 @@
 }
 
 .row_border {
-    width: 500px;
-    max-width: 500px;
-    max-height: 1000px;
     border: 1px solid darkgray;
-}
-
-.container {
-    height: 500px;
-    width: 100%;
-    overflow: auto;
 }
 
 .fixedHeader {

@@ -11,6 +11,7 @@ import {
   RightBody,
   RightFileName,
   RightSheetClick,
+  SheetTableData,
 } from "./ExcelInfoList.style";
 
 import SheetTable from "../SheetTable/SheetTable";
@@ -114,7 +115,6 @@ class ExcelInfoList extends Component {
           ) : (
             <RightFileName>File Name.xlsx</RightFileName>
           )}
-          {console.log(this.state.sheetData)}
           {this.state.sheetData.length > 0 ? (
             <RightSheetClick>
               {this.state.sheetData.map((sheet, i) => (
@@ -122,7 +122,6 @@ class ExcelInfoList extends Component {
                   key={i}
                   onClick={() => this.getSheets(this.state.excel_name, sheet)}
                 >
-                  {i + 1}
                   {sheet}
                 </div>
               ))}
@@ -130,12 +129,11 @@ class ExcelInfoList extends Component {
           ) : (
             <RightSheetClick>Sheet Table</RightSheetClick>
           )}
-
-          {this.state.dataLoaded && (
-            <div>
+          <SheetTableData>
+            {this.state.dataLoaded && (
               <SheetTable cols={this.state.cols} rows={this.state.rows} />
-            </div>
-          )}
+            )}
+          </SheetTableData>
         </RightBody>
         {/* <table>
           <thead>

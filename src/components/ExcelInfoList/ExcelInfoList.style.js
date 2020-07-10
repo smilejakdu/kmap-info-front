@@ -26,6 +26,9 @@ const FileListBody = styled.div`
 `;
 
 const FileItemBox = styled.div`
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-top: 1px solid ${palette.blue[2]};
   position: relative;
 `;
 const ExcelName = styled.div`
@@ -96,6 +99,7 @@ const RightSheetClick = styled.div`
   padding-left: 2rem;
 
   div {
+    margin-left: 2rem;
     &:active {
       color: coral;
     }
@@ -104,6 +108,12 @@ const RightSheetClick = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+const SheetTableData = styled.div`
+  border: 1px solid white;
+  max-height: 450px;
+  overflow: auto;
 `;
 
 export {
@@ -117,4 +127,5 @@ export {
   RightBody,
   RightFileName,
   RightSheetClick,
+  SheetTableData,
 };

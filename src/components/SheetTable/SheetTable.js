@@ -3,7 +3,7 @@ import "./SheetTable.scss";
 
 const SheetTable = (props) => {
   return (
-    <div className="sheet_body container">
+    <div className="sheet_body">
       <table className="table">
         <thead className="thead-dark fixed_top">
           <tr>
