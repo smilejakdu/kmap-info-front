@@ -12,6 +12,7 @@ import {
   RightFileName,
   RightSheetClick,
 } from "./ExcelInfoList.style";
+
 import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
@@ -20,7 +21,7 @@ class ExcelInfoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sheet_data: [],
+      sheetData: [],
       dataLoaded: false,
       cols: [],
       rows: [],
@@ -59,7 +60,7 @@ class ExcelInfoList extends Component {
         } = res;
         let sheet = sheet_data.map(({ name }) => name);
         this.setState({
-          sheet_data: sheet,
+          sheetData: sheet,
           excel_name: itemName,
           cols: [],
           rows: [],
@@ -78,7 +79,7 @@ class ExcelInfoList extends Component {
       await request.delete(`/excel/${itemName}`);
       await this.props.handleChangeExcelData(itemId);
       this.setState({
-        sheet_data: [],
+        sheetData: [],
         cols: [],
         rows: [],
       });
@@ -113,9 +114,30 @@ class ExcelInfoList extends Component {
           ) : (
             <RightFileName>File Name.xlsx</RightFileName>
           )}
-          <RightSheetClick>dsadfa</RightSheetClick>
+          {console.log(this.state.sheetData)}
+          {this.state.sheetData.length > 0 ? (
+            <RightSheetClick>
+              {this.state.sheetData.map((sheet, i) => (
+                <div
+                  key={i}
+                  onClick={() => this.getSheets(this.state.excel_name, sheet)}
+                >
+                  {i + 1}
+                  {sheet}
+                </div>
+              ))}
+            </RightSheetClick>
+          ) : (
+            <RightSheetClick>Sheet Table</RightSheetClick>
+          )}
+
+          {this.state.dataLoaded && (
+            <div>
+              <SheetTable cols={this.state.cols} rows={this.state.rows} />
+            </div>
+          )}
         </RightBody>
-        <table>
+        {/* <table>
           <thead>
             <tr>
               {this.state.sheet_data.map((sheet) => (
@@ -129,12 +151,7 @@ class ExcelInfoList extends Component {
               ))}
             </tr>
           </thead>
-        </table>
-        {this.state.dataLoaded && (
-          <div>
-            <SheetTable cols={this.state.cols} rows={this.state.rows} />
-          </div>
-        )}
+        </table> */}
       </div>
     );
   }
