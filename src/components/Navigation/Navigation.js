@@ -35,11 +35,11 @@ const CategoryLink = styled(NavLink)`
   border-top-right-radius: 10px;
 
   &.active {
-    background: ${palette.yellow[3]};
+    background: coral;
     color: black;
 
     &:hover {
-      color: coral;
+      color: white;
     }
   }
 `;

@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import "./ExcelInfoList.scss";
+import {
+  FileListHeader,
+  FileListBody,
+  RemoveBtn,
+  ExcelDate,
+  FileItemBox,
+} from "./ExcelInfoList.style";
 import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
@@ -37,9 +44,7 @@ class ExcelInfoList extends Component {
         err && console.log(err);
       });
   };
-  // 이렇게 해야 생성할때마다 함수를 생성하지않는다.
-  // 이전에는 onClick={()=>this.ExcelNameClick,.....}
-  //  onClick={this.ExcelNameClick(item.name)}
+
   ExcelNameClick = (itemName) => (event) => {
     return request
       .get(`/excel/${itemName}`)
@@ -81,33 +86,19 @@ class ExcelInfoList extends Component {
     const { data } = this.props;
     return (
       <div>
-        <div className="excel_list_box">
-          <table className="table table_size">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">excel list</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item) => (
-                <div className="excel_data_list" key={item.id}>
-                  <div
-                    className="text"
-                    onClick={this.ExcelNameClick(item.name)}
-                  >
-                    {item.name}
-                  </div>
-                  <div className="date">{item.create_at}</div>
-                  <div
-                    className="remove"
-                    onClick={this.removeClick(item.id, item.name)}
-                  >
-                    <MdRemoveCircleOutline />
-                  </div>
-                </div>
-              ))}
-            </tbody>
-          </table>
+        <div>
+          <FileListHeader>File List</FileListHeader>
+          <FileListBody>
+            {data.map((item) => (
+              <FileItemBox key={item.id}>
+                <div onClick={this.ExcelNameClick(item.name)}>{item.name}</div>
+                <ExcelDate>{item.create_at}</ExcelDate>
+                <RemoveBtn onClick={this.removeClick(item.id, item.name)}>
+                  <MdRemoveCircleOutline />
+                </RemoveBtn>
+              </FileItemBox>
+            ))}
+          </FileListBody>
         </div>
 
         <table>

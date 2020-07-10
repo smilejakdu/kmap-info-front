@@ -1,14 +1,15 @@
 .sidenav {
-    width: 100%;
+    width: 96%;
     display: flex;
     left: 0;
+    margin-left: 3rem;
     top: 0;
-    z-index: 1;
     right: 0;
+    z-index: 1;
     min-width: 160px;
     position: fixed;
     background-color: white;
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid coral;
     overflow-x: hidden;
     padding-top: 20px;
 
