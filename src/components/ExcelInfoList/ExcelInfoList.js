@@ -6,6 +6,7 @@ import {
   RemoveBtn,
   ExcelDate,
   FileItemBox,
+  ExcelName,
 } from "./ExcelInfoList.style";
 import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
@@ -91,7 +92,9 @@ class ExcelInfoList extends Component {
           <FileListBody>
             {data.map((item) => (
               <FileItemBox key={item.id}>
-                <div onClick={this.ExcelNameClick(item.name)}>{item.name}</div>
+                <ExcelName onClick={this.ExcelNameClick(item.name)}>
+                  {item.name}
+                </ExcelName>
                 <ExcelDate>{item.create_at}</ExcelDate>
                 <RemoveBtn onClick={this.removeClick(item.id, item.name)}>
                   <MdRemoveCircleOutline />
