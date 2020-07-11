@@ -91,22 +91,25 @@ const RightSheetClick = styled.div`
   color: black;
   width: 50%;
   float: left;
-  font-size: 1.5rem;
-  padding: 1rem;
+  font-size: 2.8rem;
   display: flex;
   justify-content: center;
   border-bottom: 1px solid ${palette.blue[7]};
   padding-left: 2rem;
 
   div {
+    padding: 0.5rem;
+    font-size: 1.5rem;
     margin-left: 2rem;
-    &:active {
-      color: coral;
-    }
+    color: black;
+
     &:hover {
       color: coral;
       cursor: pointer;
     }
+  }
+  .active {
+    color: blue;
   }
 `;
 

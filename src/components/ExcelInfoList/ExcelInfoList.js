@@ -13,7 +13,6 @@ import {
   RightSheetClick,
   SheetTableData,
 } from "./ExcelInfoList.style";
-
 import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
@@ -27,12 +26,13 @@ class ExcelInfoList extends Component {
       cols: [],
       rows: [],
       excel_name: "",
+      sheetStyle: [],
     };
   }
 
-  static defaultProps = {
-    data: [],
-  };
+  // static defaultProps = {
+  //   data: [],
+  // };
 
   getSheets = (excel, sheet) => {
     return request
@@ -45,6 +45,7 @@ class ExcelInfoList extends Component {
           dataLoaded: true,
           cols: sheet_table.cols,
           rows: sheet_table.rows,
+          sheetStyle: `${sheet}`,
         });
       })
       .catch((err) => {
@@ -91,6 +92,7 @@ class ExcelInfoList extends Component {
 
   render() {
     const { data } = this.props;
+
     return (
       <div>
         <LeftBody>
@@ -118,16 +120,34 @@ class ExcelInfoList extends Component {
           {this.state.sheetData.length > 0 ? (
             <RightSheetClick>
               {this.state.sheetData.map((sheet, i) => (
-                <div
-                  key={i}
-                  onClick={() => this.getSheets(this.state.excel_name, sheet)}
-                >
-                  {sheet}
+                <div>
+                  {this.state.sheetStyle === sheet ? (
+                    <div
+                      key={i}
+                      className="active"
+                      onClick={() =>
+                        this.getSheets(this.state.excel_name, sheet)
+                      }
+                    >
+                      {sheet}
+                    </div>
+                  ) : (
+                    <div
+                      key={i}
+                      onClick={() =>
+                        this.getSheets(this.state.excel_name, sheet)
+                      }
+                    >
+                      {sheet}
+                    </div>
+                  )}
                 </div>
               ))}
             </RightSheetClick>
           ) : (
-            <RightSheetClick>Sheet Table</RightSheetClick>
+            <RightSheetClick className="sheet-define">
+              Sheet Table
+            </RightSheetClick>
           )}
           <SheetTableData>
             {this.state.dataLoaded && (
@@ -135,21 +155,6 @@ class ExcelInfoList extends Component {
             )}
           </SheetTableData>
         </RightBody>
-        {/* <table>
-          <thead>
-            <tr>
-              {this.state.sheet_data.map((sheet) => (
-                <td
-                  key={sheet.id}
-                  className="sheet_data"
-                  onClick={() => this.getSheets(this.state.excel_name, sheet)}
-                >
-                  {sheet}
-                </td>
-              ))}
-            </tr>
-          </thead>
-        </table> */}
       </div>
     );
   }
