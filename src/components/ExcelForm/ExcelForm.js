@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import "./ExcelForm.scss";
 import XLSX from "xlsx";
+// import { Button } from "reactstrap";
 import {
-  Col,
-  InputGroup,
-  InputGroupAddon,
-  FormGroup,
+  SheetListHeader,
+  SheetListBody,
+  SheetListBox,
+  SheetListItem,
   Button,
-} from "reactstrap";
+  FileUploadPageHeader,
+  FileUploadPageBodyMiddle,
+  FileUploadPageBodyFooter,
+  SearchBox,
+} from "./ExcelForm.style";
 import request from "../../util/request";
 import SheetTable from "../SheetTable/SheetTable";
 
@@ -66,6 +71,7 @@ class ExcelForm extends Component {
       cols: null,
       fileObj: null,
       excelFileName: "",
+      sheetName: "",
     };
 
     this.fileHandler = this.fileHandler.bind(this);
@@ -133,6 +139,9 @@ class ExcelForm extends Component {
   };
 
   sheetDataClick = (index) => {
+    this.setState({
+      sheetName: this.state.uploadName[index],
+    });
     this.renderFile(this.state.fileObj, index);
   };
 
@@ -181,70 +190,66 @@ class ExcelForm extends Component {
   };
 
   render() {
-    const { uploadName } = this.state;
-
-    const sheets = uploadName.map((sheet, i) => (
-      <li
-        className="sheet_click_btn"
-        key={i}
-        onClick={() => this.sheetDataClick(i)}
-      >
-        {sheet}
-      </li>
-    ));
     return (
       <div>
-        <div className="form_box">
+        <FileUploadPageHeader>
           <form>
-            <FormGroup row>
-              <Col xs={4} sm={8} lg={10}>
-                <div className="sheet_box">
-                  <li className="ul_style">{sheets}</li>
-                </div>
-                <input
-                  type="file"
-                  hidden
-                  onChange={this.fileHandler.bind(this)}
-                  ref={this.fileInput}
-                  onClick={(event) => {
-                    event.target.value = null;
-                  }}
-                  style={{ padding: "10px" }}
-                />
-              </Col>
-            </FormGroup>
-            <InputGroup>
-              <InputGroupAddon addonType="prepend">
-                <div className="test">
-                  <Button
-                    className="file_search_btn"
-                    onClick={this.openFileBrowser.bind(this)}
-                  >
-                    파일찾기
-                  </Button>
-                  <Button
-                    className="file_search_btn"
-                    type="submit"
-                    onClick={this.uploadClick}
-                  >
-                    업로드 시작
-                  </Button>
-                </div>
-              </InputGroupAddon>
-              <p>.xlsx 파일만 가능합니다.</p>
-            </InputGroup>
+            <SheetListBox>
+              <SheetListHeader>Sheet List</SheetListHeader>
+              <SheetListBody>
+                {this.state.uploadName.map((sheet, i) => (
+                  <SheetListItem key={i} onClick={() => this.sheetDataClick(i)}>
+                    {sheet}
+                  </SheetListItem>
+                ))}
+              </SheetListBody>
+            </SheetListBox>
+            <p className="ms-office-excel">
+              MS Office Excel 파일 (xlsx) 만 가능합니다.
+            </p>
+            <SearchBox>
+              <input
+                className="search-input"
+                type="text"
+                placeholder="compound search"
+              />
+              <button className="search-btn">Compound Search</button>
+            </SearchBox>
+            <input
+              type="file"
+              hidden
+              onChange={this.fileHandler.bind(this)}
+              ref={this.fileInput}
+              onClick={(event) => {
+                event.target.value = null;
+              }}
+              style={{ padding: "10px" }}
+            />
           </form>
-        </div>
-        <div>
-          <div className="excel_name">{this.state.excelFileName}</div>
-          <div>
-            {this.state.dataLoaded && (
-              <div>
-                <SheetTable cols={this.state.cols} rows={this.state.rows} />
-              </div>
-            )}
-          </div>
-        </div>
+          <Button onClick={this.openFileBrowser.bind(this)}>파일찾기</Button>
+          <Button type="submit" onClick={this.uploadClick}>
+            업로드
+          </Button>
+        </FileUploadPageHeader>
+        <FileUploadPageBodyMiddle>
+          {this.state.excelFileName ? (
+            <div className="excelname">{this.state.excelFileName}</div>
+          ) : (
+            <div className="excelname">FILE NAME.xlsx</div>
+          )}
+          {this.state.sheetName ? (
+            <div className="sheetname">{this.state.sheetName}</div>
+          ) : (
+            <div className="sheetname">Sheet</div>
+          )}
+        </FileUploadPageBodyMiddle>
+        <FileUploadPageBodyFooter>
+          {this.state.dataLoaded && (
+            <div>
+              <SheetTable cols={this.state.cols} rows={this.state.rows} />
+            </div>
+          )}
+        </FileUploadPageBodyFooter>
       </div>
     );
   }

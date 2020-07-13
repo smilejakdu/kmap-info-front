@@ -1,19 +1,19 @@
 import React from "react";
 import ExcelForm from "../../components/ExcelForm/ExcelForm";
 import Navigation from "../../components/Navigation/Navigation";
-import "./Main.css";
+import { MainPageBody } from "./FileUpload.style";
 
-const Main = () => {
+const FileUpload = () => {
   return (
     <div>
-      <div className="nav">
+      <div>
         <Navigation />
       </div>
-      <div className="main">
+      <MainPageBody>
         <ExcelForm />
-      </div>
+      </MainPageBody>
     </div>
   );
 };
 
-export default Main;
+export default FileUpload;
