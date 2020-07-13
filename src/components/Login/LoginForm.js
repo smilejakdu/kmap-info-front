@@ -8,7 +8,6 @@ import {
 } from "./LoginInput.style";
 import { Redirect } from "react-router-dom";
 import image from "../../util/image/logo.png";
-import background from "../../util/image/background.png";
 import request from "../../util/request";
 
 const LoginForm = ({ authenticated, login, location }) => {

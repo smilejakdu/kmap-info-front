@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./ExcelInfoList.scss";
 import {
   FileListHeader,
@@ -17,43 +17,32 @@ import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
 
-class ExcelInfoList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sheetData: [],
-      dataLoaded: false,
-      cols: [],
-      rows: [],
-      excel_name: "",
-      sheetStyle: [],
-    };
-  }
+const ExcelInfoList = (props) => {
+  const [sheetData, setSheetData] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [cols, setCols] = useState([]);
+  const [rows, setRows] = useState([]);
+  const [excelName, setExcelName] = useState("");
+  const [sheetStyle, setSheetStyle] = useState([]);
 
-  // static defaultProps = {
-  //   data: [],
-  // };
-
-  getSheets = (excel, sheet) => {
+  const getSheets = (excel, sheet) => {
     return request
       .get(`/excel/${excel}/${sheet}`)
       .then((res) => {
         let {
           data: { sheet_table },
         } = res;
-        this.setState({
-          dataLoaded: true,
-          cols: sheet_table.cols,
-          rows: sheet_table.rows,
-          sheetStyle: `${sheet}`,
-        });
+        setDataLoaded(true);
+        setCols(sheet_table.cols);
+        setRows(sheet_table.rows);
+        setSheetStyle(`${sheet}`);
       })
       .catch((err) => {
         err && console.log(err);
       });
   };
 
-  ExcelNameClick = (itemName) => (event) => {
+  const ExcelNameClick = (itemName) => (event) => {
     return request
       .get(`/excel/${itemName}`)
       .then((res) => {
@@ -61,19 +50,17 @@ class ExcelInfoList extends Component {
           data: { sheet_data },
         } = res;
         let sheet = sheet_data.map(({ name }) => name);
-        this.setState({
-          sheetData: sheet,
-          excel_name: itemName,
-          cols: [],
-          rows: [],
-        });
+        setSheetData(sheet);
+        setExcelName(itemName);
+        setCols([]);
+        setRows([]);
       })
       .catch((error) => {
         error && console.warn(error);
       });
   };
 
-  removeClick = (itemId, itemName) => async (e) => {
+  const removeClick = (itemId, itemName) => async (e) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -90,74 +77,61 @@ class ExcelInfoList extends Component {
     }
   };
 
-  render() {
-    const { data } = this.props;
-
-    return (
-      <div>
-        <LeftBody>
-          <FileListHeader>File List</FileListHeader>
-          <FileListBody>
-            {data.map((item) => (
-              <FileItemBox key={item.id}>
-                <ExcelName onClick={this.ExcelNameClick(item.name)}>
-                  {item.name}
-                </ExcelName>
-                <ExcelDate>{item.create_at}</ExcelDate>
-                <RemoveBtn onClick={this.removeClick(item.id, item.name)}>
-                  <MdRemoveCircleOutline />
-                </RemoveBtn>
-              </FileItemBox>
+  return (
+    <div>
+      <LeftBody>
+        <FileListHeader>File List</FileListHeader>
+        <FileListBody>
+          {props.data.map((item) => (
+            <FileItemBox key={item.id}>
+              <ExcelName onClick={ExcelNameClick(item.name)}>
+                {item.name}
+              </ExcelName>
+              <ExcelDate>{item.create_at}</ExcelDate>
+              <RemoveBtn onClick={removeClick(item.id, item.name)}>
+                <MdRemoveCircleOutline />
+              </RemoveBtn>
+            </FileItemBox>
+          ))}
+        </FileListBody>
+      </LeftBody>
+      <RightBody>
+        {excelName ? (
+          <RightFileName>{excelName}</RightFileName>
+        ) : (
+          <RightFileName>File Name.xlsx</RightFileName>
+        )}
+        {sheetData.length > 0 ? (
+          <RightSheetClick>
+            {sheetData.map((sheet, i) => (
+              <div>
+                {sheetStyle === sheet ? (
+                  <div
+                    key={i}
+                    className="active"
+                    onClick={() => getSheets(excelName, sheet)}
+                  >
+                    {sheet}
+                  </div>
+                ) : (
+                  <div key={i} onClick={() => getSheets(excelName, sheet)}>
+                    {sheet}
+                  </div>
+                )}
+              </div>
             ))}
-          </FileListBody>
-        </LeftBody>
-        <RightBody>
-          {this.state.excel_name ? (
-            <RightFileName>{this.state.excel_name}</RightFileName>
-          ) : (
-            <RightFileName>File Name.xlsx</RightFileName>
-          )}
-          {this.state.sheetData.length > 0 ? (
-            <RightSheetClick>
-              {this.state.sheetData.map((sheet, i) => (
-                <div>
-                  {this.state.sheetStyle === sheet ? (
-                    <div
-                      key={i}
-                      className="active"
-                      onClick={() =>
-                        this.getSheets(this.state.excel_name, sheet)
-                      }
-                    >
-                      {sheet}
-                    </div>
-                  ) : (
-                    <div
-                      key={i}
-                      onClick={() =>
-                        this.getSheets(this.state.excel_name, sheet)
-                      }
-                    >
-                      {sheet}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </RightSheetClick>
-          ) : (
-            <RightSheetClick className="sheet-define">
-              Sheet Table
-            </RightSheetClick>
-          )}
-          <SheetTableData>
-            {this.state.dataLoaded && (
-              <SheetTable cols={this.state.cols} rows={this.state.rows} />
-            )}
-          </SheetTableData>
-        </RightBody>
-      </div>
-    );
-  }
-}
+          </RightSheetClick>
+        ) : (
+          <RightSheetClick className="sheet-define">
+            Sheet Table
+          </RightSheetClick>
+        )}
+        <SheetTableData>
+          {dataLoaded && <SheetTable cols={cols} rows={rows} />}
+        </SheetTableData>
+      </RightBody>
+    </div>
+  );
+};
 
 export default React.memo(ExcelInfoList);
