@@ -90,7 +90,7 @@ const FileUploadPageBodyMiddle = styled.div`
   background: ${palette.blue[1]};
   min-height: 5rem;
 
-  div.excelname {
+  .excelname {
     border-right: 1px solid ${palette.blue[7]};
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@ const FileUploadPageBodyMiddle = styled.div`
 const FileUploadPageBodyFooter = styled.div`
   border: 1px solid ${palette.blue[7]};
   margin-top: 5.3rem;
-  /* width: 100%; */
+  width: 100%;
   min-height: 300px;
   max-height: 350px;
 `;
