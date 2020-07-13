@@ -31,7 +31,6 @@ const SearchBox = styled.div`
 const SheetListBox = styled.div`
   float: left;
   width: 30%;
-  height: 100%;
   margin-right: 3rem;
 `;
 
