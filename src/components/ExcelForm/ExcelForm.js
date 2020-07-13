@@ -230,16 +230,8 @@ class ExcelForm extends Component {
           </Button>
         </FileUploadPageHeader>
         <FileUploadPageBodyMiddle>
-          {this.state.excelFileName ? (
-            <div className="excelname">{this.state.excelFileName}</div>
-          ) : (
-            <div className="excelname">FILE NAME.xlsx</div>
-          )}
-          {this.state.sheetName ? (
-            <div className="sheetname">{this.state.sheetName}</div>
-          ) : (
-            <div className="sheetname">Sheet</div>
-          )}
+          <div className="excelname">FILE NAME.xlsx</div>
+          <div className="sheetname">Sheet</div>
         </FileUploadPageBodyMiddle>
         <FileUploadPageBodyFooter>
           {this.state.dataLoaded && (
