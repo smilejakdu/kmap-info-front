@@ -111,6 +111,7 @@ const FileUploadPageBodyFooter = styled.div`
   margin-top: 5.3rem;
   width: 100%;
   min-height: 300px;
+  overflow: scroll;
   max-height: 350px;
 `;
 
