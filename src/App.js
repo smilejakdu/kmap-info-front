@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Main from "./pages/Main/Main";
+import FileUpload from "./pages/FileUpload/FileUpload";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
 import CompoundInfoPage from "./pages/CompoundInfoPage/CompoundInfoPage";
 import Login from "./components/Login/LoginForm";
@@ -20,7 +20,7 @@ const App = () => {
           exact
           authenticated={authenticated}
           path="/kmapinfo/"
-          render={() => <Main />}
+          render={() => <FileUpload />}
         ></Route>
         <AuthRoute
           exact
