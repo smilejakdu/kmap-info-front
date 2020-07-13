@@ -93,6 +93,7 @@ const FileUploadPageBodyMiddle = styled.div`
   .excelname {
     border-right: 1px solid ${palette.blue[7]};
     display: flex;
+    float: left;
     justify-content: center;
     width: 70%;
   }
