@@ -2,6 +2,7 @@ import styled from "styled-components";
 import palette from "../../util/styles/palette";
 
 const FileUploadPageHeader = styled.div`
+  border: 1px solid red;
   position: relative;
   min-height: 25rem;
 
