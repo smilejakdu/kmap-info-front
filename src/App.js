@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import FileUpload from "./pages/FileUpload/FileUpload";
+import FileUpload from "./pages/FileUpload/FileUploadPage";
 import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
 import CompoundInfoPage from "./pages/CompoundInfoPage/CompoundInfoPage";
 import Login from "./components/Login/LoginForm";
