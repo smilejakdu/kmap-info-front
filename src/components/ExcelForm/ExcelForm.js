@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import "./ExcelForm.scss";
 import XLSX from "xlsx";
-// import { Button } from "reactstrap";
 import {
   SheetListHeader,
   SheetListBody,
