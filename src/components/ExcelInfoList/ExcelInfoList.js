@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./ExcelInfoList.scss";
 import {
   FileListHeader,
   FileListBody,

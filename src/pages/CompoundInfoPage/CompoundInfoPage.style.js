@@ -51,6 +51,10 @@ const SearchBox = styled.div`
       }
     }
   }
+  @media (max-width: 1100px) {
+    float: right;
+    position: relative;
+  }
 `;
 
 const KaiChemIdTH = styled.th`
