@@ -18,13 +18,15 @@ const SearchBox = styled.div`
   input {
     border: 1px solid ${palette.blue[7]};
     font-size: 1.5rem;
-    padding-bottom: 22px;
+    padding: 10px;
+    width: 25rem;
   }
 
   button {
     border: 1px solid ${palette.blue[7]};
     background: ${palette.blue[7]};
     font-size: 1.5rem;
+    padding: 10px;
     color: white;
   }
 `;
@@ -111,9 +113,9 @@ const FileUploadPageBodyFooter = styled.div`
   border: 1px solid ${palette.blue[7]};
   margin-top: 5.3rem;
   width: 100%;
-  min-height: 300px;
+  min-height: 650px;
   overflow: scroll;
-  max-height: 350px;
+  max-height: 700px;
 `;
 
 export {

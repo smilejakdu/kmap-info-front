@@ -2,7 +2,7 @@ import styled from "styled-components";
 import palette from "../../util/styles/palette";
 
 const LeftBody = styled.div`
-  width: 20%;
+  width: 15%;
   float: left;
 `;
 
@@ -18,7 +18,7 @@ const FileListHeader = styled.div`
 const FileListBody = styled.div`
   border: 1px solid blue;
   font-size: 2rem;
-  min-height: 500px;
+  min-height: 700px;
   overflow-y: scroll;
   align-items: center;
   justify-content: center;
@@ -70,8 +70,8 @@ const RightBody = styled.div`
   border-top: 1px solid ${palette.blue[7]};
   border-bottom: 1px solid ${palette.blue[7]};
   margin-top: 4.5rem;
-  width: 80%;
-  height: 500px;
+  width: 85%;
+  height: 700px;
   float: right;
 `;
 
@@ -115,7 +115,8 @@ const RightSheetClick = styled.div`
 
 const SheetTableData = styled.div`
   border: 1px solid white;
-  max-height: 450px;
+  min-height: 650px;
+  max-height: 700px;
   overflow: auto;
 `;
 

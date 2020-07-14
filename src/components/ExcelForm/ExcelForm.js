@@ -207,10 +207,7 @@ class ExcelForm extends Component {
             </p>
             <SearchBox>
               <input type="text" />
-              <button>
-                Compound
-                <div /> Search
-              </button>
+              <button>Compound Search</button>
             </SearchBox>
             <input
               type="file"

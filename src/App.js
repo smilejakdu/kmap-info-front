@@ -16,18 +16,18 @@ const App = () => {
   return (
     <div>
       <Switch>
-        <Route
+        <AuthRoute
           exact
           authenticated={authenticated}
           path="/kmapinfo/"
           render={() => <FileUpload />}
-        ></Route>
-        <AuthRoute
+        ></AuthRoute>
+        <Route
           exact
           path="/kmapinfo/excelinfo"
           authenticated={authenticated}
           render={() => <ExcelInfoPage />}
-        ></AuthRoute>
+        ></Route>
         <AuthRoute
           exact
           path="/kmapinfo/compoundinfo"
