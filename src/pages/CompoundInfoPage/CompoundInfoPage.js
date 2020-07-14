@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./CompoundInfoPage.scss";
 import Navigation from "../../components/Navigation/Navigation";
 import CompoundInfo from "../../components/Compound/CompoundInfo";
 import image from "../../util/image/logo.png";
 import request from "../../util/request";
 import axios from "axios";
+import {
+  NavBox,
+  CompoundPageTotalBorder,
+  SearchBox,
+  KaiChemIdTH,
+  KaiChemIdTD,
+  CompoundPageHeader,
+} from "./CompoundInfoPage.style";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 const CompoundInfoPage = () => {
@@ -81,13 +88,10 @@ const CompoundInfoPage = () => {
   const renderSearchResults = () => {
     if (Object.keys(result).length && result.length) {
       return (
-        <div className="test_div">
+        <div>
           {result.map((res) => {
             return (
-              <h6
-                className="search_font"
-                onClick={() => searchDataClick(res.compound)}
-              >
+              <h6 onClick={() => searchDataClick(res.compound)}>
                 {res.compound}
               </h6>
             );
@@ -148,55 +152,19 @@ const CompoundInfoPage = () => {
 
   return (
     <>
-      <div className="nav">
+      <NavBox>
         <Navigation />
-      </div>
-      <div className="div_border">
-        <div>
-          <input
-            type="text"
-            value={query}
-            placeholder="검색"
-            className="search_input"
-            onChange={handleOnInputChange}
-          />
-        </div>
-        <div>{renderSearchResults()}</div>
-
-        <div className="compound_info_header">
-          {/* KaiChem ID  */}
-          <div className="kaichem_id_border">
-            <table>
-              <tr>
-                <th className="kaichem_id">KaiChem ID</th>
-                <td className="kaichem_id_value">{compoundinfo.kaichem_id}</td>
-              </tr>
-            </table>
-          </div>
-          {/* KaiPHarm Chem Index */}
-          <div className="kaipharm_chem_index_div">
-            <div className="kaipharm_chem_index_button">
-              <BsChevronCompactLeft onClick={previousBtn}>
-                왼쪽
-              </BsChevronCompactLeft>
-            </div>
-            <div className="kaipharm_chem_index">
-              <div className="kaipharm_chem_index_header">
-                KaiPharm Chem Index
-              </div>
-              <div className="kaipharm_chem_index_body">
-                {compoundinfo.kaipharm_chem_index}
-              </div>
-            </div>
-            <div className="kaipharm_chem_index_button">
-              <BsChevronCompactRight onClick={nextBtn}>
-                오른쪽
-              </BsChevronCompactRight>
-            </div>
-          </div>
-        </div>
+      </NavBox>
+      <CompoundPageTotalBorder>
+        <KaiChemIdTH>KaiChem ID</KaiChemIdTH>
+        <KaiChemIdTD>{compoundinfo.kaichem_id}</KaiChemIdTD>
+        <SearchBox>
+          <input type="text" value={query} onChange={handleOnInputChange} />
+          <button>Compound Search</button>
+          {renderSearchResults()}
+        </SearchBox>
         <CompoundInfo data={compoundinfo} />
-      </div>
+      </CompoundPageTotalBorder>
     </>
   );
 };

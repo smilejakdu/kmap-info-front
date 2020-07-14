@@ -1,82 +1,51 @@
 import React from "react";
-import "./CompoundInfo.scss";
+
+import {
+  CompoundInfoBody,
+  LeftImage,
+  LeftBody,
+  KmapCompoundName,
+  RightBody,
+  KmapTwokSubset,
+  RightBodyMiddle,
+  RightBodyFooter,
+  CheckBox,
+  CountryCheckBox,
+  IpkExpasionCheckBox,
+  PubBox,
+  PubBoxCID,
+  InChiKey,
+  PubChemName,
+} from "./CompoundInfo.style";
 
 const CompoundInfo = (compoundinfo) => {
+  console.log(compoundinfo.data.compound);
+  console.log(compoundinfo.data.cid);
   return (
-    <>
-      <div className="compound_info_hydrochloride">
-        {compoundinfo.data.compound}
-      </div>
-      <div className="compound_info_body">
-        {/* left start */}
-        <img
-          src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${compoundinfo.data.cid}&t=l`}
-          className="pubchem_body_left"
-        />
-        {/* right start */}
-        <div className="pubchem_body_right">
-          <div className="right_body_header">
-            <div className="pubchem_cid_table_border">
-              <table className="table-bordered">
-                <tr className="pubchem_cid_tr_border">
-                  <td className="pubchem_cid">pubchem CID</td>
-                  <td className="pubchem_cid_value">{compoundinfo.data.cid}</td>
-                  <td className="pubchem_cid">InChIKey</td>
-                  <td className="inchikey_value">
-                    {compoundinfo.data.inchikey}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="pubchem_cid">PubChem NAME</td>
-                  <td colSpan="3" className="pubchem_cid_value">
-                    {compoundinfo.data.pubchem_name}
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div className="right_body_body">
-            <table className="table-bordered kmap-2k-subset-border">
-              <tr>
-                <td className="kmap-2k-subset">KMAP-2K Subset</td>
-                <td className="kmap-2k-subset-value">
-                  {compoundinfo.data.subset}
-                </td>
-              </tr>
-            </table>
-            <table className="ipk_border">
-              <tr>
-                <td>
-                  {compoundinfo.data.ipk === 1 ? (
-                    <span className="dot_active" />
-                  ) : (
-                    <span className="dot" />
-                  )}
-                </td>
-                <td>IPK Expansion</td>
-              </tr>
-              <tr>
-                <td>
-                  {compoundinfo.data.prestwick === 1 ? (
-                    <span className="dot_active" />
-                  ) : (
-                    <span className="dot" />
-                  )}
-                </td>
-                <td>Prestwick</td>
-              </tr>
-              <tr>
-                <td>
-                  {compoundinfo.data.selleckchem === 1 ? (
-                    <span className="dot_active" />
-                  ) : (
-                    <span className="dot" />
-                  )}
-                </td>
-                <td>SelleckChem</td>
-              </tr>
-            </table>
-            <div className="right_body_left">
+    <CompoundInfoBody>
+      <LeftBody>
+        <LeftImage>
+          <img
+            src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${compoundinfo.data.cid}&t=l`}
+          />
+        </LeftImage>
+      </LeftBody>
+      <RightBody>
+        <KmapCompoundName>
+          <th>KMAP Compound Name</th>
+          <td>{compoundinfo.data.compound}</td>
+        </KmapCompoundName>
+
+        <RightBodyMiddle>
+          <KmapTwokSubset>
+            <th>
+              <p>KMAP-2K</p>
+              <p>Subset</p>
+            </th>
+            <td>{compoundinfo.data.subset}</td>
+          </KmapTwokSubset>
+          <CheckBox>
+            <CountryCheckBox>
               <table>
                 <tr>
                   <td>
@@ -119,58 +88,160 @@ const CompoundInfo = (compoundinfo) => {
                   <td>NCI Cancer Drug</td>
                 </tr>
               </table>
-            </div>
-            <img
-              src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${compoundinfo.data.chem_series_cid}&t=l`}
-              className="pubchem-right-image"
-            />
-          </div>
-          <div className="right_body_footer">
-            <div className="right_body_footer_header">
-              <table className="table-bordered">
-                <tr className="pubchem_cid_tr_border">
-                  <td className="pubchem_cid" rowSpan="2">
-                    Known Target
-                  </td>
-                  <td className="right_body_footer_header_target" rowSpan="2">
-                    {compoundinfo.data.known_target}
-                  </td>
-                  <td className="right_body_footer_header_gray_border_chem">
-                    Chem Group
-                  </td>
-                  <td className="right_body_footer_header_gray_border_cid">
-                    CID
-                  </td>
-                </tr>
-                <tr className="pubchem_cid_tr_border">
-                  <td>{compoundinfo.data.chem_series}</td>
-                  <td>{compoundinfo.data.chem_series_cid}</td>
-                </tr>
-              </table>
-              <div></div>
-              <table className="right_body_footer_body">
+            </CountryCheckBox>
+            <IpkExpasionCheckBox>
+              <table className="ipk_border">
                 <tr>
-                  <td className="information">information</td>
                   <td>
-                    {compoundinfo.data.information ? (
-                      <textarea name="" cols="150" rows="4">
-                        {compoundinfo.data.information}
-                      </textarea>
+                    {compoundinfo.data.ipk === 1 ? (
+                      <input type="checkbox" checked="checked" />
                     ) : (
-                      <textarea name="" cols="150" rows="4">
-                        NA
-                      </textarea>
+                      <input type="checkbox" />
                     )}
-                    {/* 공란일 경우 NA */}
                   </td>
+                  <td>IPK Expansion</td>
+                </tr>
+                <tr>
+                  <td>
+                    {compoundinfo.data.prestwick === 1 ? (
+                      <input type="checkbox" checked="checked" />
+                    ) : (
+                      <input type="checkbox" />
+                    )}
+                  </td>
+                  <td>Prestwick</td>
+                </tr>
+                <tr>
+                  <td>
+                    {compoundinfo.data.selleckchem === 1 ? (
+                      <input type="checkbox" checked="checked" />
+                    ) : (
+                      <span type="checkbox" />
+                    )}
+                  </td>
+                  <td>SelleckChem</td>
                 </tr>
               </table>
-            </div>
-          </div>
-        </div>
-        {/* right end */}
-      </div>
-    </>
+            </IpkExpasionCheckBox>
+          </CheckBox>
+          <PubBox>
+            <PubBoxCID>
+              <tr>
+                <th>pubchem CID</th>
+                <td>{compoundinfo.data.cid}</td>
+              </tr>
+            </PubBoxCID>
+            <InChiKey>
+              <tr>
+                <th>InChIKey</th>
+                <td>{compoundinfo.data.inchikey}</td>
+              </tr>
+            </InChiKey>
+            <PubChemName>
+              <tr>
+                <th>PubChem NAME</th>
+                <td colSpan="3">{compoundinfo.data.pubchem_name}</td>
+              </tr>
+            </PubChemName>
+          </PubBox>
+        </RightBodyMiddle>
+      </RightBody>
+    </CompoundInfoBody>
+
+    //   <div className="compound_info_body">
+    //     <div className="pubchem_body_right">
+    //       <div className="right_body_header">
+    //         <div className="pubchem_cid_table_border">
+    //         </div>
+    //       </div>
+    //       <div className="right_body_body">
+    //         <table className="table-bordered kmap-2k-subset-border">
+    //           <tr>
+    //             <td className="kmap-2k-subset">KMAP-2K Subset</td>
+    //             <td className="kmap-2k-subset-value">
+    //               {compoundinfo.data.subset}
+    //             </td>
+    //           </tr>
+    //         </table>
+    //         <table className="ipk_border">
+    //           <tr>
+    //             <td>
+    //               {compoundinfo.data.ipk === 1 ? (
+    //                 <span className="dot_active" />
+    //               ) : (
+    //                 <span className="dot" />
+    //               )}
+    //             </td>
+    //             <td>IPK Expansion</td>
+    //           </tr>
+    //           <tr>
+    //             <td>
+    //               {compoundinfo.data.prestwick === 1 ? (
+    //                 <span className="dot_active" />
+    //               ) : (
+    //                 <span className="dot" />
+    //               )}
+    //             </td>
+    //             <td>Prestwick</td>
+    //           </tr>
+    //           <tr>
+    //             <td>
+    //               {compoundinfo.data.selleckchem === 1 ? (
+    //                 <span className="dot_active" />
+    //               ) : (
+    //                 <span className="dot" />
+    //               )}
+    //             </td>
+    //             <td>SelleckChem</td>
+    //           </tr>
+    //         </table>
+    //       </div>
+    //       <div className="right_body_footer">
+    //         <div className="right_body_footer_header">
+    //           <table className="table-bordered">
+    //             <tr className="pubchem_cid_tr_border">
+    //               <td className="pubchem_cid" rowSpan="2">
+    //                 Known Target
+    //               </td>
+    //               <td className="right_body_footer_header_target" rowSpan="2">
+    //                 {compoundinfo.data.known_target}
+    //               </td>
+    //               <td className="right_body_footer_header_gray_border_chem">
+    //                 Chem Group
+    //               </td>
+    //               <td className="right_body_footer_header_gray_border_cid">
+    //                 CID
+    //               </td>
+    //             </tr>
+    //             <tr className="pubchem_cid_tr_border">
+    //               <td>{compoundinfo.data.chem_series}</td>
+    //               <td>{compoundinfo.data.chem_series_cid}</td>
+    //             </tr>
+    //           </table>
+    //           <div></div>
+    //           <table className="right_body_footer_body">
+    //             <tr>
+    //               <td className="information">information</td>
+    //               <td>
+    //                 {compoundinfo.data.information ? (
+    //                   <textarea name="" cols="150" rows="4">
+    //                     {compoundinfo.data.information}
+    //                   </textarea>
+    //                 ) : (
+    //                   <textarea name="" cols="150" rows="4">
+    //                     NA
+    //                   </textarea>
+    //                 )}
+    //                 {/* 공란일 경우 NA */}
+    //               </td>
+    //             </tr>
+    //           </table>
+    //         </div>
+    //       </div>
+    //     </div>
+    //     {/* right end */}
+    //   </div>
+    // </CompoundInfoBody>
   );
 };
 

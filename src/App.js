@@ -28,12 +28,12 @@ const App = () => {
           authenticated={authenticated}
           render={() => <ExcelInfoPage />}
         ></Route>
-        <AuthRoute
+        <Route
           exact
           path="/kmapinfo/compoundinfo"
           authenticated={authenticated}
           render={() => <CompoundInfoPage />}
-        ></AuthRoute>
+        ></Route>
         <AuthRoute
           exact
           path="/kmapinfo/statistics"

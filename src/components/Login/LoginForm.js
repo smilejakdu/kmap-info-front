@@ -44,8 +44,8 @@ const LoginForm = ({ authenticated, login, location }) => {
   return (
     <div>
       <LoginLogo>
-        {/* <img src={image} /> */}
-        <img src={"/kmapinfo" + image} />
+        {/* <img src={image} width="70%" /> */}
+        <img src={"/kmapinfo" + image} width="70%" />
       </LoginLogo>
       <div style={{ textAlign: "center" }}>
         <h2>ID : 123</h2>
