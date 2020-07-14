@@ -206,7 +206,7 @@ class ExcelForm extends Component {
               MS Office Excel 파일 (xlsx) 만 가능합니다.
             </p>
             <SearchBox>
-              <input type="text" placeholder="compound search" />
+              <input type="text" />
               <button>
                 Compound
                 <div /> Search
