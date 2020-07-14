@@ -91,6 +91,7 @@ const IpkExpasionCheckBox = styled.div`
 
 const PubBox = styled.div`
   position: absolute;
+
   border: 1px solid ${palette.blue[6]};
   width: 100%;
   bottom: 0;
