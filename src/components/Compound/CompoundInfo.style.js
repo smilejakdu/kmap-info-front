@@ -77,7 +77,7 @@ const KmapTwokSubset = styled.div`
 
 const CheckBox = styled.div`
   float: right;
-  margin-right: 10rem;
+  margin-right: 5rem;
   input {
     width: 4rem;
     height: 3rem;
