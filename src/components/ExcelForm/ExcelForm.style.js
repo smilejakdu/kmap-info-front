@@ -15,14 +15,16 @@ const SearchBox = styled.div`
   top: 0;
   right: 0;
 
-  .search-input {
+  input {
     border: 1px solid ${palette.blue[7]};
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding-bottom: 22px;
   }
-  .search-btn {
+
+  button {
     border: 1px solid ${palette.blue[7]};
     background: ${palette.blue[7]};
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
   }
 `;
