@@ -42,7 +42,7 @@ const RightBodyMiddle = styled.div`
   position: relative;
   border: 1px solid red;
   min-height: 35rem;
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     min-height: 50rem;
   }
 `;
