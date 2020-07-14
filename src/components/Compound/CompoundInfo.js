@@ -150,52 +150,6 @@ const CompoundInfo = (compoundinfo) => {
 
     //   <div className="compound_info_body">
     //     <div className="pubchem_body_right">
-    //       <div className="right_body_header">
-    //         <div className="pubchem_cid_table_border">
-    //         </div>
-    //       </div>
-    //       <div className="right_body_body">
-    //         <table className="table-bordered kmap-2k-subset-border">
-    //           <tr>
-    //             <td className="kmap-2k-subset">KMAP-2K Subset</td>
-    //             <td className="kmap-2k-subset-value">
-    //               {compoundinfo.data.subset}
-    //             </td>
-    //           </tr>
-    //         </table>
-    //         <table className="ipk_border">
-    //           <tr>
-    //             <td>
-    //               {compoundinfo.data.ipk === 1 ? (
-    //                 <span className="dot_active" />
-    //               ) : (
-    //                 <span className="dot" />
-    //               )}
-    //             </td>
-    //             <td>IPK Expansion</td>
-    //           </tr>
-    //           <tr>
-    //             <td>
-    //               {compoundinfo.data.prestwick === 1 ? (
-    //                 <span className="dot_active" />
-    //               ) : (
-    //                 <span className="dot" />
-    //               )}
-    //             </td>
-    //             <td>Prestwick</td>
-    //           </tr>
-    //           <tr>
-    //             <td>
-    //               {compoundinfo.data.selleckchem === 1 ? (
-    //                 <span className="dot_active" />
-    //               ) : (
-    //                 <span className="dot" />
-    //               )}
-    //             </td>
-    //             <td>SelleckChem</td>
-    //           </tr>
-    //         </table>
-    //       </div>
     //       <div className="right_body_footer">
     //         <div className="right_body_footer_header">
     //           <table className="table-bordered">
