@@ -19,7 +19,7 @@ const LeftImage = styled.div`
   img {
     border: 1px solid black;
     width: 90%;
-    height: 70%;
+    height: 50%;
   }
 `;
 
