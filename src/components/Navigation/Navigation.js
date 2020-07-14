@@ -1,8 +1,7 @@
 import React from "react";
-import { withRouter, NavLink } from "react-router-dom";
-import "./Navigation.scss";
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import { withRouter } from "react-router-dom";
+import { CategoryLinkItem, CategoryLink, ImageLogo } from "./Navigation.style";
+import image from "../../util/image/logo.png";
 
 const categories = [
   {
@@ -23,33 +22,12 @@ const categories = [
   },
 ];
 
-const CategoryLink = styled(NavLink)`
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: white;
-  display: block;
-  background: ${palette.gray[3]};
-  border: 1px solid green;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
-  &.active {
-    background: coral;
-    color: black;
-
-    &:hover {
-      color: white;
-    }
-  }
-`;
-
 const Navigation = () => {
   return (
     <div>
-      <div className="sidenav">
+      <CategoryLink>
         {categories.map((c) => (
-          <CategoryLink
+          <CategoryLinkItem
             key={c.name}
             exact={c.name}
             to={
@@ -59,9 +37,12 @@ const Navigation = () => {
             }
           >
             {c.text}
-          </CategoryLink>
+          </CategoryLinkItem>
         ))}
-      </div>
+        <ImageLogo>
+          <img src={image} alt="" width="100" height="40" />
+        </ImageLogo>
+      </CategoryLink>
     </div>
   );
 };

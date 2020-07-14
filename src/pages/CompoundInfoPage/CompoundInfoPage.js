@@ -151,12 +151,6 @@ const CompoundInfoPage = () => {
       <div className="nav">
         <Navigation />
       </div>
-      <div>
-        <div className="kai_logo">
-          <img src={"/kmapinfo" + image} width="250" height="100" />
-          {/* <img src={image} width="250" height="100" /> */}
-        </div>
-      </div>
       <div className="div_border">
         <div>
           <input
@@ -169,7 +163,6 @@ const CompoundInfoPage = () => {
         </div>
         <div>{renderSearchResults()}</div>
 
-        <h1 className="test_title">Compound page.</h1>
         <div className="compound_info_header">
           {/* KaiChem ID  */}
           <div className="kaichem_id_border">
