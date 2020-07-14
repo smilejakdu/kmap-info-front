@@ -16,6 +16,9 @@ import {
   PubBoxCID,
   InChiKey,
   PubChemName,
+  KnownTargets,
+  InformationHeader,
+  InformationBody,
 } from "./CompoundInfo.style";
 
 const CompoundInfo = (compoundinfo) => {
@@ -145,57 +148,23 @@ const CompoundInfo = (compoundinfo) => {
             </PubChemName>
           </PubBox>
         </RightBodyMiddle>
+        <RightBodyFooter>
+          <KnownTargets>
+            <tr>
+              <th>Known Targets</th>
+              <td colSpan="3">{compoundinfo.data.known_target}</td>
+            </tr>
+          </KnownTargets>
+          <InformationHeader>Information</InformationHeader>
+          {compoundinfo.data.information ? (
+            <InformationBody>{compoundinfo.data.information}</InformationBody>
+          ) : (
+            <InformationBody>NA</InformationBody>
+          )}
+          {/* 공란일 경우 NA */}
+        </RightBodyFooter>
       </RightBody>
     </CompoundInfoBody>
-
-    //   <div className="compound_info_body">
-    //     <div className="pubchem_body_right">
-    //       <div className="right_body_footer">
-    //         <div className="right_body_footer_header">
-    //           <table className="table-bordered">
-    //             <tr className="pubchem_cid_tr_border">
-    //               <td className="pubchem_cid" rowSpan="2">
-    //                 Known Target
-    //               </td>
-    //               <td className="right_body_footer_header_target" rowSpan="2">
-    //                 {compoundinfo.data.known_target}
-    //               </td>
-    //               <td className="right_body_footer_header_gray_border_chem">
-    //                 Chem Group
-    //               </td>
-    //               <td className="right_body_footer_header_gray_border_cid">
-    //                 CID
-    //               </td>
-    //             </tr>
-    //             <tr className="pubchem_cid_tr_border">
-    //               <td>{compoundinfo.data.chem_series}</td>
-    //               <td>{compoundinfo.data.chem_series_cid}</td>
-    //             </tr>
-    //           </table>
-    //           <div></div>
-    //           <table className="right_body_footer_body">
-    //             <tr>
-    //               <td className="information">information</td>
-    //               <td>
-    //                 {compoundinfo.data.information ? (
-    //                   <textarea name="" cols="150" rows="4">
-    //                     {compoundinfo.data.information}
-    //                   </textarea>
-    //                 ) : (
-    //                   <textarea name="" cols="150" rows="4">
-    //                     NA
-    //                   </textarea>
-    //                 )}
-    //                 {/* 공란일 경우 NA */}
-    //               </td>
-    //             </tr>
-    //           </table>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     {/* right end */}
-    //   </div>
-    // </CompoundInfoBody>
   );
 };
 

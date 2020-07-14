@@ -19,6 +19,7 @@ const LeftImage = styled.div`
   img {
     border: 1px solid black;
     width: 90%;
+    height: 100%;
   }
 `;
 
@@ -40,15 +41,10 @@ const KmapCompoundName = styled.div`
 
 const RightBodyMiddle = styled.div`
   position: relative;
-  border: 1px solid red;
   min-height: 35rem;
   @media (max-width: 1100px) {
     min-height: 50rem;
   }
-`;
-
-const RightBodyFooter = styled.div`
-  border: 1px solid blue;
 `;
 
 const KmapTwokSubset = styled.div`
@@ -79,8 +75,9 @@ const CheckBox = styled.div`
   float: right;
   margin-right: 40px;
   input {
-    width: 4rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 5px;
   }
 `;
 
@@ -106,7 +103,8 @@ const PubBoxCID = styled.table`
   tr {
     th {
       background: ${palette.blue[1]};
-      border: 1px solid ${palette.blue[6]};
+      border-right: 1px solid ${palette.blue[6]};
+      border-bottom: 1px solid ${palette.blue[6]};
       padding: 20px;
       color: black;
       width: 40%;
@@ -116,7 +114,6 @@ const PubBoxCID = styled.table`
       font-size: 1.5rem;
       padding: 10px;
       width: 60%;
-      border: 1px solid black;
     }
   }
 
@@ -130,7 +127,8 @@ const InChiKey = styled.table`
   tr {
     th {
       background: ${palette.blue[1]};
-      border: 1px solid ${palette.blue[6]};
+      border-left: 1px solid ${palette.blue[6]};
+      border-right: 1px solid ${palette.blue[6]};
       padding: 20px;
       color: black;
       width: 20%;
@@ -140,15 +138,41 @@ const InChiKey = styled.table`
       font-size: 1.5rem;
       padding: 10px;
       width: 30%;
-      border: 1px solid black;
     }
   }
   @media (max-width: 1200px) {
+    border-top: 1px solid ${palette.blue[6]};
     width: 100%;
   }
 `;
 
 const PubChemName = styled.table`
+  width: 100%;
+  tr {
+    th {
+      background: ${palette.blue[1]};
+      border-top: 1px solid ${palette.blue[6]};
+      border-right: 1px solid ${palette.blue[6]};
+      padding: 20px;
+      color: black;
+      width: 20%;
+      font-size: 1.5rem;
+    }
+    td {
+      font-size: 1.5rem;
+      padding: 10px;
+      width: 80%;
+      border-top: 1px solid ${palette.blue[6]};
+    }
+  }
+`;
+
+const RightBodyFooter = styled.div`
+  width: 100%;
+  margin-top: 10px;
+`;
+
+const KnownTargets = styled.table`
   width: 100%;
   tr {
     th {
@@ -162,10 +186,31 @@ const PubChemName = styled.table`
     td {
       font-size: 1.5rem;
       padding: 10px;
+      border: 1px solid ${palette.blue[6]};
       width: 80%;
-      border: 1px solid black;
     }
   }
+`;
+
+const InformationHeader = styled.div`
+  color: black;
+  background: ${palette.blue[1]};
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-left: 1px solid ${palette.blue[6]};
+  border-right: 1px solid ${palette.blue[6]};
+  font-weight: bold;
+  font-size: 1.5rem;
+`;
+
+const InformationBody = styled.textarea`
+  width: 100%;
+  height: 100px;
+  resize: none;
+  font-size: 1.5rem;
+  border: 1px solid ${palette.blue[6]};
+  padding: 10px;
 `;
 
 export {
@@ -184,4 +229,7 @@ export {
   PubBoxCID,
   InChiKey,
   PubChemName,
+  KnownTargets,
+  InformationHeader,
+  InformationBody,
 };
