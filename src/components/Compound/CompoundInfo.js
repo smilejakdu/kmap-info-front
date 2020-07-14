@@ -90,7 +90,7 @@ const CompoundInfo = (compoundinfo) => {
               </table>
             </CountryCheckBox>
             <IpkExpasionCheckBox>
-              <table className="ipk_border">
+              <table>
                 <tr>
                   <td>
                     {compoundinfo.data.ipk === 1 ? (

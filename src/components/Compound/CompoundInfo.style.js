@@ -40,7 +40,11 @@ const KmapCompoundName = styled.div`
 
 const RightBodyMiddle = styled.div`
   position: relative;
+  border: 1px solid red;
   min-height: 35rem;
+  @media (max-width: 1200px) {
+    min-height: 50rem;
+  }
 `;
 
 const RightBodyFooter = styled.div`
@@ -91,7 +95,6 @@ const IpkExpasionCheckBox = styled.div`
 
 const PubBox = styled.div`
   position: absolute;
-
   border: 1px solid ${palette.blue[6]};
   width: 100%;
   bottom: 0;
@@ -116,6 +119,10 @@ const PubBoxCID = styled.table`
       border: 1px solid black;
     }
   }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const InChiKey = styled.table`
@@ -135,6 +142,9 @@ const InChiKey = styled.table`
       width: 30%;
       border: 1px solid black;
     }
+  }
+  @media (max-width: 1200px) {
+    width: 100%;
   }
 `;
 
