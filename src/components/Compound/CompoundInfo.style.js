@@ -77,6 +77,7 @@ const KmapTwokSubset = styled.div`
 
 const CheckBox = styled.div`
   float: right;
+  margin-right: 40px;
   input {
     width: 4rem;
     height: 3rem;
@@ -85,7 +86,7 @@ const CheckBox = styled.div`
 
 const CountryCheckBox = styled.div`
   float: left;
-  margin-right: 20px;
+  margin-right: 5rem;
 `;
 
 const IpkExpasionCheckBox = styled.div`
