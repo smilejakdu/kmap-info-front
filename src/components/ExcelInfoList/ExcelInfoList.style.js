@@ -26,10 +26,11 @@ const FileListBody = styled.div`
 `;
 
 const FileItemBox = styled.div`
-  margin-left: 2rem;
-  margin-right: 2rem;
-  border-top: 1px solid ${palette.blue[2]};
+  margin-bottom: 2rem;
   position: relative;
+  text-align: center;
+  padding-right: 30px;
+  justify-content: center;
   @media (max-width: 1500px) {
     margin: 0;
     text-align: center;
