@@ -77,6 +77,9 @@ const CheckBox = styled.div`
     height: 2.5rem;
     margin-right: 5px;
   }
+  @media (max-width: 1300px) {
+    width: 100%;
+  }
 `;
 
 const CountryCheckBox = styled.div`
