@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import palette from "../../util/styles/palette";
 
-const NavBox = styled.div`
-  border: 40px solid white;
-`;
-
 const CompoundPageTotalBorder = styled.div`
+  margin-top: 10rem;
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -72,4 +69,4 @@ const KaiChemIdTD = styled.td`
   padding-left: 80px;
   padding-right: 80px;
 `;
-export { NavBox, CompoundPageTotalBorder, SearchBox, KaiChemIdTH, KaiChemIdTD };
+export { CompoundPageTotalBorder, SearchBox, KaiChemIdTH, KaiChemIdTD };

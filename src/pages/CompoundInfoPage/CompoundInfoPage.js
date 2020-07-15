@@ -5,7 +5,6 @@ import image from "../../util/image/logo.png";
 import request from "../../util/request";
 import axios from "axios";
 import {
-  NavBox,
   CompoundPageTotalBorder,
   SearchBox,
   KaiChemIdTH,
@@ -152,9 +151,7 @@ const CompoundInfoPage = () => {
 
   return (
     <>
-      <NavBox>
-        <Navigation />
-      </NavBox>
+      <Navigation />
       <CompoundPageTotalBorder>
         <KaiChemIdTH>KaiChem ID</KaiChemIdTH>
         <KaiChemIdTD>{compoundinfo.kaichem_id}</KaiChemIdTD>

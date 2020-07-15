@@ -3,10 +3,10 @@ import palette from "../../util/styles/palette";
 
 const FileUploadPageBody = styled.div`
   margin-top: 10rem;
-  margin-right: 5rem;
-  margin-left: 2rem;
+  margin-right: auto;
+  margin-left: auto;
   font-size: 28px;
-  padding: 0px 10px;
+  width: 80%;
 `;
 
 export { FileUploadPageBody };

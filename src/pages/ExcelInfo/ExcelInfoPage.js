@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
 import Navigation from "../../components/Navigation/Navigation";
 import { ExcelInfoPageBody } from "./ExcelInfoPage.style";
-import "bootstrap/dist/css/bootstrap.min.css";
 import request from "../../util/request";
 
 const ExcelInfoPage = () => {
@@ -32,9 +31,7 @@ const ExcelInfoPage = () => {
 
   return (
     <div>
-      <div className="nav">
-        <Navigation />
-      </div>
+      <Navigation />
       <ExcelInfoPageBody>
         <ExcelInfoList
           data={excelData}

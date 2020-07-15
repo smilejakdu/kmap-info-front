@@ -13,6 +13,7 @@ import {
 } from "./ExcelForm.style";
 import request from "../../util/request";
 import SheetTable from "../SheetTable/SheetTable";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
