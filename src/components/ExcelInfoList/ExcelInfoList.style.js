@@ -22,7 +22,7 @@ const FileListBody = styled.div`
   overflow-y: scroll;
   align-items: center;
   justify-content: center;
-  border: 1px solid blue;
+  border: 1px solid ${palette.blue[7]};
 `;
 
 const FileItemBox = styled.div`
@@ -30,6 +30,12 @@ const FileItemBox = styled.div`
   margin-right: 2rem;
   border-top: 1px solid ${palette.blue[2]};
   position: relative;
+  @media (max-width: 1500px) {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    border-bottom: 1px solid ${palette.blue[7]};
+  }
 `;
 const ExcelName = styled.div`
   color: black;
@@ -62,6 +68,11 @@ const RemoveBtn = styled.div`
   height: 5rem;
   &:hover {
     color: sandybrown;
+  }
+
+  @media (max-width: 1500px) {
+    position: relative;
+    width: 100%;
   }
 `;
 
