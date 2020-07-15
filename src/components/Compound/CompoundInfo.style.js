@@ -19,7 +19,6 @@ const LeftImage = styled.div`
   img {
     border: 1px solid black;
     width: 90%;
-    height: 50%;
   }
 `;
 
@@ -73,7 +72,6 @@ const KmapTwokSubset = styled.div`
 
 const CheckBox = styled.div`
   float: right;
-  margin-right: 40px;
   input {
     width: 2.5rem;
     height: 2.5rem;
