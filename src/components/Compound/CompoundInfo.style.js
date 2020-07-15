@@ -64,7 +64,7 @@ const KmapTwokSubset = styled.div`
   td {
     border: 1px solid black;
     padding: 20px;
-    font-size: 3.5rem;
+    font-size: 3.6rem;
     font-weight: bold;
     float: left;
   }
