@@ -3,7 +3,7 @@ import palette from "../../util/styles/palette";
 
 const FileUploadPageHeader = styled.div`
   position: relative;
-  min-height: 25rem;
+  min-height: 18rem;
 
   .ms-office-excel {
     font-size: 2rem;
@@ -51,7 +51,7 @@ const SheetListHeader = styled.div`
 const SheetListBody = styled.div`
   border: 1px solid ${palette.blue[6]};
   color: black;
-  min-height: 20rem;
+  min-height: 13rem;
   max-height: 20rem;
   overflow-y: scroll;
   width: 100%;
