@@ -22,8 +22,6 @@ import {
 } from "./CompoundInfo.style";
 
 const CompoundInfo = (compoundinfo) => {
-  console.log(compoundinfo.data.compound);
-  console.log(compoundinfo.data.cid);
   return (
     <CompoundInfoBody>
       <LeftBody>

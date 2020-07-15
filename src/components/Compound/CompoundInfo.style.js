@@ -41,7 +41,7 @@ const KmapCompoundName = styled.div`
 const RightBodyMiddle = styled.div`
   position: relative;
   min-height: 35rem;
-  @media (max-width: 1100px) {
+  @media (max-width: 1300px) {
     min-height: 50rem;
   }
 `;
@@ -115,7 +115,7 @@ const PubBoxCID = styled.table`
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     width: 100%;
   }
 `;
@@ -138,7 +138,7 @@ const InChiKey = styled.table`
       width: 30%;
     }
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     border-top: 1px solid ${palette.blue[6]};
     width: 100%;
   }
