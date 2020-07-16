@@ -39,9 +39,6 @@ const SearchBox = styled.div`
     padding: 10px;
     color: white;
   }
-  @media (max-width: 1450px) {
-    position: relative;
-  }
 `;
 
 const KmapTwokProject = styled.div`
