@@ -5,6 +5,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import ColumnChart from "../ColumnChart/ColumnChart";
 import SvgChart from "../SvgChart/SvgChart";
 import request from "../../util/request";
+import { CircleBorder, ColumnBorder, SvgBorder } from "./Statistics.style";
 
 const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
@@ -31,19 +32,22 @@ const Statistics = () => {
 
   return (
     <>
-      <div className="circle_border">
+      <CircleBorder>
         <CircleChart label={`${circlechemnum} compound`}>
           <CircularProgressbar
             value={circlepercent}
             text={`${circlepercent}%`}
           />
         </CircleChart>
-      </div>
-      <div className="column_border">
-        <ColumnChart data={column} />
-      </div>
-      <div className="svg_border">
-        <SvgChart data={svgdata} />
+      </CircleBorder>
+      <div>
+        <SvgBorder>
+          <SvgChart data={svgdata} />
+        </SvgBorder>
+
+        <ColumnBorder>
+          <ColumnChart data={column} />
+        </ColumnBorder>
       </div>
     </>
   );

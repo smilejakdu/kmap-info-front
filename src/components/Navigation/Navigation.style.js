@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 
 const CategoryLink = styled.div`
   position: relative;
-  width: 96%;
+  width: 85%;
   display: flex;
   left: 0;
-  margin-left: 3rem;
+  margin: auto;
   top: 0;
   right: 0;
   z-index: 1;

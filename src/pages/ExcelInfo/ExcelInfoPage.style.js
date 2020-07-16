@@ -9,9 +9,4 @@ const ExcelInfoPageBody = styled.div`
   font-size: 28px;
 `;
 
-// position: relative;
-// margin-right: auto;
-// margin-left: auto;
-// width: 80%;
-
 export { ExcelInfoPageBody };

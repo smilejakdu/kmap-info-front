@@ -70,20 +70,24 @@
     border-radius: 15px;
 }
 
-.compound-title {
-    justify-content: center;
-    display: flex;
-}
-
 .circle_chart {
-    margin: 60px;
+    margin: 100px;
     justify-content: center;
     display: flex;
     align-items: center;
+    width: 300px;
+
+    // @media (max-width: 2500px) {
+    //     width: 300px;
+    // }
 }
 
 .compound_circle_count {
     justify-content: center;
     display: flex;
     margin-top: 10px;
+
+    h1 {
+        font-size: x-large;
+    }
 }

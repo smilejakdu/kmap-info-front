@@ -14,8 +14,8 @@ const SvgChart = (data) => {
   return (
     <div className="border">
       <LineChart
-        width={440}
-        height={475}
+        width={700}
+        height={350}
         data={data.data}
         margin={{
           top: 5,

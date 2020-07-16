@@ -16,8 +16,8 @@ const ColumnChart = (data) => {
   return (
     <div className="columns_border">
       <BarChart
-        width={400}
-        height={460}
+        width={700}
+        height={350}
         data={data.data}
         margin={{
           top: 5,
