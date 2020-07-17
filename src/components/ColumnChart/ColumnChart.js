@@ -13,11 +13,31 @@ import {
 import "./ColumnChart.scss";
 
 const ColumnChart = (data) => {
+  const [widthState, setWidthState] = useState(800);
+  const [heightState, setHeightState] = useState(350);
+
+  const updateDimesions = () => {
+    if (window.innerWidth < 1700) {
+      setWidthState(750);
+      setHeightState(350);
+    } else {
+      let update_width = window.innerWidth - 1200;
+      let update_height = Math.round(update_width / 3.4);
+      setWidthState(update_width);
+      setHeightState(update_height);
+    }
+  };
+
+  useEffect(() => {
+    updateDimesions();
+    window.addEventListener("resize", updateDimesions);
+  });
+
   return (
     <div className="columns_border">
       <BarChart
-        width={700}
-        height={350}
+        width={widthState}
+        height={heightState}
         data={data.data}
         margin={{
           top: 5,
