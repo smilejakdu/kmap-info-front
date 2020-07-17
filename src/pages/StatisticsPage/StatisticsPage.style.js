@@ -21,8 +21,8 @@ const StatisticsPageBody = styled.div`
   min-height: 80rem;
 
   @media (max-width: 1500px) {
+    border: none;
     display: block;
-    height: 100%;
   }
 `;
 
