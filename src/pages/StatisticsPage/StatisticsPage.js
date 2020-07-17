@@ -1,7 +1,6 @@
 import React from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import Statistics from "../../components/Statistics/Statistics";
-import image from "../../util/image/logo.png";
 import {
   StatisticsPageHeader,
   StatisticsPageBody,
