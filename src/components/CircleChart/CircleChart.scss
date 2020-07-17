@@ -67,7 +67,6 @@
 
 .circle_parent {
     position: relative;
-    border-radius: 15px;
 }
 
 .circle_chart {
@@ -78,11 +77,16 @@
     width: 400px;
     display: flex;
     align-items: center;
-    vertical-align: middle;
     border: 1px solid red;
 
     @media (max-width: 1700px) {
         width: 300px;
+    }
+
+    @media (max-width: 1500px) {
+        width: 300px;
+        display: block;
+        margin: auto;
     }
 }
 

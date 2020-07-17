@@ -19,6 +19,11 @@ const StatisticsPageBody = styled.div`
   font-size: 28px;
   width: 80%;
   min-height: 80rem;
+
+  @media (max-width: 1500px) {
+    display: block;
+    height: 100%;
+  }
 `;
 
 const SearchBox = styled.div`

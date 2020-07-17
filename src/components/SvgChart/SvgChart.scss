@@ -1,4 +1,11 @@
 .border {
   text-align: center;
   margin: 30px;
+
+  @media (max-width: 1500px) {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
 }

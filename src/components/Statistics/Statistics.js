@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Statistics.scss";
 import CircleChart from "../CircleChart/CircleChart";
 import { CircularProgressbar } from "react-circular-progressbar";
 import ColumnChart from "../ColumnChart/ColumnChart";

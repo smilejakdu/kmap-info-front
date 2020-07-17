@@ -17,8 +17,11 @@ const ColumnChart = (data) => {
   const [heightState, setHeightState] = useState(350);
 
   const updateDimesions = () => {
-    if (window.innerWidth < 1700) {
+    if (window.innerWidth < 1700 && window.innerWidth > 1550) {
       setWidthState(750);
+      setHeightState(350);
+    } else if (window.innerWidth < 1550) {
+      setWidthState(950);
       setHeightState(350);
     } else {
       let update_width = window.innerWidth - 1200;
