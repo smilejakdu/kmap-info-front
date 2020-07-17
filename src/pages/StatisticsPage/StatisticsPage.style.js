@@ -9,6 +9,7 @@ const StatisticsPageHeader = styled.div`
   margin-left: auto;
   width: 80%;
 `;
+
 const StatisticsPageBody = styled.div`
   border: 1px solid blue;
   border-radius: 50px;
