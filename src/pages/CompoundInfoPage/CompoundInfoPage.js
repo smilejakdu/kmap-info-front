@@ -9,7 +9,6 @@ import {
   SearchBox,
   KaiChemIdTH,
   KaiChemIdTD,
-  CompoundPageHeader,
 } from "./CompoundInfoPage.style";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 

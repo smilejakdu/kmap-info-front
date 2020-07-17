@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import palette from "../../util/styles/palette";
+import { NavLink } from "react-router-dom";
 
 const ExcelInfoPageHeader = styled.div`
   position: relative;
@@ -35,6 +36,29 @@ const SearchBox = styled.div`
     padding: 10px;
     color: white;
   }
+
+  div {
+    width: 63%;
+    border: 1px solid ${palette.blue[2]};
+    overflow-y: scroll;
+    overflow: hidden;
+    padding: 12px;
+    z-index: 1;
+    background: white;
+    position: absolute;
+  }
+
+  h6 {
+    font-size: 20px;
+    padding: 8px;
+
+    &:hover {
+      cursor: pointer;
+      color: coral;
+    }
+  }
 `;
+
+const CompoundInfoMoveBtn = styled(NavLink)``;
 
 export { ExcelInfoPageBody, SearchBox, ExcelInfoPageHeader };

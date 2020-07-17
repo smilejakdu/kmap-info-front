@@ -6,10 +6,10 @@ const CategoryLink = styled.div`
   position: relative;
   width: 85%;
   display: flex;
-  left: 0;
-  margin: auto;
   top: 0;
   right: 0;
+  left: 0;
+  margin: auto;
   z-index: 1;
   min-width: 160px;
   position: fixed;
