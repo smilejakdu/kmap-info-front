@@ -7,51 +7,12 @@ const FileUploadPageHeader = styled.div`
 
   .ms-office-excel {
     font-size: 2rem;
-  }
-`;
-
-const SearchBox = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  input {
-    border: 1px solid ${palette.blue[7]};
-    font-size: 1.5rem;
-    padding: 10px;
-    width: 25rem;
-  }
-
-  button {
-    border: 1px solid ${palette.blue[7]};
-    background: ${palette.blue[7]};
-    font-size: 1.5rem;
-    padding: 10px;
-    color: white;
-  }
-
-  div {
-    width: 63%;
-    border: 1px solid ${palette.blue[2]};
-    overflow-y: scroll;
-    overflow: hidden;
-    padding: 12px;
-    z-index: 1;
-    background: white;
-    position: absolute;
-  }
-
-  h6 {
-    font-size: 20px;
-    padding: 8px;
-
-    &:hover {
-      cursor: pointer;
-      color: coral;
+    @media (max-width: 1150px) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border: 1px solid red;
     }
-  }
-  @media (max-width: 1450px) {
-    position: relative;
   }
 `;
 
@@ -107,6 +68,10 @@ const Button = styled.button`
     color: coral;
     background: white;
   }
+
+  @media (max-width: 1150px) {
+    margin-top: 7rem;
+  }
 `;
 
 const FileUploadPageBodyMiddle = styled.div`
@@ -151,5 +116,4 @@ export {
   FileUploadPageHeader,
   FileUploadPageBodyMiddle,
   FileUploadPageBodyFooter,
-  SearchBox,
 };

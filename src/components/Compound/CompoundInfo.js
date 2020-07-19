@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   CompoundInfoBody,
   LeftImage,
@@ -19,22 +19,167 @@ import {
   KnownTargets,
   InformationHeader,
   InformationBody,
+  KaiChemIdTH,
+  KaiChemIdTD,
+  SearchBox,
+  Header,
 } from "./CompoundInfo.style";
+import request from "../../util/request";
+import axios from "axios";
+import { useEffect } from "react";
 
-const CompoundInfo = (compoundinfo) => {
+const CompoundInfo = () => {
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState([]);
+  const [data, setData] = useState([]);
+  let { search } = useParams();
+  console.log(search);
+  if (search === undefined) {
+    console.log("여기로들어오나");
+    search = "Abacavir";
+  }
+  console.log(search);
+
+  useEffect(() => {
+    request
+      .get(`/compound/search/${search}`)
+      .then((res) => {
+        let {
+          data: { data },
+        } = res;
+        setData({
+          id: data[0].id,
+          chem_series: data[0].chem_series,
+          chem_series_cid: data[0].chem_series_cid,
+          cid: data[0].cid,
+          compound: data[0].compound,
+          europe: data[0].europe,
+          inchikey: data[0].inchikey,
+          information: data[0].information,
+          ipk: data[0].ipk,
+          japan: data[0].japan,
+          kaichem_id: data[0].kaichem_id,
+          kaipharm_chem_index: data[0].kaipharm_chem_index,
+          known_target: data[0].known_target,
+          nci_cancer: data[0].nci_cancer,
+          prestwick: data[0].prestwick,
+          pubchem_name: data[0].pubchem_name,
+          selleckchem: data[0].selleckchem,
+          subset: data[0].subset,
+          usa: data[0].usa,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("데이터가 없습니다.");
+      });
+  }, []);
+
+  useEffect(() => {
+    console.log(data);
+  });
+
+  const fetchSearchResults = (query) => {
+    const searchUrl = `/compound/search?query=${query}`;
+    request
+      .get(searchUrl)
+      .then((res) => {
+        let {
+          data: { data },
+        } = res;
+        setResult(data);
+      })
+      .catch((error) => {
+        if (axios.isCancel(error) || error) {
+          console.log("error : ", error);
+        }
+      });
+  };
+
+  const searchDataClick = (search_data) => {
+    return request
+      .get(`/compound/search/${search_data}`)
+      .then((res) => {
+        let {
+          data: { data },
+        } = res;
+        setData({
+          id: data[0].id,
+          chem_series: data[0].chem_series,
+          chem_series_cid: data[0].chem_series_cid,
+          cid: data[0].cid,
+          compound: data[0].compound,
+          europe: data[0].europe,
+          inchikey: data[0].inchikey,
+          information: data[0].information,
+          ipk: data[0].ipk,
+          japan: data[0].japan,
+          kaichem_id: data[0].kaichem_id,
+          kaipharm_chem_index: data[0].kaipharm_chem_index,
+          known_target: data[0].known_target,
+          nci_cancer: data[0].nci_cancer,
+          prestwick: data[0].prestwick,
+          pubchem_name: data[0].pubchem_name,
+          selleckchem: data[0].selleckchem,
+          subset: data[0].subset,
+          usa: data[0].usa,
+        });
+        setResult([]);
+        setQuery(data[0].compound);
+      })
+      .catch((error) => {
+        error && console.warn(error);
+      });
+  };
+
+  const handleOnInputChange = (event) => {
+    const query = event.target.value;
+    if (!query) {
+      setQuery(query);
+      setResult([]);
+    } else {
+      setQuery(query);
+      fetchSearchResults(query);
+    }
+  };
+
+  const renderSearchResults = () => {
+    if (Object.keys(result).length && result.length) {
+      return (
+        <div>
+          {result.map((res) => {
+            return (
+              <h6 onClick={() => searchDataClick(res.compound)}>
+                {res.compound}
+              </h6>
+            );
+          })}
+        </div>
+      );
+    }
+  };
+
   return (
     <CompoundInfoBody>
+      <Header>
+        <KaiChemIdTH>KaiChem ID</KaiChemIdTH>
+        <KaiChemIdTD>{data.kaichem_id}</KaiChemIdTD>
+        <SearchBox>
+          <input type="text" value={query} onChange={handleOnInputChange} />
+          {renderSearchResults()}
+        </SearchBox>
+      </Header>
       <LeftBody>
         <LeftImage>
           <img
-            src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${compoundinfo.data.cid}&t=l`}
+            src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${data.cid}&t=l`}
           />
         </LeftImage>
       </LeftBody>
       <RightBody>
         <KmapCompoundName>
           <th>KMAP Compound Name</th>
-          <td>{compoundinfo.data.compound}</td>
+          <td>{data.compound}</td>
         </KmapCompoundName>
 
         <RightBodyMiddle>
@@ -43,14 +188,14 @@ const CompoundInfo = (compoundinfo) => {
               <p>KMAP-2K</p>
               <p>Subset</p>
             </th>
-            <td>{compoundinfo.data.subset}</td>
+            <td>{data.subset}</td>
           </KmapTwokSubset>
           <CheckBox>
             <CountryCheckBox>
               <table>
                 <tr>
                   <td>
-                    {compoundinfo.data.usa === 1 ? (
+                    {data.usa === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <input type="checkbox" />
@@ -60,7 +205,7 @@ const CompoundInfo = (compoundinfo) => {
                 </tr>
                 <tr>
                   <td>
-                    {compoundinfo.data.europe === 1 ? (
+                    {data.europe === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <input type="checkbox" />
@@ -70,7 +215,7 @@ const CompoundInfo = (compoundinfo) => {
                 </tr>
                 <tr>
                   <td>
-                    {compoundinfo.data.japan === 1 ? (
+                    {data.japan === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <input type="checkbox" />
@@ -80,7 +225,7 @@ const CompoundInfo = (compoundinfo) => {
                 </tr>
                 <tr>
                   <td>
-                    {compoundinfo.data.nci_cancer === 1 ? (
+                    {data.nci_cancer === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <input type="checkbox" />
@@ -94,7 +239,7 @@ const CompoundInfo = (compoundinfo) => {
               <table>
                 <tr>
                   <td>
-                    {compoundinfo.data.ipk === 1 ? (
+                    {data.ipk === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <input type="checkbox" />
@@ -104,7 +249,7 @@ const CompoundInfo = (compoundinfo) => {
                 </tr>
                 <tr>
                   <td>
-                    {compoundinfo.data.prestwick === 1 ? (
+                    {data.prestwick === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <input type="checkbox" />
@@ -114,7 +259,7 @@ const CompoundInfo = (compoundinfo) => {
                 </tr>
                 <tr>
                   <td>
-                    {compoundinfo.data.selleckchem === 1 ? (
+                    {data.selleckchem === 1 ? (
                       <input type="checkbox" checked="checked" />
                     ) : (
                       <span type="checkbox" />
@@ -129,19 +274,19 @@ const CompoundInfo = (compoundinfo) => {
             <PubBoxCID>
               <tr>
                 <th>pubchem CID</th>
-                <td>{compoundinfo.data.cid}</td>
+                <td>{data.cid}</td>
               </tr>
             </PubBoxCID>
             <InChiKey>
               <tr>
                 <th>InChIKey</th>
-                <td>{compoundinfo.data.inchikey}</td>
+                <td>{data.inchikey}</td>
               </tr>
             </InChiKey>
             <PubChemName>
               <tr>
                 <th>PubChem NAME</th>
-                <td colSpan="3">{compoundinfo.data.pubchem_name}</td>
+                <td colSpan="3">{data.pubchem_name}</td>
               </tr>
             </PubChemName>
           </PubBox>
@@ -150,12 +295,12 @@ const CompoundInfo = (compoundinfo) => {
           <KnownTargets>
             <tr>
               <th>Known Targets</th>
-              <td colSpan="3">{compoundinfo.data.known_target}</td>
+              <td colSpan="3">{data.known_target}</td>
             </tr>
           </KnownTargets>
           <InformationHeader>Information</InformationHeader>
-          {compoundinfo.data.information ? (
-            <InformationBody>{compoundinfo.data.information}</InformationBody>
+          {data.information ? (
+            <InformationBody>{data.information}</InformationBody>
           ) : (
             <InformationBody>NA</InformationBody>
           )}

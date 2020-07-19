@@ -9,12 +9,12 @@ import {
   FileUploadPageHeader,
   FileUploadPageBodyMiddle,
   FileUploadPageBodyFooter,
-  SearchBox,
+  Search,
 } from "./ExcelForm.style";
 import request from "../../util/request";
 import SheetTable from "../SheetTable/SheetTable";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import SearchBox from "../SearchBox/SearchBox";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
@@ -72,9 +72,6 @@ class ExcelForm extends Component {
       fileObj: null,
       excelFileName: "",
       sheetName: "",
-      query: "",
-      result: "",
-      compoundinfo: [],
     };
 
     this.fileHandler = this.fileHandler.bind(this);
@@ -192,94 +189,6 @@ class ExcelForm extends Component {
       });
   };
 
-  searchDataClick = (search_data) => {
-    return request
-      .get(`/compound/search/${search_data}`)
-      .then((res) => {
-        let {
-          data: { data },
-        } = res;
-        this.setState({
-          compoundinfo: {
-            id: data[0].id,
-            chem_series: data[0].chem_series,
-            chem_series_cid: data[0].chem_series_cid,
-            cid: data[0].cid,
-            compound: data[0].compound,
-            europe: data[0].europe,
-            inchikey: data[0].inchikey,
-            information: data[0].information,
-            ipk: data[0].ipk,
-            japan: data[0].japan,
-            kaichem_id: data[0].kaichem_id,
-            kaipharm_chem_index: data[0].kaipharm_chem_index,
-            known_target: data[0].known_target,
-            nci_cancer: data[0].nci_cancer,
-            prestwick: data[0].prestwick,
-            pubchem_name: data[0].pubchem_name,
-            selleckchem: data[0].selleckchem,
-            subset: data[0].subset,
-            usa: data[0].usa,
-          },
-          result: [],
-          query: "",
-        });
-      })
-      .catch((error) => {
-        error && console.warn(error);
-      });
-  };
-
-  handleOnInputChange = (event) => {
-    const q = event.target.value;
-    if (!q) {
-      this.setState({
-        query: q,
-        result: [],
-      });
-    } else {
-      this.setState({
-        query: q,
-      });
-      this.fetchSearchResults(q);
-    }
-  };
-
-  renderSearchResults = () => {
-    if (Object.keys(this.state.result).length && this.state.result.length) {
-      return (
-        <div>
-          {this.state.result.map((res, i) => {
-            return (
-              <h6 key={i} onClick={() => this.searchDataClick(res.compound)}>
-                {res.compound}
-              </h6>
-            );
-          })}
-        </div>
-      );
-    }
-  };
-
-  fetchSearchResults = (query) => {
-    const searchUrl = `/compound/search?query=${query}`;
-    request
-      .get(searchUrl)
-      .then((res) => {
-        let {
-          data: { data },
-        } = res;
-        this.setState({
-          result: data,
-        });
-      })
-      .catch((error) => {
-        if (axios.isCancel(error) || error) {
-          console.log("error : ", error);
-        }
-      });
-  };
-
   render() {
     return (
       <div>
@@ -298,15 +207,7 @@ class ExcelForm extends Component {
             <p className="ms-office-excel">
               MS Office Excel 파일 (xlsx) 만 가능합니다.
             </p>
-            <SearchBox>
-              <input
-                type="text"
-                value={this.state.query}
-                onChange={this.handleOnInputChange}
-              />
-              <button>Compound Search</button>
-              {this.renderSearchResults()}
-            </SearchBox>
+            <SearchBox></SearchBox>
             <input
               type="file"
               hidden
@@ -318,6 +219,7 @@ class ExcelForm extends Component {
               style={{ padding: "10px" }}
             />
           </form>
+
           <Button onClick={this.openFileBrowser.bind(this)}>파일찾기</Button>
           <Button type="submit" onClick={this.uploadClick}>
             업로드

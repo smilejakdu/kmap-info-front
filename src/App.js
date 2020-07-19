@@ -20,25 +20,37 @@ const App = () => {
           exact
           authenticated={authenticated}
           path="/kmapinfo/"
-          render={() => <FileUpload />}
+          component={FileUpload}
+          // render={() => <FileUpload />}
         ></AuthRoute>
-        <Route
+        <AuthRoute
           exact
           path="/kmapinfo/excelinfo"
           authenticated={authenticated}
-          render={() => <ExcelInfoPage />}
+          component={ExcelInfoPage}
+          // render={() => <ExcelInfoPage />}
+        ></AuthRoute>
+        <Route
+          exact
+          path="/kmapinfo/compoundinfo/:search"
+          authenticated={authenticated}
+          component={CompoundInfoPage}
+          // render={() => <CompoundInfoPage />}
         ></Route>
         <AuthRoute
           exact
-          path="/kmapinfo/compoundinfo"
+          path="/kmapinfo/compoundinfo/"
           authenticated={authenticated}
-          render={() => <CompoundInfoPage />}
+          component={CompoundInfoPage}
+          // render={() => <CompoundInfoPage />}
         ></AuthRoute>
+
         <AuthRoute
           exact
           path="/kmapinfo/statistics"
           authenticated={authenticated}
-          render={() => <StatisticsPage />}
+          component={StatisticsPage}
+          // render={() => <StatisticsPage />}
         ></AuthRoute>
         <Route
           exact
