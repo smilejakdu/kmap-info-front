@@ -58,6 +58,10 @@ const ImageLogo = styled.div`
   top: 0;
   position: absolute;
   float: right;
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
 `;
 
 export { CategoryLinkItem, CategoryLink, ImageLogo };
