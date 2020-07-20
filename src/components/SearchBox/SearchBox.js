@@ -88,9 +88,6 @@ const SearchBox = () => {
         }
       });
   };
-  useEffect(() => {
-    console.log(compoundinfo);
-  });
 
   return (
     <SearchBorder>

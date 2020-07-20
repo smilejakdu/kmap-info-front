@@ -33,12 +33,9 @@ const CompoundInfo = () => {
   const [result, setResult] = useState([]);
   const [data, setData] = useState([]);
   let { search } = useParams();
-  console.log(search);
   if (search === undefined) {
-    console.log("여기로들어오나");
     search = "Abacavir";
   }
-  console.log(search);
 
   useEffect(() => {
     request
@@ -74,10 +71,6 @@ const CompoundInfo = () => {
         alert("데이터가 없습니다.");
       });
   }, []);
-
-  useEffect(() => {
-    console.log(data);
-  });
 
   const fetchSearchResults = (query) => {
     const searchUrl = `/compound/search?query=${query}`;

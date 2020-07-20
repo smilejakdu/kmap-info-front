@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { CategoryLinkItem, CategoryLink, ImageLogo } from "./Navigation.style";
 import image from "../../util/image/logo.png";
+import ipk from "../../util/image/ipk.jpg";
 
 const categories = [
   {
@@ -41,7 +42,8 @@ const Navigation = () => {
         </CategoryLinkItem>
 
         <ImageLogo>
-          <img src={`/kmapinfo/${image}`} alt="" width="100" height="40" />
+          <img src={`${image}`} alt="" width="300" height="50" />
+          <img src={`${ipk}`} alt="" width="100" height="70" />
         </ImageLogo>
       </CategoryLink>
     </div>

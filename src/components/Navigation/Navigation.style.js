@@ -9,7 +9,9 @@ const CategoryLink = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
   z-index: 1;
   min-width: 160px;
   position: fixed;
@@ -53,6 +55,7 @@ const CategoryLinkItem = styled(NavLink)`
 
 const ImageLogo = styled.div`
   right: 0;
+  top: 0;
   position: absolute;
   float: right;
 `;

@@ -26,7 +26,6 @@ const ExcelInfoPage = () => {
           },
         } = res;
         setExcelData(excel_data);
-        console.log(1);
       })
       .catch((error) => {
         error && console.warn(error);
