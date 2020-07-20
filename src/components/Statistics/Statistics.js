@@ -29,6 +29,11 @@ const Statistics = () => {
       });
   }, []);
 
+  useEffect(() => {
+    console.log("column : ", column);
+    console.log("svgdata : ", svgdata);
+  });
+
   return (
     <>
       <CircleBorder>

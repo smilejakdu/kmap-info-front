@@ -16,10 +16,6 @@ const categories = [
     name: "excelinfo",
     text: "View Upload File",
   },
-  {
-    name: "compoundinfo",
-    text: "Compound Info",
-  },
 ];
 
 const Navigation = () => {
@@ -31,14 +27,19 @@ const Navigation = () => {
             key={c.name}
             exact={c.name}
             to={
-              c.name === "Progress Stats"
-                ? "/kmapinfo/statistics"
+              c.name === "Compound Info"
+                ? "/kmapinfo/compoundinfo"
                 : `/kmapinfo/${c.name}`
             }
           >
             {c.text}
           </CategoryLinkItem>
         ))}
+
+        <CategoryLinkItem to={"/kmapinfo/compoundinfo"}>
+          Compound Info
+        </CategoryLinkItem>
+
         <ImageLogo>
           <img src={`/kmapinfo/${image}`} alt="" width="100" height="40" />
         </ImageLogo>
