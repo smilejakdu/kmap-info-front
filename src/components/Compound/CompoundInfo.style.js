@@ -284,6 +284,11 @@ const SearchBox = styled.div`
     font-size: 1.5rem;
     padding: 10px;
     width: 25rem;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   button {
