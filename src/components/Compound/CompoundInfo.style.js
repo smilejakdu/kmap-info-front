@@ -270,17 +270,31 @@ const KaiChemIndexUpDown = styled.div`
   border-right: 1px solid black;
   padding-left: 2rem;
   padding-right: 2rem;
+
+  &:hover {
+    color: coral;
+    cursor: pointer;
+  }
 `;
 
 const SearchBox = styled.div`
+  position: relative;
+
   input {
     font-size: 1.5rem;
     padding: 10px;
     width: 25rem;
   }
 
+  button {
+    border: 1px solid ${palette.blue[7]};
+    background: ${palette.blue[7]};
+    font-size: 1.5rem;
+    padding: 10px;
+    color: white;
+  }
   div {
-    width: 45%;
+    width: 63%;
     border: 1px solid ${palette.blue[2]};
     overflow-y: scroll;
     overflow: hidden;
@@ -329,7 +343,7 @@ export {
   SearchBox,
   Header,
   KaiPharmChemIndex,
-  ChemIndexSearchBox,
   KaiChemIndexNumber,
   KaiChemIndexUpDown,
+  ChemIndexSearchBox,
 };
