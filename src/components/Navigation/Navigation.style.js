@@ -11,14 +11,13 @@ const CategoryLink = styled.div`
   left: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
   z-index: 1;
   min-width: 160px;
   position: fixed;
   background-color: white;
   border-bottom: 1px solid coral;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 40px;
 
   a:hover {
     color: black;
