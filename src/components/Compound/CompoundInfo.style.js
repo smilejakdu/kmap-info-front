@@ -234,27 +234,53 @@ const KaiChemIdTD = styled.td`
   padding-right: 80px;
 `;
 
-const SearchBox = styled.div`
+const ChemIndexSearchBox = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  border: 1px solid ${palette.blue[8]};
+  display: flex;
+`;
 
+const KaiPharmChemIndex = styled.div`
+  font-size: 1.5rem;
+  width: 13rem;
+  background: coral;
+  font-weight: bold;
+  color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 1px solid black;
+  justify-content: center;
+  text-align: center;
+`;
+
+const KaiChemIndexNumber = styled.div`
+  color: black;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  vertical-align: middle;
+  border-right: 1px solid black;
+  font-size: 2.5rem;
+`;
+
+const KaiChemIndexUpDown = styled.div`
+  font-size: 2.5rem;
+  text-align: center;
+  border-right: 1px solid black;
+  padding-left: 2rem;
+  padding-right: 2rem;
+`;
+
+const SearchBox = styled.div`
   input {
-    border: 1px solid ${palette.blue[7]};
     font-size: 1.5rem;
     padding: 10px;
     width: 25rem;
   }
 
-  button {
-    border: 1px solid ${palette.blue[7]};
-    background: ${palette.blue[7]};
-    font-size: 1.5rem;
-    padding: 10px;
-    color: white;
-  }
   div {
-    width: 63%;
+    width: 45%;
     border: 1px solid ${palette.blue[2]};
     overflow-y: scroll;
     overflow: hidden;
@@ -302,4 +328,8 @@ export {
   KaiChemIdTD,
   SearchBox,
   Header,
+  KaiPharmChemIndex,
+  ChemIndexSearchBox,
+  KaiChemIndexNumber,
+  KaiChemIndexUpDown,
 };

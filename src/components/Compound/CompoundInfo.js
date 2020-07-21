@@ -23,6 +23,10 @@ import {
   KaiChemIdTD,
   SearchBox,
   Header,
+  KaiPharmChemIndex,
+  ChemIndexSearchBox,
+  KaiChemIndexNumber,
+  KaiChemIndexUpDown,
 } from "./CompoundInfo.style";
 import request from "../../util/request";
 import axios from "axios";
@@ -157,10 +161,20 @@ const CompoundInfo = () => {
       <Header>
         <KaiChemIdTH>KaiChem ID</KaiChemIdTH>
         <KaiChemIdTD>{data.kaichem_id}</KaiChemIdTD>
-        <SearchBox>
-          <input type="text" value={query} onChange={handleOnInputChange} />
-          {renderSearchResults()}
-        </SearchBox>
+        <ChemIndexSearchBox>
+          <KaiPharmChemIndex>
+            Kaipharm
+            <div></div>
+            Chem Index
+          </KaiPharmChemIndex>
+          <KaiChemIndexNumber>1</KaiChemIndexNumber>
+          <KaiChemIndexUpDown>&lt;</KaiChemIndexUpDown>
+          <KaiChemIndexUpDown>&gt;</KaiChemIndexUpDown>
+          <SearchBox>
+            <input type="text" value={query} onChange={handleOnInputChange} />
+            {renderSearchResults()}
+          </SearchBox>
+        </ChemIndexSearchBox>
       </Header>
       <LeftBody>
         <LeftImage>

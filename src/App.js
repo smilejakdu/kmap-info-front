@@ -30,21 +30,13 @@ const App = () => {
           component={ExcelInfoPage}
           // render={() => <ExcelInfoPage />}
         ></AuthRoute>
-        {/* <Route
-          exact
-          path="/kmapinfo/compoundinfo/:search"
-          authenticated={authenticated}
-          component={CompoundInfoPage}
-          // render={() => <CompoundInfoPage />}
-        ></Route> */}
-        <AuthRoute
+        <Route
           exact
           path={["/kmapinfo/compoundinfo/", "/kmapinfo/compoundinfo/:search"]}
           authenticated={authenticated}
           component={CompoundInfoPage}
           // render={() => <CompoundInfoPage />}
-        ></AuthRoute>
-
+        ></Route>
         <Route
           exact
           path="/kmapinfo/statistics"
