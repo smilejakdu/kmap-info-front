@@ -253,7 +253,7 @@ const CompoundInfo = () => {
               <p>KMAP-2K</p>
               <p>Subset</p>
             </th>
-            <td>{data.subset}</td>
+            {data.subset ? <td>{data.subset}</td> : <td>N/A</td>}
           </KmapTwokSubset>
           <CheckBox>
             <CountryCheckBox>
