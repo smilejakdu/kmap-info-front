@@ -289,6 +289,16 @@ const SearchBox = styled.div`
     &:focus {
       outline: none;
     }
+    div {
+      width: 63%;
+      border: 1px solid ${palette.blue[2]};
+      overflow-y: scroll;
+      overflow: hidden;
+      padding: 12px;
+      z-index: 1;
+      background: white;
+      position: absolute;
+    }
   }
 
   button {

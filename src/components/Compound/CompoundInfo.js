@@ -36,6 +36,7 @@ const CompoundInfo = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [data, setData] = useState([]);
+  const [autoIpk, setAutoIPk] = useState(1);
   const [chemindex, setChemindex] = useState(1);
 
   let { search } = useParams();
@@ -71,7 +72,7 @@ const CompoundInfo = () => {
           subset: data[0].subset,
           usa: data[0].usa,
         });
-        setChemindex(data[0].kaipharm_chem_index);
+        setChemindex(data[0].id);
       })
       .catch((error) => {
         console.log(error);
@@ -107,7 +108,7 @@ const CompoundInfo = () => {
           subset: data[0].subset,
           usa: data[0].usa,
         });
-        setChemindex(data[0].kaipharm_chem_index);
+        setChemindex(data[0].id);
         setResult([]);
       })
       .catch((error) => {
@@ -163,7 +164,7 @@ const CompoundInfo = () => {
         });
         setResult([]);
         setQuery(data[0].compound);
-        setChemindex(data[0].kaipharm_chem_index);
+        setChemindex(data[0].id);
       })
       .catch((error) => {
         error && console.warn(error);
