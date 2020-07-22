@@ -24,7 +24,7 @@ const SearchBorder = styled.div`
     width: 63%;
     border: 1px solid ${palette.blue[2]};
     overflow-y: scroll;
-    overflow: hidden;
+    height: 500px;
     padding: 12px;
     z-index: 1;
     background: white;
