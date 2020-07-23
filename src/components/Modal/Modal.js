@@ -10,10 +10,10 @@ const Modal = ({ isOpen, close, text }) => {
           <ModalBody>
             <p className="title">Kai Pharm</p>
             <div className="content">
-              <p>{text}.</p>
+              <p>{text}</p>
             </div>
             <ButtonWrap>
-              <button onClick={close}>Confirm</button>
+              <button onClick={close}>확인</button>
             </ButtonWrap>
           </ModalBody>
         </div>

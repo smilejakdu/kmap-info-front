@@ -7,11 +7,10 @@ const FileUploadPageHeader = styled.div`
 
   .ms-office-excel {
     font-size: 2rem;
-    @media (max-width: 1150px) {
+    @media (max-width: 1400px) {
       position: absolute;
       bottom: 0;
       right: 0;
-      border: 1px solid red;
     }
   }
 `;
