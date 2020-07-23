@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import CircleChart from "../CircleChart/CircleChart";
+import CircleChart from "./Circle/CircleChart";
 import { CircularProgressbar } from "react-circular-progressbar";
-import ColumnChart from "../ColumnChart/ColumnChart";
-import SvgChart from "../SvgChart/SvgChart";
+import ColumnChart from "./Column/ColumnChart";
+import SvgChart from "./Svg/SvgChart";
 import request from "../../util/request";
 import { CircleBorder, ColumnBorder, SvgBorder } from "./Statistics.style";
 

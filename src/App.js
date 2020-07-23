@@ -37,13 +37,13 @@ const App = () => {
           component={CompoundInfoPage}
           // render={() => <CompoundInfoPage />}
         ></Route>
-        <AuthRoute
+        <Route
           exact
           path="/kmapinfo/statistics"
           authenticated={authenticated}
           component={StatisticsPage}
           // render={() => <StatisticsPage />}
-        ></AuthRoute>
+        ></Route>
         <Route
           exact
           path="/kmapinfo/login"

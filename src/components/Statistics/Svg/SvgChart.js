@@ -25,11 +25,14 @@ const SvgChart = (data) => {
     } else if (window.innerWidth < 1550) {
       setWidthState(950);
       setHeightState(350);
-    } else {
+    } else if (window.innerWidth > 2200 && window.innerWidth < 2600) {
       let update_width = window.innerWidth - 1200;
       let update_height = Math.round(update_width / 3.4);
-      setWidthState(update_width);
-      setHeightState(update_height);
+      setWidthState(update_width); // 1250
+      setHeightState(update_height); // 350
+    } else if (window.innerWidth > 2600) {
+      setWidthState(1300); // 1250
+      setHeightState(350); // 350
     }
   };
 
