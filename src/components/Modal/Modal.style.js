@@ -5,16 +5,17 @@ const ModalOverlay = styled.div`
   position: fixed;
   z-index: 2;
   top: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.16);
 `;
 const ModalBody = styled.div`
   position: fixed;
   z-index: 3;
-  top: 50%;
-  left: 50%;
+  margin: 20% auto;
+  left: 0;
+  right: 0;
   width: 320px;
   background: white;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);

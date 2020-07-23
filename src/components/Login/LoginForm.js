@@ -9,10 +9,20 @@ import {
 import { Redirect } from "react-router-dom";
 import image from "../../util/image/logo.png";
 import request from "../../util/request";
+import Modal from "../Modal/Modal";
 
 const LoginForm = ({ authenticated, login, location }) => {
   const [user_id, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const [modalShow, setModalShow] = useState(false);
+
+  const ModalShowOpen = () => {
+    setModalShow(true);
+  };
+
+  const ModalShowClose = () => {
+    setModalShow(false);
+  };
 
   const handleClick = () => {
     request
@@ -26,7 +36,7 @@ const LoginForm = ({ authenticated, login, location }) => {
         login({ user_id, password });
       })
       .catch((error) => {
-        alert("아이디와 비밀번호를 확인하세요");
+        setModalShow(true);
         setUserId("");
         setPassword("");
       });
@@ -48,6 +58,13 @@ const LoginForm = ({ authenticated, login, location }) => {
         <img src={"/kmapinfo" + image} width="70%" />
       </LoginLogo>
       <div style={{ textAlign: "center" }}></div>
+      {modalShow && (
+        <Modal
+          isOpen={ModalShowOpen}
+          close={ModalShowClose}
+          text={"아이디와 비밀번호를 확인하세요"}
+        ></Modal>
+      )}
       <Container>
         <InputForm>
           <h1>LOGIN</h1>

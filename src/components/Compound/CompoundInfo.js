@@ -244,7 +244,11 @@ const CompoundInfo = () => {
         </ChemIndexSearchBox>
       </Header>
       {modalShow && (
-        <Modal isOpen={ModalShowOpen} close={ModalShowClose}></Modal>
+        <Modal
+          isOpen={ModalShowOpen}
+          close={ModalShowClose}
+          text={"처음데이터입니다."}
+        ></Modal>
       )}
       <LeftBody>
         <LeftImage>

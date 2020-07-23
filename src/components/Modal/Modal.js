@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalBody, ModalOverlay, ButtonWrap } from "./Modal.style";
 
-const Modal = ({ isOpen, close }) => {
+const Modal = ({ isOpen, close, text }) => {
   return (
     <>
       {isOpen ? (
@@ -10,7 +10,7 @@ const Modal = ({ isOpen, close }) => {
           <ModalBody>
             <p className="title">Kai Pharm</p>
             <div className="content">
-              <p>처음데이터입니다.</p>
+              <p>{text}.</p>
             </div>
             <ButtonWrap>
               <button onClick={close}>Confirm</button>
