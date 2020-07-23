@@ -31,18 +31,27 @@ import {
 import request from "../../util/request";
 import axios from "axios";
 import { useEffect } from "react";
+import Modal from "../Modal/Modal";
 
 const CompoundInfo = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [data, setData] = useState([]);
-  const [autoIpk, setAutoIPk] = useState(1);
   const [chemindex, setChemindex] = useState(1);
+  const [modalShow, setModalShow] = useState(false);
 
   let { search } = useParams();
   if (search === undefined) {
     search = "Abacavir";
   }
+
+  const ModalShowOpen = () => {
+    setModalShow(true);
+  };
+
+  const ModalShowClose = () => {
+    setModalShow(false);
+  };
 
   useEffect(() => {
     request
@@ -204,7 +213,7 @@ const CompoundInfo = () => {
 
   const KaipharmChemDown = () => {
     if (chemindex === 1) {
-      alert("처음데이터입니다");
+      setModalShow(true);
     } else {
       KaipharmChemIndexGet(chemindex - 1);
     }
@@ -234,6 +243,9 @@ const CompoundInfo = () => {
           </SearchBox>
         </ChemIndexSearchBox>
       </Header>
+      {modalShow && (
+        <Modal isOpen={ModalShowOpen} close={ModalShowClose}></Modal>
+      )}
       <LeftBody>
         <LeftImage>
           <img
@@ -246,7 +258,6 @@ const CompoundInfo = () => {
           <th>KMAP Compound Name</th>
           <td>{data.compound}</td>
         </KmapCompoundName>
-
         <RightBodyMiddle>
           <KmapTwokSubset>
             <th>
