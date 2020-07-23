@@ -116,12 +116,12 @@ const RightSheetClick = styled.div`
     color: black;
 
     &:hover {
-      color: coral;
+      color: ${palette.orange[4]};
       cursor: pointer;
     }
   }
   .active {
-    color: blue;
+    color: coral;
   }
 `;
 
