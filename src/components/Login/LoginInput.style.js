@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const LoginLogo = styled.div`
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   text-align: center;
 `;
