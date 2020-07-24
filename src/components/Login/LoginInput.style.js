@@ -3,12 +3,10 @@ import palette from "../../util/styles/palette";
 
 const Container = styled.div`
   width: 100%;
-  border: 1px solid red;
   padding-bottom: 20px;
 `;
 
 const LoginLogo = styled.div`
-  /* display: flex; */
   justify-content: center;
   text-align: center;
 `;
