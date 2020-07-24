@@ -13,7 +13,7 @@ const ModalOverlay = styled.div`
 const ModalBody = styled.div`
   position: fixed;
   z-index: 3;
-  margin: 20% auto;
+  margin: 10rem auto;
   left: 0;
   right: 0;
   width: 320px;
