@@ -2,8 +2,8 @@ import styled from "styled-components";
 import palette from "../../util/styles/palette";
 
 const Container = styled.div`
-  height: 100%;
   width: 100%;
+  border: 1px solid red;
   padding-bottom: 20px;
 `;
 
