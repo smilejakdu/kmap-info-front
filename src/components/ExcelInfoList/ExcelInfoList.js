@@ -24,7 +24,7 @@ const ExcelInfoList = (props) => {
   const [excelName, setExcelName] = useState("");
   const [sheetStyle, setSheetStyle] = useState([]);
 
-  const getSheets = (excel, sheet) => {
+  const getSheets = (excel, sheet) => (event) => {
     return request
       .get(`/excel/${excel}/${sheet}`)
       .then((res) => {
@@ -108,12 +108,12 @@ const ExcelInfoList = (props) => {
                   <div
                     key={i}
                     className="active"
-                    onClick={() => getSheets(excelName, sheet)}
+                    onClick={getSheets(excelName, sheet)}
                   >
                     {sheet}
                   </div>
                 ) : (
-                  <div key={i} onClick={() => getSheets(excelName, sheet)}>
+                  <div key={i} onClick={getSheets(excelName, sheet)}>
                     {sheet}
                   </div>
                 )}
