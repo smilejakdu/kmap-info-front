@@ -207,6 +207,21 @@ const CompoundInfo = () => {
     }
   };
 
+  const CountryData = (data, text) => {
+    return (
+      <tr>
+        <td>
+          {data === 1 ? (
+            <input type="checkbox" checked="checked" />
+          ) : (
+            <input type="checkbox" />
+          )}
+        </td>
+        <td>{text}</td>
+      </tr>
+    );
+  };
+
   const KaipharmChemUp = () => {
     KaipharmChemIndexGet(chemindex + 1);
   };
@@ -273,80 +288,17 @@ const CompoundInfo = () => {
           <CheckBox>
             <CountryCheckBox>
               <table>
-                <tr>
-                  <td>
-                    {data.usa === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <input type="checkbox" />
-                    )}
-                  </td>
-                  <td>US FDA approved</td>
-                </tr>
-                <tr>
-                  <td>
-                    {data.europe === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <input type="checkbox" />
-                    )}
-                  </td>
-                  <td>EUROPE approved</td>
-                </tr>
-                <tr>
-                  <td>
-                    {data.japan === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <input type="checkbox" />
-                    )}
-                  </td>
-                  <td>JAPAN approved</td>
-                </tr>
-                <tr>
-                  <td>
-                    {data.nci_cancer === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <input type="checkbox" />
-                    )}
-                  </td>
-                  <td>NCI Cancer Drug</td>
-                </tr>
+                {CountryData(data.usa, "US FDA approved")}
+                {CountryData(data.europe, "EUROPE approved")}
+                {CountryData(data.japan, "JAPAN approved")}
+                {CountryData(data.nci_cancer, "NCI Cancer Drug")}
               </table>
             </CountryCheckBox>
             <IpkExpasionCheckBox>
               <table>
-                <tr>
-                  <td>
-                    {data.ipk === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <input type="checkbox" />
-                    )}
-                  </td>
-                  <td>IPK Expansion</td>
-                </tr>
-                <tr>
-                  <td>
-                    {data.prestwick === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <input type="checkbox" />
-                    )}
-                  </td>
-                  <td>Prestwick</td>
-                </tr>
-                <tr>
-                  <td>
-                    {data.selleckchem === 1 ? (
-                      <input type="checkbox" checked="checked" />
-                    ) : (
-                      <span type="checkbox" />
-                    )}
-                  </td>
-                  <td>SelleckChem</td>
-                </tr>
+                {CountryData(data.ipk, "IPK Expansion")}
+                {CountryData(data.prestwick, "Prestwick")}
+                {CountryData(data.selleckchem, "SelleckChem")}
               </table>
             </IpkExpasionCheckBox>
           </CheckBox>
@@ -384,7 +336,6 @@ const CompoundInfo = () => {
           ) : (
             <InformationBody>NA</InformationBody>
           )}
-          {/* 공란일 경우 NA */}
         </RightBodyFooter>
       </RightBody>
     </CompoundInfoBody>
