@@ -11,9 +11,7 @@ const ExcelInfoPage = () => {
   const [excelData, setExcelData] = useState([]);
 
   const handleChangeExcelData = (id) => {
-    this.setState((prevState) => ({
-      exceldata: prevState.exceldata.filter((excel) => excel.id !== id),
-    }));
+    setExcelData(() => excelData.filter((excel) => excel.id !== id));
   };
 
   useEffect(() => {
@@ -30,7 +28,7 @@ const ExcelInfoPage = () => {
       .catch((error) => {
         error && console.warn(error);
       });
-  }, []);
+  }, [excelData]);
 
   return (
     <div>
