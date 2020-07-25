@@ -15,7 +15,6 @@ import {
 import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
-import { useHistory } from "react-router-dom";
 
 const ExcelInfoList = (props) => {
   const [sheetData, setSheetData] = useState([]);

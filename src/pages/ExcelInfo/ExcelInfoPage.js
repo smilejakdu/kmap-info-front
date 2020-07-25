@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
 import Navigation from "../../components/Navigation/Navigation";
 import { ExcelInfoPageBody, ExcelInfoPageHeader } from "./ExcelInfoPage.style";
-import axios from "axios";
 import request from "../../util/request";
-import CompoundInfo from "../../components/Compound/CompoundInfo";
 import SearchBox from "../../components/SearchBox/SearchBox";
 
 const ExcelInfoPage = () => {

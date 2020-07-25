@@ -50,6 +50,9 @@ const CategoryLinkItem = styled(NavLink)`
       color: white;
     }
   }
+  @media (max-width: 850px) {
+    font-size: 20px;
+  }
 `;
 
 const ImageLogo = styled.div`
