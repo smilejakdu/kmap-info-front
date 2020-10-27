@@ -1,5 +1,5 @@
 import React from "react";
-import { ModalBody, ModalOverlay, ButtonWrap } from "./Modal.style";
+import { ModalBody, ModalOverlay, ModalButtonWrap } from "./Modal.style";
 
 const Modal = ({ isOpen, close, text }) => {
   return (
@@ -12,9 +12,9 @@ const Modal = ({ isOpen, close, text }) => {
             <div className="content">
               <p>{text}</p>
             </div>
-            <ButtonWrap>
+            <ModalButtonWrap>
               <button onClick={close}>확인</button>
-            </ButtonWrap>
+            </ModalButtonWrap>
           </ModalBody>
         </div>
       ) : null}

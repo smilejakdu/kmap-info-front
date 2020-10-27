@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {
   CompoundInfoBody,
@@ -30,7 +30,6 @@ import {
 } from "./CompoundInfo.style";
 import request from "../../util/request";
 import axios from "axios";
-import { useEffect } from "react";
 import Modal from "../Modal/Modal";
 
 const CompoundInfo = () => {
@@ -84,7 +83,6 @@ const CompoundInfo = () => {
         setChemindex(data[0].id);
       })
       .catch((error) => {
-        console.log(error);
         alert("데이터가 없습니다.");
       });
   }, []);
@@ -121,7 +119,6 @@ const CompoundInfo = () => {
         setResult([]);
       })
       .catch((error) => {
-        console.log(error);
         alert("데이터가 없습니다.");
       });
   };

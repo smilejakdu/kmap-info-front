@@ -45,7 +45,7 @@ const ModalBody = styled.div`
   }
 `;
 
-const ButtonWrap = styled.div`
+const ModalButtonWrap = styled.div`
   margin: 0;
   margin-top: 8px;
 
@@ -68,4 +68,4 @@ const ButtonWrap = styled.div`
   }
 `;
 
-export { ButtonWrap, ModalBody, ModalOverlay };
+export { ModalButtonWrap, ModalBody, ModalOverlay };
