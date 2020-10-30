@@ -30,7 +30,7 @@ const App = () => {
         ></AuthRoute>
         <AuthRoute
           exact
-          path={["/kmapinfo/compoundinfo/", "/kmapinfo/compoundinfo/:search"]}
+          path="/kmapinfo/compoundinfo/"
           authenticated={authenticated}
           component={CompoundInfoPage}
         ></AuthRoute>

@@ -1,48 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { SearchBorder } from "./SearchBox.style";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import request from "../../util/request";
 import axios from "axios";
 
-const SearchBox = () => {
+const SearchBox = ({ search, searchData }) => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [compoundinfo, setCompoundinfo] = useState([]);
 
+  const history = useHistory();
+
   const searchDataClick = (search_data) => {
-    return request
-      .get(`/compound/search/${search_data}`)
-      .then((res) => {
-        let {
-          data: { data },
-        } = res;
-        setCompoundinfo({
-          id: data[0].id,
-          chem_series: data[0].chem_series,
-          chem_series_cid: data[0].chem_series_cid,
-          cid: data[0].cid,
-          compound: data[0].compound,
-          europe: data[0].europe,
-          inchikey: data[0].inchikey,
-          information: data[0].information,
-          ipk: data[0].ipk,
-          japan: data[0].japan,
-          kaichem_id: data[0].kaichem_id,
-          kaipharm_chem_index: data[0].kaipharm_chem_index,
-          known_target: data[0].known_target,
-          nci_cancer: data[0].nci_cancer,
-          prestwick: data[0].prestwick,
-          pubchem_name: data[0].pubchem_name,
-          selleckchem: data[0].selleckchem,
-          subset: data[0].subset,
-          usa: data[0].usa,
-        });
-        setResult([]);
-        setQuery(data[0].compound);
-      })
-      .catch((error) => {
-        error && console.warn(error);
-      });
+    setQuery(search_data); // input 데이터
+    setCompoundinfo(search_data);
+    setResult([]);
   };
 
   const handleOnInputChange = (event) => {
@@ -89,20 +61,17 @@ const SearchBox = () => {
       });
   };
 
+  const searchResultBtn = () => {
+    searchData(compoundinfo);
+    history.push("compoundinfo");
+  };
+
   return (
     <SearchBorder>
       <input type="text" value={query} onChange={handleOnInputChange} />
-      <Link
-        className="search-btn"
-        to={{
-          pathname: `/kmapinfo/compoundinfo/${compoundinfo.compound}`,
-          state: {
-            compoundinfo,
-          },
-        }}
-      >
+      <button className="search-btn" onClick={searchResultBtn}>
         Compound Search
-      </Link>
+      </button>
       {renderSearchResults()}
     </SearchBorder>
   );

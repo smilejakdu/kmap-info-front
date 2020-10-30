@@ -4,6 +4,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import { ExcelInfoPageBody, ExcelInfoPageHeader } from "./ExcelInfoPage.style";
 import request from "../../util/request";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import SearchDataContainer from "../../containers/SearchDataContainer";
 
 const ExcelInfoPage = () => {
   const [excelData, setExcelData] = useState([]);
@@ -32,7 +33,7 @@ const ExcelInfoPage = () => {
     <div>
       <Navigation />
       <ExcelInfoPageHeader>
-        <SearchBox></SearchBox>
+        <SearchDataContainer></SearchDataContainer>
       </ExcelInfoPageHeader>
       <ExcelInfoPageBody>
         <ExcelInfoList

@@ -6,14 +6,14 @@ import {
   StatisticsPageBody,
   KmapTwokProject,
 } from "./StatisticsPage.style";
-import SearchBox from "../../components/SearchBox/SearchBox";
+import SearchDataContainer from "../../containers/SearchDataContainer";
 
 const StatisticsPage = () => {
   return (
     <div>
       <Navigation />
       <StatisticsPageHeader>
-        <SearchBox></SearchBox>
+        <SearchDataContainer></SearchDataContainer>
         <KmapTwokProject>KMAP-2K Project Progress</KmapTwokProject>
       </StatisticsPageHeader>
       <StatisticsPageBody>

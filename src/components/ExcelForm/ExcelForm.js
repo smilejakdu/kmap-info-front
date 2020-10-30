@@ -14,7 +14,7 @@ import {
 import request from "../../util/request";
 import SheetTable from "../SheetTable/SheetTable";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SearchBox from "../SearchBox/SearchBox";
+import SearchDataContainer from "../../containers/SearchDataContainer";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
@@ -207,7 +207,7 @@ class ExcelForm extends Component {
             <p className="ms-office-excel">
               MS Office Excel 파일 (xlsx) 만 가능합니다.
             </p>
-            <SearchBox></SearchBox>
+            <SearchDataContainer></SearchDataContainer>
             <input
               type="file"
               hidden

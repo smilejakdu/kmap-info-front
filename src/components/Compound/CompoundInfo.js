@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import {
   CompoundInfoBody,
   LeftImage,
@@ -32,16 +31,20 @@ import request from "../../util/request";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 
-const CompoundInfo = () => {
+// redux
+import { connect } from "react-redux";
+
+const CompoundInfo = ({ search_data }) => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [data, setData] = useState([]);
   const [chemindex, setChemindex] = useState(1);
   const [modalShow, setModalShow] = useState(false);
 
-  let { search } = useParams();
-  if (search === undefined) {
-    search = "Abacavir";
+  let { search_input } = search_data;
+
+  if (search_input === "") {
+    search_input = "Abacavir";
   }
 
   const ModalShowOpen = () => {
@@ -54,7 +57,7 @@ const CompoundInfo = () => {
 
   useEffect(() => {
     request
-      .get(`/compound/search/${search}`)
+      .get(`/compound/search/${search_input}`)
       .then((res) => {
         let {
           data: { data },
@@ -94,6 +97,7 @@ const CompoundInfo = () => {
         let {
           data: { data },
         } = res;
+
         setData({
           id: data[0].id,
           chem_series: data[0].chem_series,
@@ -339,4 +343,8 @@ const CompoundInfo = () => {
   );
 };
 
-export default CompoundInfo;
+// export default CompoundInfo;
+
+export default connect((state) => ({
+  search_data: state,
+}))(CompoundInfo);
