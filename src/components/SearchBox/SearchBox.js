@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import request from "../../util/request";
 import axios from "axios";
 
-const SearchBox = ({ search, searchData }) => {
+const SearchBox = ({ searchData }) => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [compoundinfo, setCompoundinfo] = useState([]);

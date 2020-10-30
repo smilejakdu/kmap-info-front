@@ -10,21 +10,19 @@ import SearchBox from "../components/SearchBox/SearchBox";
 import request from "../util/request";
 import { axios } from "axios";
 
-const SearchDataContainer = ({ search, searchData }) => {
-  console.log("props search: ", search);
-
-  return <SearchBox search={search} searchData={searchData} />;
+const SearchDataContainer = ({ searchData }) => {
+  return <SearchBox searchData={searchData} />;
 };
 
-const mapStateToProps = (state) => ({
-  search: state.search,
-});
+// const mapStateToProps = (state) => ({
+//   search: state.search,
+// });
 
 const mapDispatchToProps = (dispatch) => ({
   searchData: (search) => dispatch(searchAdd(search)),
 });
 
 export default connect(
-  mapStateToProps,
+  // mapStateToProps,
   mapDispatchToProps
 )(SearchDataContainer);
