@@ -119,9 +119,7 @@ const ExcelInfoList = ({ data, handleChangeExcelData }) => {
             ))}
           </RightSheetClick>
         ) : (
-          <RightSheetClick className="sheet-define">
-            Sheet Table
-          </RightSheetClick>
+          <RightSheetClick>Sheet Table</RightSheetClick>
         )}
         <SheetTableData>
           {dataLoaded && <SheetTable cols={cols} rows={rows} />}
