@@ -18,29 +18,33 @@ import SearchDataContainer from "../../containers/SearchDataContainer";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
-    var reader = new FileReader();
-    var rABS = !!reader.readAsBinaryString;
+    const reader = new FileReader();
+    const rABS = !!reader.readAsBinaryString;
 
     reader.onload = function (e) {
-      var bstr = e.target.result;
-      var wb = XLSX.read(bstr, { type: rABS ? "binary" : "array" });
-      var sheetArr = [];
+      const bstr = e.target.result;
+      const wb = XLSX.read(bstr, { type: rABS ? "binary" : "array" });
+      const sheetArr = [];
       const len = wb.SheetNames.length;
+
       for (let i = 0; i < len; i++) {
         sheetArr.push(wb.SheetNames[i]);
       }
 
-      var wsname = wb.SheetNames[index];
-      var ws = wb.Sheets[wsname];
+      const wsname = wb.SheetNames[index];
+      const ws = wb.Sheets[wsname];
+      console.log("ws : ", ws);
 
-      var json = XLSX.utils.sheet_to_json(ws, { header: 1 });
-      var jsonData = [];
+      const json = XLSX.utils.sheet_to_json(ws, { header: 1 });
+      console.log("json : ", json); // 여기서 이미 v 값이 출력됨 .
+      const jsonData = [];
+
       for (let i = 1; i < json.length; i++) {
         jsonData.push(json[i]);
       }
 
-      var cols = make_cols(json[0]);
-      var data = { rows: jsonData, cols: cols, sheetArr: sheetArr };
+      const cols = make_cols(json[0]);
+      const data = { rows: jsonData, cols: cols, sheetArr: sheetArr };
 
       resolve(data);
       return callback(null, data);
@@ -52,7 +56,7 @@ const ExcelRenderer = (file, callback, index = 0) => {
 
 const make_cols = (refstr) => {
   refstr.unshift("id");
-  var o = [];
+  const o = [];
   for (var i = 0; i < refstr.length; ++i) {
     o[i] = { name: refstr[i], key: i };
   }
@@ -168,6 +172,9 @@ class ExcelForm extends Component {
     const formData = new FormData();
     formData.append("file", this.state.fileObj);
     formData.entries();
+    console.log(formData);
+    console.log(this.state);
+    console.log(this.state.fileObj);
 
     request
       .post("/excel/upload", formData)

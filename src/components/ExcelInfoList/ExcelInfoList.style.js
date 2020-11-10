@@ -17,7 +17,7 @@ const FileListHeader = styled.div`
 
 const FileListBody = styled.div`
   border: 1px solid blue;
-  font-size: 2rem;
+  font-size: 1rem;
   min-height: 700px;
   overflow-y: scroll;
   align-items: center;
@@ -38,9 +38,12 @@ const FileItemBox = styled.div`
     border-bottom: 1px solid ${palette.blue[7]};
   }
 `;
+const FileItemBoxRight = styled.div`
+  float: left;
+`;
 const ExcelName = styled.div`
   color: black;
-  font-size: 2rem;
+  font-size: 12px;
   position: relative;
 
   &:hover {
@@ -56,10 +59,7 @@ const ExcelDate = styled.div`
 
 const RemoveBtn = styled.div`
   display: flex;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
@@ -94,7 +94,9 @@ const RightFileName = styled.div`
   border-right: 1px solid ${palette.blue[7]};
   color: black;
   width: 50%;
+  height: 6%;
   float: left;
+  overflow: scroll;
   border-bottom: 1px solid ${palette.blue[7]};
 `;
 
@@ -102,6 +104,7 @@ const RightSheetClick = styled.div`
   background: ${palette.blue[1]};
   color: black;
   width: 50%;
+  height: 6%;
   float: left;
   font-size: 2.8rem;
   display: flex;
@@ -214,4 +217,5 @@ export {
   ModalOverlay,
   ModalBody,
   ModalButtonWrap,
+  FileItemBoxRight,
 };

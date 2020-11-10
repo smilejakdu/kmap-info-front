@@ -16,30 +16,30 @@ const App = () => {
   return (
     <div>
       <Switch>
-        <AuthRoute
+        <Route
           exact
           authenticated={authenticated}
           path="/kmapinfo/"
           component={FileUpload}
-        ></AuthRoute>
-        <AuthRoute
+        ></Route>
+        <Route
           exact
           path="/kmapinfo/excelinfo"
           authenticated={authenticated}
           component={ExcelInfoPage}
-        ></AuthRoute>
-        <AuthRoute
+        ></Route>
+        <Route
           exact
           path="/kmapinfo/compoundinfo/"
           authenticated={authenticated}
           component={CompoundInfoPage}
-        ></AuthRoute>
-        <AuthRoute
+        ></Route>
+        <Route
           exact
           path="/kmapinfo/statistics"
           authenticated={authenticated}
           component={StatisticsPage}
-        ></AuthRoute>
+        ></Route>
         <Route
           exact
           path="/kmapinfo/login"

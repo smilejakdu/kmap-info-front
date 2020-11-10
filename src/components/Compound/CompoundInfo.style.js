@@ -240,6 +240,10 @@ const ChemIndexSearchBox = styled.div`
   right: 0;
   border: 1px solid ${palette.blue[8]};
   display: flex;
+
+  @media (max-width: 1470px) {
+    position: relative;
+  }
 `;
 
 const KaiPharmChemIndex = styled.div`
@@ -318,10 +322,6 @@ const SearchBox = styled.div`
         color: coral;
       }
     }
-  }
-  @media (max-width: 1100px) {
-    float: right;
-    position: relative;
   }
 `;
 

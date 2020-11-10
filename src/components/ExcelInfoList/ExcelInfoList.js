@@ -16,7 +16,8 @@ import SheetTable from "../SheetTable/SheetTable";
 import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
 
-const ExcelInfoList = (props) => {
+const ExcelInfoList = ({ data, handleChangeExcelData }) => {
+  console.log(data);
   const [sheetData, setSheetData] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [cols, setCols] = useState([]);
@@ -64,7 +65,7 @@ const ExcelInfoList = (props) => {
     e.stopPropagation();
     try {
       await request.delete(`/excel/${itemName}`);
-      await props.handleChangeExcelData(itemId);
+      await handleChangeExcelData(itemId);
       setSheetData([]);
       setCols([]);
       setRows([]);
@@ -78,7 +79,7 @@ const ExcelInfoList = (props) => {
       <LeftBody>
         <FileListHeader>File List</FileListHeader>
         <FileListBody>
-          {props.data.map((item) => (
+          {data.map((item) => (
             <FileItemBox key={item.id}>
               <ExcelName onClick={ExcelNameClick(item.name)}>
                 {item.name}

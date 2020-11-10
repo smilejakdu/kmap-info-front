@@ -3,7 +3,6 @@ import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
 import Navigation from "../../components/Navigation/Navigation";
 import { ExcelInfoPageBody, ExcelInfoPageHeader } from "./ExcelInfoPage.style";
 import request from "../../util/request";
-import SearchBox from "../../components/SearchBox/SearchBox";
 import SearchDataContainer from "../../containers/SearchDataContainer";
 
 const ExcelInfoPage = () => {
@@ -27,7 +26,8 @@ const ExcelInfoPage = () => {
       .catch((error) => {
         error && console.warn(error);
       });
-  }, [excelData]);
+  }, []);
+  // excelData
 
   return (
     <div>

@@ -82,17 +82,20 @@ const FileUploadPageBodyMiddle = styled.div`
   min-height: 5rem;
 
   .excelname {
-    border-right: 1px solid ${palette.blue[7]};
     display: flex;
     float: left;
     justify-content: center;
     width: 70%;
+    font-size: 20px;
+    margin: auto 0;
   }
 
   .sheetname {
     width: 30%;
-    display: flex;
     justify-content: center;
+    border-left: 1px solid ${palette.blue[8]};
+    margin: auto 0;
+    display: flex;
     color: coral;
   }
 `;
