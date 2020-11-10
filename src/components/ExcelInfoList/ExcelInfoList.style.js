@@ -94,7 +94,7 @@ const RightFileName = styled.div`
   border-right: 1px solid ${palette.blue[7]};
   color: black;
   width: 50%;
-  height: 6%;
+  height: 10%;
   float: left;
   overflow: scroll;
   border-bottom: 1px solid ${palette.blue[7]};
@@ -104,7 +104,7 @@ const RightSheetClick = styled.div`
   background: ${palette.blue[1]};
   color: black;
   width: 50%;
-  height: 6%;
+  height: 10%;
   float: left;
   font-size: 10px;
   display: flex;
