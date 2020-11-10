@@ -106,7 +106,6 @@ const RightSheetClick = styled.div`
   width: 50%;
   height: 10%;
   float: left;
-  font-size: 10px;
   display: flex;
   overflow-x: scroll;
   justify-content: center;
