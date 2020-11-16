@@ -15,14 +15,21 @@ const Statistics = () => {
   useEffect(() => {
     request
       .get("/excel/statistics")
-      .then((res) => {
-        let {
-          data: { data },
-        } = res;
-        setCirclepercent(data.circle_number);
-        setCirclechemnum(data.kaichem_number);
-        setColumn(data.columns_list);
-        setSvgdata(data.svg_data_list);
+      .then(({ data }) => {
+        console.log(data);
+        const {
+          circle_number,
+          columns_list,
+          kaichem_number,
+          svg_data_list,
+        } = data;
+        setCirclepercent(circle_number);
+        setCirclechemnum(kaichem_number);
+        setColumn(columns_list);
+        setSvgdata(svg_data_list);
+
+        console.log(columns_list);
+        console.log(columns_list["2020"]);
       })
       .catch((err) => {
         err && console.log(err);
