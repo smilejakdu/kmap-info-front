@@ -22,18 +22,18 @@ const SheetListBox = styled.div`
 `;
 
 const SheetListHeader = styled.div`
-  background: ${palette.blue[6]};
+  background: ${palette.base_clor[3]};
   color: white;
   justify-content: center;
   width: 100%;
   min-height: 5rem;
   display: flex;
-  border: 1px solid ${palette.blue[6]};
+  border: 1px solid ${palette.base_clor[3]};
   padding: 5px;
 `;
 
 const SheetListBody = styled.div`
-  border: 1px solid ${palette.blue[6]};
+  border: 1px solid ${palette.base_clor[0]};
   color: black;
   min-height: 13rem;
   max-height: 20rem;
@@ -54,14 +54,15 @@ const SheetListItem = styled.ul`
 `;
 
 const Button = styled.button`
+  outline: none !important;
   color: white;
   font-weight: bold;
   font-size: 2rem;
   padding-left: 20px;
   padding-right: 20px;
   margin-right: 2rem;
-  background: ${palette.blue[6]};
-  border: 1px solid ${palette.blue[6]};
+  background: ${palette.base_clor[3]};
+  border: 1px solid ${palette.base_clor[3]};
 
   &:hover {
     color: coral;
@@ -76,9 +77,9 @@ const Button = styled.button`
 const FileUploadPageBodyMiddle = styled.div`
   width: 70%;
   float: right;
-  border: 1px solid ${palette.blue[7]};
+  border: 1px solid ${palette.base_clor[1]};
   display: flex;
-  background: ${palette.blue[1]};
+  background: ${palette.base_clor[1]};
   min-height: 5rem;
 
   .excelname {
@@ -93,15 +94,15 @@ const FileUploadPageBodyMiddle = styled.div`
   .sheetname {
     width: 30%;
     justify-content: center;
-    border-left: 1px solid ${palette.blue[8]};
+    border-left: 1px solid ${palette.base_clor[3]};
     margin: auto 0;
     display: flex;
-    color: coral;
+    color: ${palette.base_clor[5]};
   }
 `;
 
 const FileUploadPageBodyFooter = styled.div`
-  border: 1px solid ${palette.blue[7]};
+  border: 1px solid ${palette.base_clor[0]};
   margin-top: 5.3rem;
   width: 100%;
   min-height: 650px;

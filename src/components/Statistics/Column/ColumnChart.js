@@ -21,7 +21,9 @@ const ColumnChart = ({ labels, datasets, year_list, YearChangeBtn }) => {
     <div>
       <div>
         {year_list.map((year) => (
-          <button onClick={() => YearChangeBtn(year)}> {year}</button>
+          <button onClick={() => YearChangeBtn(year)} className="year_btn">
+            {year}
+          </button>
         ))}
       </div>
       <Bar data={data} width={900} height={500} options={options} />

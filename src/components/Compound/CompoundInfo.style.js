@@ -17,20 +17,20 @@ const RightBody = styled.div`
 
 const LeftImage = styled.div`
   img {
-    border: 1px solid black;
+    border: 1px solid ${palette.base_clor[0]};
     width: 90%;
   }
 `;
 
 const KmapCompoundName = styled.div`
-  border: 1px solid black;
+  border: 1px solid ${palette.base_clor[3]};
   margin-bottom: 20px;
 
   th {
-    background: coral;
+    background: ${palette.base_clor[5]};
     padding: 10px;
     font-size: 15px;
-    border-right: 1px solid black;
+    border-right: 1px solid ${palette.base_clor[3]};
   }
   td {
     font-size: 25px;
@@ -48,11 +48,11 @@ const RightBodyMiddle = styled.div`
 
 const KmapTwokSubset = styled.div`
   th {
-    border: 1px solid black;
+    border: 1px solid ${palette.base_clor[3]};
     float: left;
     width: 20rem;
     font-size: 2.5rem;
-    background: coral;
+    background: ${palette.base_clor[5]};
     font-weight: bold;
 
     p {
@@ -62,7 +62,7 @@ const KmapTwokSubset = styled.div`
   }
 
   td {
-    border: 1px solid black;
+    border: 1px solid ${palette.base_clor[3]};
     padding: 20px;
     font-size: 3.6rem;
     font-weight: bold;
@@ -91,9 +91,16 @@ const IpkExpasionCheckBox = styled.div`
   float: left;
 `;
 
+const InputCheckBox = styled.input.attrs({
+  type: "checkbox",
+})`
+  border-radius: 5px;
+  color: red;
+`;
+
 const PubBox = styled.div`
   position: absolute;
-  border: 1px solid ${palette.blue[6]};
+  border: 1px solid ${palette.base_clor[3]};
   width: 100%;
   bottom: 0;
 `;
@@ -103,9 +110,9 @@ const PubBoxCID = styled.table`
   width: 50%;
   tr {
     th {
-      background: ${palette.blue[1]};
-      border-right: 1px solid ${palette.blue[6]};
-      border-bottom: 1px solid ${palette.blue[6]};
+      background: ${palette.base_clor[1]};
+      border-right: 1px solid ${palette.base_clor[1]};
+      border-bottom: 1px solid ${palette.base_clor[1]};
       padding: 20px;
       color: black;
       width: 40%;
@@ -127,9 +134,9 @@ const InChiKey = styled.table`
   width: 50%;
   tr {
     th {
-      background: ${palette.blue[1]};
-      border-left: 1px solid ${palette.blue[6]};
-      border-right: 1px solid ${palette.blue[6]};
+      background: ${palette.base_clor[1]};
+      border-left: 1px solid ${palette.base_clor[3]};
+      border-right: 1px solid ${palette.base_clor[3]};
       padding: 20px;
       color: black;
       width: 20%;
@@ -142,7 +149,7 @@ const InChiKey = styled.table`
     }
   }
   @media (max-width: 1300px) {
-    border-top: 1px solid ${palette.blue[6]};
+    border-top: 1px solid ${palette.base_clor[3]};
     width: 100%;
   }
 `;
@@ -151,9 +158,9 @@ const PubChemName = styled.table`
   width: 100%;
   tr {
     th {
-      background: ${palette.blue[1]};
-      border-top: 1px solid ${palette.blue[6]};
-      border-right: 1px solid ${palette.blue[6]};
+      background: ${palette.base_clor[1]};
+      border-top: 1px solid ${palette.base_clor[3]};
+      border-right: 1px solid ${palette.base_clor[3]};
       padding: 20px;
       color: black;
       width: 20%;
@@ -163,7 +170,7 @@ const PubChemName = styled.table`
       font-size: 1.5rem;
       padding: 10px;
       width: 80%;
-      border-top: 1px solid ${palette.blue[6]};
+      border-top: 1px solid ${palette.base_clor[3]};
     }
   }
 `;
@@ -177,8 +184,8 @@ const KnownTargets = styled.table`
   width: 100%;
   tr {
     th {
-      background: ${palette.blue[1]};
-      border: 1px solid ${palette.blue[6]};
+      background: ${palette.base_clor[1]};
+      border: 1px solid ${palette.base_clor[3]};
       padding: 20px;
       color: black;
       width: 20%;
@@ -187,7 +194,7 @@ const KnownTargets = styled.table`
     td {
       font-size: 1.5rem;
       padding: 10px;
-      border: 1px solid ${palette.blue[6]};
+      border: 1px solid ${palette.base_clor[3]};
       width: 80%;
     }
   }
@@ -195,12 +202,12 @@ const KnownTargets = styled.table`
 
 const InformationHeader = styled.div`
   color: black;
-  background: ${palette.blue[1]};
+  background: ${palette.base_clor[1]};
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
-  border-left: 1px solid ${palette.blue[6]};
-  border-right: 1px solid ${palette.blue[6]};
+  border-left: 1px solid ${palette.base_clor[3]};
+  border-right: 1px solid ${palette.base_clor[3]};
   font-weight: bold;
   font-size: 1.5rem;
 `;
@@ -210,7 +217,7 @@ const InformationBody = styled.textarea`
   height: 100px;
   resize: none;
   font-size: 1.5rem;
-  border: 1px solid ${palette.blue[6]};
+  border: 1px solid ${palette.base_clor[3]};
   padding: 10px;
 `;
 
@@ -219,16 +226,16 @@ const Header = styled.div`
 `;
 
 const KaiChemIdTH = styled.th`
-  background: coral;
+  background: ${palette.base_clor[5]};
   color: black;
   font-weight: bold;
   font-size: 20px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid ${palette.base_clor[1]};
 `;
 
 const KaiChemIdTD = styled.td`
-  border: 1px solid black;
+  border: 1px solid ${palette.base_clor[1]};
   font-size: 20px;
   padding-left: 80px;
   padding-right: 80px;
@@ -238,7 +245,7 @@ const ChemIndexSearchBox = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  border: 1px solid ${palette.blue[8]};
+  border: 1px solid ${palette.base_clor[3]};
   display: flex;
 
   @media (max-width: 1470px) {
@@ -249,12 +256,11 @@ const ChemIndexSearchBox = styled.div`
 const KaiPharmChemIndex = styled.div`
   font-size: 1.5rem;
   width: 13rem;
-  background: coral;
+  background: ${palette.base_clor[5]};
   font-weight: bold;
   color: black;
   padding-left: 1rem;
   padding-right: 1rem;
-  border: 1px solid black;
   justify-content: center;
   text-align: center;
 `;
@@ -264,19 +270,19 @@ const KaiChemIndexNumber = styled.div`
   padding-left: 3rem;
   padding-right: 3rem;
   vertical-align: middle;
-  border-right: 1px solid black;
+  border-right: 1px solid ${palette.base_clor[3]};
   font-size: 2.5rem;
 `;
 
 const KaiChemIndexUpDown = styled.div`
   font-size: 2.5rem;
   text-align: center;
-  border-right: 1px solid black;
+  border-right: 1px solid ${palette.base_clor[3]};
   padding-left: 2rem;
   padding-right: 2rem;
 
   &:hover {
-    color: coral;
+    color: ${palette.base_clor[5]};
     cursor: pointer;
   }
 `;
@@ -296,8 +302,8 @@ const SearchBox = styled.div`
   }
 
   button {
-    border: 1px solid ${palette.blue[7]};
-    background: ${palette.blue[7]};
+    border: 1px solid ${palette.base_clor[3]};
+    background: ${palette.base_clor[3]};
     font-size: 1.5rem;
     padding: 10px;
     color: white;
@@ -305,7 +311,7 @@ const SearchBox = styled.div`
 
   div {
     width: 100%;
-    border: 1px solid ${palette.blue[2]};
+    border: 1px solid ${palette.base_clor[3]};
     overflow-y: scroll;
     max-height: 500px;
     padding: 12px;
@@ -319,7 +325,7 @@ const SearchBox = styled.div`
 
       &:hover {
         cursor: pointer;
-        color: coral;
+        color: ${palette.base_clor[5]};
       }
     }
   }
@@ -352,4 +358,5 @@ export {
   KaiChemIndexNumber,
   KaiChemIndexUpDown,
   ChemIndexSearchBox,
+  InputCheckBox,
 };

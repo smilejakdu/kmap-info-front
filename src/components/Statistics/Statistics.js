@@ -11,45 +11,19 @@ const Statistics = () => {
   const [circlechemnum, setCirclechemnum] = useState(0);
   const [column, setColumn] = useState();
   const [svgdata, setSvgdata] = useState();
-  const [year, setYear] = useState();
   const [year_list, setYearList] = useState([]);
   const [labels, setLabels] = useState([]);
-
   const [datasets, setDatasets] = useState();
 
-  useEffect(() => {
-    request
-      .get("/excel/statistics")
-      .then(({ data }) => {
-        const {
-          circle_number,
-          columns_list,
-          kaichem_number,
-          svg_data_list,
-        } = data;
-
-        setCirclepercent(circle_number);
-        setCirclechemnum(kaichem_number);
-        setColumn(columns_list);
-        setSvgdata(svg_data_list);
-
-        let yearData = [];
-        for (const year in columns_list) {
-          yearData.push(year);
-        }
-        setYearList(yearData);
-      })
-
-      .catch((err) => {
-        err && console.log(err);
-      });
-  }, []);
-
-  useEffect(() => {
+  const yearChange = (year) => {
+    console.log("year_change : ", year);
     const month_list = [];
+
     for (const data in column) {
       // console.log(data, column[`${data}`]);
+      console.log("year === data : ", data);
       if (year === data) {
+        console.log("year== data : ", data);
         console.log(data, column[`${data}`]);
 
         const month_list = [];
@@ -84,10 +58,6 @@ const Statistics = () => {
           six_list.push(column[year][number][5]);
         }
 
-        console.log(one_list);
-        console.log(three_list);
-        console.log(six_list);
-
         setDatasets([
           {
             label: "1week",
@@ -100,46 +70,79 @@ const Statistics = () => {
           },
           {
             label: "2week",
-            backgroundColor: "rgba(155,231,91,0.2)",
-            borderColor: "coral",
+            backgroundColor: "#e7e4de",
+            borderColor: "#ff8000",
             borderWidth: 1,
             data: two_list,
           },
           {
             label: "3week",
-            backgroundColor: "rgba(155,231,91,0.2)",
-            borderColor: "green",
+            backgroundColor: "#ff8000",
+            borderColor: "#e7e4de",
             borderWidth: 1,
             data: three_list,
           },
           {
             label: "4week",
-            backgroundColor: "rgba(155,231,91,0.2)",
-            borderColor: "black",
+            backgroundColor: "#e7e4de",
+            borderColor: "#ff8000",
             borderWidth: 1,
             data: four_list,
           },
           {
             label: "5week",
-            backgroundColor: "rgba(155,231,91,0.2)",
-            borderColor: "black",
+            backgroundColor: "#ff8000",
+            borderColor: "#e7e4de",
             borderWidth: 1,
             data: five_list,
           },
           {
             label: "6week",
-            backgroundColor: "rgba(155,231,91,0.2)",
-            borderColor: "black",
+            backgroundColor: "#e7e4de",
+            borderColor: "#ff8000",
             borderWidth: 1,
             data: six_list,
           },
         ]);
       }
     }
-  }, [year]);
+  };
+
+  useEffect(() => {
+    request
+      .get("/excel/statistics")
+      .then(({ data }) => {
+        const {
+          circle_number,
+          columns_list,
+          kaichem_number,
+          svg_data_list,
+        } = data;
+
+        setCirclepercent(circle_number);
+        setCirclechemnum(kaichem_number);
+        setColumn(columns_list);
+        setSvgdata(svg_data_list);
+
+        let yearData = [];
+        for (const year in columns_list) {
+          yearData.push(year);
+        }
+        setYearList(yearData);
+      })
+
+      .catch((err) => {
+        err && console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    console.log(column);
+    yearChange("2019");
+  }, [column]);
 
   const YearChangeBtn = (year) => {
-    setYear(year);
+    yearChange(year);
   };
 
   return (

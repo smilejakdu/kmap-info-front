@@ -6,15 +6,17 @@ const SearchBorder = styled.div`
   top: 0;
   right: 0;
   input {
-    border: 1px solid ${palette.blue[7]};
+    outline: none !important;
+    border: 1px solid ${palette.base_clor[1]};
     font-size: 1.5rem;
     padding: 10px;
     width: 25rem;
   }
 
   .search-btn {
-    border: 1px solid ${palette.blue[7]};
-    background: ${palette.blue[7]};
+    outline: none !important;
+    border: 1px solid ${palette.base_clor[3]};
+    background: ${palette.base_clor[3]};
     font-size: 1.5rem;
     padding: 12px;
     color: white;
@@ -22,7 +24,7 @@ const SearchBorder = styled.div`
 
   div {
     width: 63%;
-    border: 1px solid ${palette.blue[2]};
+    border: 1px solid ${palette.base_clor[2]};
     overflow-y: scroll;
     height: 500px;
     padding: 12px;

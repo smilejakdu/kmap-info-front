@@ -172,9 +172,6 @@ class ExcelForm extends Component {
     const formData = new FormData();
     formData.append("file", this.state.fileObj);
     formData.entries();
-    console.log(formData);
-    console.log(this.state);
-    console.log(this.state.fileObj);
 
     request
       .post("/excel/upload", formData)

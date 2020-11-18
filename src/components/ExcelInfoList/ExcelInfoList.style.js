@@ -7,22 +7,22 @@ const LeftBody = styled.div`
 `;
 
 const FileListHeader = styled.div`
-  background: ${palette.blue[7]};
+  background: ${palette.base_clor[2]};
   display: flex;
   color: white;
-  border: 1px solid blue;
+  border: 1px solid ${palette.base_clor[2]};
   align-items: center;
   justify-content: center;
 `;
 
 const FileListBody = styled.div`
-  border: 1px solid blue;
+  border: 1px solid ${palette.base_clor[2]};
   font-size: 1rem;
   min-height: 700px;
   overflow-y: scroll;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${palette.blue[7]};
+  border: 1px solid ${palette.base_clor[0]};
 `;
 
 const FileItemBox = styled.div`
@@ -78,9 +78,9 @@ const RemoveBtn = styled.div`
 `;
 
 const RightBody = styled.div`
-  border-right: 1px solid ${palette.blue[7]};
-  border-top: 1px solid ${palette.blue[7]};
-  border-bottom: 1px solid ${palette.blue[7]};
+  border-right: 1px solid ${palette.base_clor[0]};
+  border-top: 1px solid ${palette.base_clor[0]};
+  border-bottom: 1px solid ${palette.base_clor[0]};
   margin-top: 4.5rem;
   width: 85%;
   height: 700px;
@@ -88,43 +88,43 @@ const RightBody = styled.div`
 `;
 
 const RightFileName = styled.div`
-  background: ${palette.blue[1]};
+  background: ${palette.base_clor[2]};
   display: flex;
   justify-content: center;
-  border-right: 1px solid ${palette.blue[7]};
-  color: black;
+  border-right: 1px solid ${palette.base_clor[3]};
+  color: white;
   width: 50%;
   height: 10%;
   float: left;
   overflow: scroll;
-  border-bottom: 1px solid ${palette.blue[7]};
+  border-bottom: 1px solid ${palette.base_clor[3]};
 `;
 
 const RightSheetClick = styled.div`
-  background: ${palette.blue[1]};
-  color: black;
+  background: ${palette.base_clor[2]};
+  color: white;
   width: 50%;
   height: 10%;
   float: left;
   display: flex;
   overflow-x: scroll;
   justify-content: center;
-  border-bottom: 1px solid ${palette.blue[7]};
+  border-bottom: 1px solid ${palette.base_clor[3]};
   padding-left: 2rem;
 
   div {
     padding: 0.5rem;
     font-size: 1.5rem;
     margin-left: 2rem;
-    color: black;
+    color: white;
 
     &:hover {
-      color: ${palette.orange[4]};
+      color: ${palette.base_clor[5]};
       cursor: pointer;
     }
   }
   .active {
-    color: coral;
+    color: ${palette.base_clor[5]};
   }
 `;
 

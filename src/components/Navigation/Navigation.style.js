@@ -15,12 +15,12 @@ const CategoryLink = styled.div`
   min-width: 160px;
   position: fixed;
   background-color: white;
-  border-bottom: 1px solid coral;
+  border-bottom: 1px solid ${palette.base_clor[5]};
   overflow-x: hidden;
   padding-top: 40px;
 
   a:hover {
-    color: black;
+    color: ${palette.base_clor[5]};
     text-decoration: none;
   }
 
@@ -37,17 +37,17 @@ const CategoryLinkItem = styled(NavLink)`
   font-size: 25px;
   color: white;
   display: block;
-  background: ${palette.gray[3]};
-  border: 1px solid green;
+  background: ${palette.base_clor[1]};
+  border: 1px solid ${palette.base_clor[0]};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
   &.active {
-    background: coral;
+    background: ${palette.base_clor[5]};
     color: black;
 
     &:hover {
-      color: white;
+      color: ${palette.base_clor[1]};
     }
   }
   @media (max-width: 850px) {

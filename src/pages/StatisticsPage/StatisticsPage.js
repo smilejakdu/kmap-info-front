@@ -16,9 +16,11 @@ const StatisticsPage = () => {
         <SearchDataContainer></SearchDataContainer>
         <KmapTwokProject>KMAP-2K Project Progress</KmapTwokProject>
       </StatisticsPageHeader>
-      <StatisticsPageBody>
-        <Statistics />
-      </StatisticsPageBody>
+      <center>
+        <StatisticsPageBody>
+          <Statistics />
+        </StatisticsPageBody>
+      </center>
     </div>
   );
 };

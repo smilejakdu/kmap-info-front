@@ -26,6 +26,7 @@ import {
   KaiChemIndexNumber,
   KaiChemIndexUpDown,
   ChemIndexSearchBox,
+  InputCheckBox,
 } from "./CompoundInfo.style";
 import request from "../../util/request";
 import axios from "axios";
@@ -213,9 +214,9 @@ const CompoundInfo = ({ search_data }) => {
       <tr>
         <td>
           {data === 1 ? (
-            <input type="checkbox" checked="checked" />
+            <InputCheckBox type="checkbox" checked="checked" />
           ) : (
-            <input type="checkbox" />
+            <InputCheckBox type="checkbox" />
           )}
         </td>
         <td>{text}</td>
