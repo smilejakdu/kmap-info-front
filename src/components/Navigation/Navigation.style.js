@@ -34,6 +34,7 @@ const CategoryLink = styled.div`
 // margin 으로 왜 안되지 ?
 const CategoryLinkItem = styled(NavLink)`
   padding: 6px 8px 6px 16px;
+  margin-right: 3px;
   text-decoration: none;
   font-size: 25px;
   color: white;
