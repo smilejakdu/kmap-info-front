@@ -19,6 +19,7 @@ const CircleBorder = styled.div`
 const SvgBorder = styled.div`
   display: flex;
   border-bottom: 1px solid ${palette.base_clor[0]};
+
   @media (max-width: 1500px) {
     width: 100%;
     border: none;

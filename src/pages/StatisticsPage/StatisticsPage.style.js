@@ -15,7 +15,6 @@ const StatisticsPageBody = styled.div`
   border-radius: 50px;
   margin-top: 5rem;
   display: inline-flex;
-  height: 50%;
   margin: 0 auto;
   margin-bottom: 10rem;
   padding: 3rem;
