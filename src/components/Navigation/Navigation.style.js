@@ -15,7 +15,7 @@ const CategoryLink = styled.div`
   min-width: 160px;
   position: fixed;
   background-color: white;
-  border-bottom: 1px solid ${palette.base_clor[5]};
+  border-bottom: 1px solid ${palette.base_clor[4]};
   overflow-x: hidden;
   padding-top: 40px;
 
@@ -45,8 +45,8 @@ const CategoryLinkItem = styled(NavLink)`
   border-top-right-radius: 10px;
 
   &.active {
-    background: ${palette.base_clor[5]};
-    color: black;
+    background: ${palette.base_clor[0]};
+    color: ${palette.base_clor[5]};
 
     &:hover {
       color: white;
