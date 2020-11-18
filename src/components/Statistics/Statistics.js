@@ -138,7 +138,7 @@ const Statistics = () => {
 
   useEffect(() => {
     console.log(column);
-    yearChange("2019");
+    yearChange("2020");
   }, [column]);
 
   const YearChangeBtn = (year) => {
