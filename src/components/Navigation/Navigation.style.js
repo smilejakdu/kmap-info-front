@@ -31,13 +31,14 @@ const CategoryLink = styled.div`
   }
 `;
 
+// margin 으로 왜 안되지 ?
 const CategoryLinkItem = styled(NavLink)`
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
   color: white;
   display: block;
-  background: ${palette.base_clor[1]};
+  background: ${palette.base_clor[0]};
   border: 1px solid ${palette.base_clor[0]};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -47,7 +48,7 @@ const CategoryLinkItem = styled(NavLink)`
     color: black;
 
     &:hover {
-      color: ${palette.base_clor[1]};
+      color: white;
     }
   }
   @media (max-width: 850px) {
