@@ -36,6 +36,7 @@ const KmapCompoundName = styled.div`
   td {
     font-size: 25px;
     padding-left: 5rem;
+    color: ${palette.base_clor[5]};
   }
 `;
 
