@@ -77,8 +77,8 @@ const Statistics = () => {
           },
           {
             label: "3week",
-            backgroundColor: "#ff8000",
-            borderColor: "#e7e4de",
+            backgroundColor: "#e7e4de",
+            borderColor: "#ff8000",
             borderWidth: 1,
             data: three_list,
           },
@@ -91,8 +91,8 @@ const Statistics = () => {
           },
           {
             label: "5week",
-            backgroundColor: "#ff8000",
-            borderColor: "#e7e4de",
+            backgroundColor: "#e7e4de",
+            borderColor: "#ff8000",
             borderWidth: 1,
             data: five_list,
           },
