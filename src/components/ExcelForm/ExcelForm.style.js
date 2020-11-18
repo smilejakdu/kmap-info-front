@@ -22,13 +22,13 @@ const SheetListBox = styled.div`
 `;
 
 const SheetListHeader = styled.div`
-  background: ${palette.base_clor[3]};
+  background: ${palette.base_clor[2]};
   color: white;
   justify-content: center;
   width: 100%;
   min-height: 5rem;
   display: flex;
-  border: 1px solid ${palette.base_clor[3]};
+  border: 1px solid ${palette.base_clor[2]};
   padding: 5px;
 `;
 

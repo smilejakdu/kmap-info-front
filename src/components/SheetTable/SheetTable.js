@@ -5,10 +5,14 @@ const SheetTable = ({ cols, rows }) => {
   return (
     <div className="sheet_body">
       <table className="table">
-        <thead className="thead-dark fixed_top">
+        <thead className="header_color fixed_top">
           <tr>
             {cols.map((col) => (
-              <th scope="col" className="cols_header fixedHeader" key={col.key}>
+              <th
+                scope="col"
+                className="cols_header header_color fixedHeader"
+                key={col.key}
+              >
                 {col.name}
               </th>
             ))}

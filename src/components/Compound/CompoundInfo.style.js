@@ -27,10 +27,11 @@ const KmapCompoundName = styled.div`
   margin-bottom: 20px;
 
   th {
-    background: ${palette.base_clor[5]};
+    background: ${palette.base_clor[2]};
     padding: 10px;
+    color: ${palette.base_clor[5]};
     font-size: 15px;
-    border-right: 1px solid ${palette.base_clor[3]};
+    border-right: 1px solid ${palette.base_clor[2]};
   }
   td {
     font-size: 25px;
@@ -48,11 +49,12 @@ const RightBodyMiddle = styled.div`
 
 const KmapTwokSubset = styled.div`
   th {
-    border: 1px solid ${palette.base_clor[3]};
+    border: 1px solid ${palette.base_clor[2]};
     float: left;
     width: 20rem;
     font-size: 2.5rem;
-    background: ${palette.base_clor[5]};
+    color: ${palette.base_clor[5]};
+    background: ${palette.base_clor[2]};
     font-weight: bold;
 
     p {
@@ -91,11 +93,20 @@ const IpkExpasionCheckBox = styled.div`
   float: left;
 `;
 
-const InputCheckBox = styled.input.attrs({
-  type: "checkbox",
-})`
+const InputCheckBox = styled.input.attrs({})`
+  border: 0;
   border-radius: 5px;
-  color: red;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background: ${palette.base_clor[5]};
+`;
+
+const InputNoneCheckBox = styled.input.attrs({})`
+  border: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: ${palette.base_clor[0]};
 `;
 
 const PubBox = styled.div`
@@ -110,11 +121,11 @@ const PubBoxCID = styled.table`
   width: 50%;
   tr {
     th {
-      background: ${palette.base_clor[1]};
+      background: ${palette.base_clor[2]};
       border-right: 1px solid ${palette.base_clor[1]};
       border-bottom: 1px solid ${palette.base_clor[1]};
       padding: 20px;
-      color: black;
+      color: ${palette.base_clor[5]};
       width: 40%;
       font-size: 1.5rem;
     }
@@ -134,11 +145,11 @@ const InChiKey = styled.table`
   width: 50%;
   tr {
     th {
-      background: ${palette.base_clor[1]};
+      background: ${palette.base_clor[2]};
       border-left: 1px solid ${palette.base_clor[3]};
       border-right: 1px solid ${palette.base_clor[3]};
       padding: 20px;
-      color: black;
+      color: ${palette.base_clor[5]};
       width: 20%;
       font-size: 1.5rem;
     }
@@ -158,11 +169,11 @@ const PubChemName = styled.table`
   width: 100%;
   tr {
     th {
-      background: ${palette.base_clor[1]};
-      border-top: 1px solid ${palette.base_clor[3]};
-      border-right: 1px solid ${palette.base_clor[3]};
+      background: ${palette.base_clor[2]};
+      border-top: 1px solid ${palette.base_clor[2]};
+      border-right: 1px solid ${palette.base_clor[2]};
       padding: 20px;
-      color: black;
+      color: ${palette.base_clor[5]};
       width: 20%;
       font-size: 1.5rem;
     }
@@ -184,10 +195,10 @@ const KnownTargets = styled.table`
   width: 100%;
   tr {
     th {
-      background: ${palette.base_clor[1]};
+      background: ${palette.base_clor[2]};
       border: 1px solid ${palette.base_clor[3]};
       padding: 20px;
-      color: black;
+      color: ${palette.base_clor[5]};
       width: 20%;
       font-size: 1.5rem;
     }
@@ -201,13 +212,13 @@ const KnownTargets = styled.table`
 `;
 
 const InformationHeader = styled.div`
-  color: black;
-  background: ${palette.base_clor[1]};
+  color: ${palette.base_clor[5]};
+  background: ${palette.base_clor[2]};
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
-  border-left: 1px solid ${palette.base_clor[3]};
-  border-right: 1px solid ${palette.base_clor[3]};
+  border-left: 1px solid ${palette.base_clor[2]};
+  border-right: 1px solid ${palette.base_clor[2]};
   font-weight: bold;
   font-size: 1.5rem;
 `;
@@ -226,8 +237,8 @@ const Header = styled.div`
 `;
 
 const KaiChemIdTH = styled.th`
-  background: ${palette.base_clor[5]};
-  color: black;
+  background: ${palette.base_clor[2]};
+  color: ${palette.base_clor[5]};
   font-weight: bold;
   font-size: 20px;
   padding: 10px;
@@ -256,9 +267,9 @@ const ChemIndexSearchBox = styled.div`
 const KaiPharmChemIndex = styled.div`
   font-size: 1.5rem;
   width: 13rem;
-  background: ${palette.base_clor[5]};
+  background: ${palette.base_clor[2]};
   font-weight: bold;
-  color: black;
+  color: ${palette.base_clor[5]};
   padding-left: 1rem;
   padding-right: 1rem;
   justify-content: center;
@@ -359,4 +370,5 @@ export {
   KaiChemIndexUpDown,
   ChemIndexSearchBox,
   InputCheckBox,
+  InputNoneCheckBox,
 };

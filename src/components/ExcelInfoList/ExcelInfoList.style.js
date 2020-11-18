@@ -91,13 +91,13 @@ const RightFileName = styled.div`
   background: ${palette.base_clor[2]};
   display: flex;
   justify-content: center;
-  border-right: 1px solid ${palette.base_clor[3]};
+  border-right: 1px solid ${palette.base_clor[0]};
   color: white;
   width: 50%;
   height: 10%;
   float: left;
   overflow: scroll;
-  border-bottom: 1px solid ${palette.base_clor[3]};
+  border-bottom: 1px solid ${palette.base_clor[0]};
 `;
 
 const RightSheetClick = styled.div`
@@ -109,7 +109,7 @@ const RightSheetClick = styled.div`
   display: flex;
   overflow-x: scroll;
   justify-content: center;
-  border-bottom: 1px solid ${palette.base_clor[3]};
+  border-bottom: 1px solid ${palette.base_clor[0]};
   padding-left: 2rem;
 
   div {
@@ -130,8 +130,7 @@ const RightSheetClick = styled.div`
 
 const SheetTableData = styled.div`
   border: 1px solid white;
-  min-height: 650px;
-  max-height: 700px;
+  min-height: 620px;
   overflow: auto;
 `;
 
