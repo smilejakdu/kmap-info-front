@@ -6,36 +6,6 @@ const SvgChart = ({ svg_date, svg_number }) => {
   console.log("svg_date :", svg_date);
   console.log("svg_number : ", svg_number);
 
-  // const [widthState, setWidthState] = useState(800);
-  // const [heightState, setHeightState] = useState(350);
-  // const [marginState, setMarginState] = useState({});
-
-  // const updateDimesions = () => {
-  //   if (window.innerWidth < 2000 && window.innerWidth > 1550) {
-  //     setWidthState(750);
-  //     setHeightState(350);
-  //   } else if (window.innerWidth > 2000 && window.innerWidth < 2200) {
-  //     setWidthState(850);
-  //     setHeightState(350);
-  //   } else if (window.innerWidth < 1550) {
-  //     setWidthState(950);
-  //     setHeightState(350);
-  //   } else if (window.innerWidth > 2200 && window.innerWidth < 2600) {
-  //     let update_width = window.innerWidth - 1200;
-  //     let update_height = Math.round(update_width / 3.4);
-  //     setWidthState(update_width); // 1250
-  //     setHeightState(update_height); // 350
-  //   } else if (window.innerWidth > 2600) {
-  //     setWidthState(1300); // 1250
-  //     setHeightState(350); // 350
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   updateDimesions();
-  //   window.addEventListener("resize", updateDimesions);
-  // });
-
   const data = {
     labels: svg_date,
     datasets: [

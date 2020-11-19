@@ -10,14 +10,12 @@ const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
   const [circlechemnum, setCirclechemnum] = useState(0);
   const [column, setColumn] = useState();
-  const [svgdata, setSvgdata] = useState();
   const [year, setYear] = useState();
   const [year_list, setYearList] = useState([]);
   const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState();
-
-  const [svgDate, setSvgDate] = useState();
-  const [svgNumber, setSvgNumber] = useState();
+  const [svgDate, setSvgDate] = useState([]);
+  const [svgNumber, setSvgNumber] = useState([]);
 
   const yearChange = (year) => {
     console.log("year_change : ", year);
@@ -123,6 +121,9 @@ const Statistics = () => {
           svg_date,
           svg_number,
         } = data;
+
+        console.log("date :", svg_date);
+        console.log("number :", svg_number);
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
