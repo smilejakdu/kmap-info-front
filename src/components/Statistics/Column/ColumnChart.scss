@@ -7,6 +7,17 @@
   }
 }
 
+.year_yello_btn {
+  outline: none !important;
+  border: none;
+  background: #ff8000;
+  color: #e7e4de;
+  border-radius: 20px;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+
+}
+
 .year_btn {
   outline: none !important;
   border: none;
@@ -15,11 +26,6 @@
   border-radius: 20px;
   margin: 1rem 1rem;
   padding: 1rem 1rem;
-
-  &:focus {
-    color: #e7e4de;
-    background: #ff8000;
-  }
 
   &:hover {
     color: #e7e4de;

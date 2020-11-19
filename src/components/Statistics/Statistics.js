@@ -11,6 +11,7 @@ const Statistics = () => {
   const [circlechemnum, setCirclechemnum] = useState(0);
   const [column, setColumn] = useState();
   const [svgdata, setSvgdata] = useState();
+  const [year, setYear] = useState();
   const [year_list, setYearList] = useState([]);
   const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState();
@@ -119,6 +120,10 @@ const Statistics = () => {
           svg_data_list,
         } = data;
 
+        /*
+        2020 : {10 :[ 0, 0 , 276 , 276 , 0 , 0 ]}
+        */
+
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
         setColumn(columns_list);
@@ -139,10 +144,12 @@ const Statistics = () => {
   useEffect(() => {
     console.log(column);
     yearChange("2020");
+    setYear("2020");
   }, [column]);
 
   const YearChangeBtn = (year) => {
     yearChange(year);
+    setYear(year);
   };
 
   return (
@@ -165,6 +172,7 @@ const Statistics = () => {
             labels={labels}
             datasets={datasets}
             year_list={year_list}
+            year_data={year}
             YearChangeBtn={YearChangeBtn}
           />
         </ColumnBorder>
