@@ -16,6 +16,9 @@ const Statistics = () => {
   const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState();
 
+  const [svgDate, setSvgDate] = useState();
+  const [svgNumber, setSvgNumber] = useState();
+
   const yearChange = (year) => {
     console.log("year_change : ", year);
     const month_list = [];
@@ -117,17 +120,15 @@ const Statistics = () => {
           circle_number,
           columns_list,
           kaichem_number,
-          svg_data_list,
+          svg_date,
+          svg_number,
         } = data;
-
-        /*
-        2020 : {10 :[ 0, 0 , 276 , 276 , 0 , 0 ]}
-        */
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
         setColumn(columns_list);
-        setSvgdata(svg_data_list);
+        setSvgDate(svg_date);
+        setSvgNumber(svg_number);
 
         let yearData = [];
         for (const year in columns_list) {
@@ -164,7 +165,7 @@ const Statistics = () => {
       </CircleBorder>
       <div>
         <SvgBorder>
-          <SvgChart data={svgdata} />
+          <SvgChart svg_date={svgDate} svg_number={svgNumber} />
         </SvgBorder>
 
         <ColumnBorder>
