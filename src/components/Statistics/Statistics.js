@@ -14,25 +14,18 @@ const Statistics = () => {
   const [year_list, setYearList] = useState([]);
   const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState();
-  const [svgDate, setSvgDate] = useState([]);
-  const [svgNumber, setSvgNumber] = useState([]);
+  const [svgdate, setSvgDate] = useState([]);
+  const [svgnumber, setSvgNumber] = useState([]);
 
   const yearChange = (year) => {
-    console.log("year_change : ", year);
     const month_list = [];
 
     for (const data in column) {
-      // console.log(data, column[`${data}`]);
-      console.log("year === data : ", data);
       if (year === data) {
-        console.log("year== data : ", data);
-        console.log(data, column[`${data}`]);
-
         const month_list = [];
         for (const month in column[`${data}`]) {
           month_list.push(month);
         }
-
         // month sort
         const number_sort = month_list.sort(function (a, b) {
           return a - b;
@@ -122,9 +115,6 @@ const Statistics = () => {
           svg_number,
         } = data;
 
-        console.log("date :", svg_date);
-        console.log("number :", svg_number);
-
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
         setColumn(columns_list);
@@ -144,10 +134,11 @@ const Statistics = () => {
   }, []);
 
   useEffect(() => {
-    console.log(column);
     yearChange("2020");
     setYear("2020");
-  }, [column]);
+    console.log(svgdate);
+    console.log(svgnumber);
+  }, [column, svgnumber, svgdate]);
 
   const YearChangeBtn = (year) => {
     yearChange(year);
@@ -166,9 +157,8 @@ const Statistics = () => {
       </CircleBorder>
       <div>
         <SvgBorder>
-          <SvgChart svg_date={svgDate} svg_number={svgNumber} />
+          <SvgChart labels={svgdate} svgnumber={svgnumber} />
         </SvgBorder>
-
         <ColumnBorder>
           <ColumnChart
             labels={labels}
