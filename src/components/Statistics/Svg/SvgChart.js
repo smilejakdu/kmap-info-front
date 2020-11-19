@@ -49,7 +49,7 @@ export default class LineDemo extends Component {
     };
     return (
       <div>
-        <h2>Line Example</h2>
+        <h2>증감식 데이터</h2>
         <Line
           ref="chart"
           data={data}
