@@ -7,7 +7,7 @@ const StatisticsPageHeader = styled.div`
   display: flex;
   margin-right: auto;
   margin-left: auto;
-  width: 1700px;
+  width: 1600px;
 `;
 
 const StatisticsPageBody = styled.div`
@@ -29,7 +29,6 @@ const StatisticsPageBody = styled.div`
 `;
 
 const KmapTwokProject = styled.div`
-  margin-top: 15rem;
   margin-bottom: 2rem;
   font-size: 28px;
   width: 30%;
