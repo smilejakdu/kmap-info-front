@@ -1,5 +1,4 @@
 import React from "react";
-import Navigation from "../../components/Navigation/Navigation";
 import CompoundInfo from "../../components/Compound/CompoundInfo";
 
 import {
@@ -12,7 +11,6 @@ import {
 const CompoundInfoPage = () => {
   return (
     <>
-      <Navigation />
       <CompoundPageTotalBorder>
         <CompoundInfo />
       </CompoundPageTotalBorder>

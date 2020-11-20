@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
-import Navigation from "../../components/Navigation/Navigation";
 import { ExcelInfoPageBody, ExcelInfoPageHeader } from "./ExcelInfoPage.style";
 import request from "../../util/request";
 import SearchDataContainer from "../../containers/SearchDataContainer";
@@ -31,7 +30,6 @@ const ExcelInfoPage = () => {
 
   return (
     <div>
-      <Navigation />
       <ExcelInfoPageHeader>
         <SearchDataContainer></SearchDataContainer>
       </ExcelInfoPageHeader>
