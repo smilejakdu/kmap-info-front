@@ -17,7 +17,6 @@ import request from "../../util/request";
 import { MdRemoveCircleOutline } from "react-icons/md";
 
 const ExcelInfoList = ({ data, handleChangeExcelData }) => {
-  console.log(data);
   const [sheetData, setSheetData] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [cols, setCols] = useState([]);

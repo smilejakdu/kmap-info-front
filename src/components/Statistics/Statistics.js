@@ -136,8 +136,6 @@ const Statistics = () => {
   useEffect(() => {
     yearChange("2020");
     setYear("2020");
-    console.log(svgdate);
-    console.log(svgnumber);
   }, [column, svgnumber, svgdate]);
 
   const YearChangeBtn = (year) => {

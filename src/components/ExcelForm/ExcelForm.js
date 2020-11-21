@@ -33,10 +33,8 @@ const ExcelRenderer = (file, callback, index = 0) => {
 
       const wsname = wb.SheetNames[index];
       const ws = wb.Sheets[wsname];
-      console.log("ws : ", ws);
 
       const json = XLSX.utils.sheet_to_json(ws, { header: 1 });
-      console.log("json : ", json); // 여기서 이미 v 값이 출력됨 .
       const jsonData = [];
 
       for (let i = 1; i < json.length; i++) {

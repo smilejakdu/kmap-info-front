@@ -9,7 +9,6 @@ const ColumnChart = ({
   year_data,
   YearChangeBtn,
 }) => {
-  console.log("datasets : ", datasets);
   const options = {
     responsive: true,
     legend: {
