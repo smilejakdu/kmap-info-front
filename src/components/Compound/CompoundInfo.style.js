@@ -88,10 +88,12 @@ const CheckBox = styled.div`
 const CountryCheckBox = styled.div`
   float: left;
   margin-right: 5rem;
+  font-size: 2rem;
 `;
 
 const IpkExpasionCheckBox = styled.div`
   float: left;
+  font-size: 2rem;
 `;
 
 const InputCheckBox = styled.input.attrs({})`
@@ -128,10 +130,10 @@ const PubBoxCID = styled.table`
       padding: 20px;
       color: black;
       width: 40%;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     td {
-      font-size: 1.5rem;
+      font-size: 2rem;
       padding: 10px;
       width: 60%;
     }
@@ -152,10 +154,10 @@ const InChiKey = styled.table`
       padding: 20px;
       color: black;
       width: 20%;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     td {
-      font-size: 1.5rem;
+      font-size: 2rem;
       padding: 10px;
       width: 30%;
     }
@@ -176,10 +178,10 @@ const PubChemName = styled.table`
       padding: 20px;
       color: black;
       width: 20%;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     td {
-      font-size: 1.5rem;
+      font-size: 2rem;
       padding: 10px;
       width: 80%;
       border-top: 1px solid ${palette.base_clor[3]};
@@ -201,10 +203,10 @@ const KnownTargets = styled.table`
       padding: 20px;
       color: black;
       width: 20%;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     td {
-      font-size: 1.5rem;
+      font-size: 2rem;
       padding: 10px;
       border: 1px solid ${palette.base_clor[3]};
       width: 80%;
@@ -221,14 +223,14 @@ const InformationHeader = styled.div`
   border-left: 1px solid ${palette.base_clor[2]};
   border-right: 1px solid ${palette.base_clor[2]};
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2rem;
 `;
 
 const InformationBody = styled.textarea`
   width: 100%;
   height: 100px;
   resize: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border: 1px solid ${palette.base_clor[3]};
   padding: 10px;
 `;
@@ -241,14 +243,14 @@ const KaiChemIdTH = styled.th`
   background: ${palette.base_clor[2]};
   color: black;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 2rem;
   padding: 10px;
   border: 1px solid ${palette.base_clor[1]};
 `;
 
 const KaiChemIdTD = styled.td`
   border: 1px solid ${palette.base_clor[1]};
-  font-size: 20px;
+  font-size: 2rem;
   padding-left: 80px;
   padding-right: 80px;
 `;
