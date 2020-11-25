@@ -45,8 +45,8 @@ const CategoryLinkItem = styled(NavLink)`
   border-top-right-radius: 10px;
 
   &.active {
-    background: ${palette.base_clor[0]};
-    color: ${palette.base_clor[5]};
+    background: ${palette.base_clor[5]};
+    color: ${palette.base_clor[0]};
 
     &:hover {
       color: white;

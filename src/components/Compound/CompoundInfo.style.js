@@ -29,7 +29,7 @@ const KmapCompoundName = styled.div`
   th {
     background: ${palette.base_clor[2]};
     padding: 10px;
-    color: ${palette.base_clor[4]};
+    color: black;
     font-size: 15px;
     border-right: 1px solid ${palette.base_clor[2]};
   }
@@ -54,7 +54,7 @@ const KmapTwokSubset = styled.div`
     float: left;
     width: 20rem;
     font-size: 2.5rem;
-    color: ${palette.base_clor[4]};
+    color: black;
     background: ${palette.base_clor[2]};
     font-weight: bold;
 
@@ -126,7 +126,7 @@ const PubBoxCID = styled.table`
       border-right: 1px solid ${palette.base_clor[1]};
       border-bottom: 1px solid ${palette.base_clor[1]};
       padding: 20px;
-      color: ${palette.base_clor[4]};
+      color: black;
       width: 40%;
       font-size: 1.5rem;
     }
@@ -150,7 +150,7 @@ const InChiKey = styled.table`
       border-left: 1px solid ${palette.base_clor[3]};
       border-right: 1px solid ${palette.base_clor[3]};
       padding: 20px;
-      color: ${palette.base_clor[4]};
+      color: black;
       width: 20%;
       font-size: 1.5rem;
     }
@@ -174,7 +174,7 @@ const PubChemName = styled.table`
       border-top: 1px solid ${palette.base_clor[2]};
       border-right: 1px solid ${palette.base_clor[2]};
       padding: 20px;
-      color: ${palette.base_clor[4]};
+      color: black;
       width: 20%;
       font-size: 1.5rem;
     }
@@ -199,7 +199,7 @@ const KnownTargets = styled.table`
       background: ${palette.base_clor[2]};
       border: 1px solid ${palette.base_clor[3]};
       padding: 20px;
-      color: ${palette.base_clor[4]};
+      color: black;
       width: 20%;
       font-size: 1.5rem;
     }
@@ -213,7 +213,7 @@ const KnownTargets = styled.table`
 `;
 
 const InformationHeader = styled.div`
-  color: ${palette.base_clor[4]};
+  color: ${palette.black};
   background: ${palette.base_clor[2]};
   padding-top: 10px;
   padding-bottom: 10px;
@@ -239,7 +239,7 @@ const Header = styled.div`
 
 const KaiChemIdTH = styled.th`
   background: ${palette.base_clor[2]};
-  color: ${palette.base_clor[4]};
+  color: black;
   font-weight: bold;
   font-size: 20px;
   padding: 10px;
@@ -270,7 +270,7 @@ const KaiPharmChemIndex = styled.div`
   width: 13rem;
   background: ${palette.base_clor[2]};
   font-weight: bold;
-  color: ${palette.base_clor[4]};
+  color: black;
   padding-left: 1rem;
   padding-right: 1rem;
   justify-content: center;
