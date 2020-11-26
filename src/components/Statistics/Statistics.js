@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CircleChart from "./Circle/CircleChart";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import ColumnChart from "./Column/ColumnChart";
 import SvgChart from "./Svg/SvgChart";
 import request from "../../util/request";
 import { CircleBorder, ColumnBorder, SvgBorder } from "./Statistics.style";
+import ChangingProgressProvider from "./ChangingProgressProvider";
 
 const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
@@ -149,7 +150,13 @@ const Statistics = () => {
         <CircleChart label={`${circlechemnum} compound`}>
           <CircularProgressbar
             value={circlepercent}
-            text={`${circlepercent}%`}
+            text={`${circlepercent} %`}
+            circleRatio={0.9} // 사이즈
+            styles={buildStyles({
+              rotation: 0 / 1 / 9,
+              strokeLinecap: "butt",
+              trailColor: "#e7e4de",
+            })}
           />
         </CircleChart>
       </CircleBorder>
