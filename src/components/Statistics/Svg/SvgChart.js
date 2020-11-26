@@ -48,7 +48,7 @@ export default class LineDemo extends Component {
     };
     return (
       <div>
-        <h2>증감식 데이터</h2>
+        <h2>Kmap 데이터 누적량</h2>
         <Line
           ref="chart"
           data={data}
