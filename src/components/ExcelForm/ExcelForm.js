@@ -185,7 +185,6 @@ class ExcelForm extends Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", this.state.fileObj);
-    console.log("formData :", formData);
     formData.entries();
 
     try {
@@ -201,10 +200,8 @@ class ExcelForm extends Component {
         excelFileName: "",
       });
     } catch (error) {
-      console.log(error);
       if (error.response) {
         const { data } = error.response;
-        console.error("data : ", data);
         if (data.message === "EXISTS_EXCEL") {
           this.setState({
             modalshow: true,
