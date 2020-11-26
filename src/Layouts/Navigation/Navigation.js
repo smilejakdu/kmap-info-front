@@ -42,8 +42,8 @@ const Navigation = () => {
         </CategoryLinkItem>
 
         <ImageLogo>
-          <img src={`/kmapinfo/${image}`} alt="" width="300" height="50" />
-          <img src={`${ipk}`} alt="" width="100" height="70" />
+          <img src={`/kmapinfo/${image}`} alt="" height="70" />
+          <img src={`${ipk}`} alt="" height="70" />
         </ImageLogo>
       </CategoryLink>
     </div>

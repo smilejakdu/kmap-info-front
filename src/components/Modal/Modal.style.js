@@ -31,6 +31,10 @@ const ModalBody = styled.div`
     font-size: 16pt;
     font-weight: bold;
     color: #333;
+    display: flex;
+    .ai {
+      color: ${palette.base_clor[5]};
+    }
   }
 
   .content {

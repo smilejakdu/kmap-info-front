@@ -8,7 +8,10 @@ const Modal = ({ isOpen, close, text }) => {
         <div>
           <ModalOverlay onClick={close} />
           <ModalBody>
-            <p className="title">KaiPharm</p>
+            <p className="title">
+              K<p className="ai">ai</p>
+              Pharm
+            </p>
             <div className="content">
               <p>{text}</p>
             </div>

@@ -201,24 +201,23 @@ class ExcelForm extends Component {
       });
     } catch (error) {
       if (error.response) {
-        const { message } = error.response.message;
         const { data } = error.response;
-        if (message === "EXISTS_EXCEL") {
+        if (data.message === "EXISTS_EXCEL") {
           this.setState({
             modalshow: true,
             modalmessage: "파일이름이 존재합니다.",
           });
-        } else if (message === "NOT_EXCEL_FILE") {
+        } else if (data.message === "NOT_EXCEL_FILE") {
           this.setState({
             modalshow: true,
             modalmessage: "원하는 엑셀 파일이 아닙니다.",
           });
-        } else if (message === "INVALID_KEY") {
+        } else if (data.message === "INVALID_KEY") {
           this.setState({
             modalshow: true,
             modalmessage: "칼럼 값을 확인하세요.",
           });
-        } else if (message === "DOES_NOT_FILE") {
+        } else if (data.message === "DOES_NOT_FILE") {
           this.setState({
             modalshow: true,
             modalmessage: "파일이 존재하지 않습니다.",
