@@ -15,6 +15,7 @@ import request from "../../util/request";
 import SheetTable from "../SheetTable/SheetTable";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchDataContainer from "../../containers/SearchDataContainer";
+import Modal from "../Modal/Modal";
 
 const ExcelRenderer = (file, callback, index = 0) => {
   return new Promise(function (resolve, reject) {
@@ -74,6 +75,8 @@ class ExcelForm extends Component {
       fileObj: null,
       excelFileName: "",
       sheetName: "",
+      modalshow: false,
+      modalmessage: "",
     };
 
     this.fileHandler = this.fileHandler.bind(this);
@@ -82,12 +85,24 @@ class ExcelForm extends Component {
     this.renderFile = this.renderFile.bind(this);
     this.fileInput = React.createRef();
   }
+  ModalShowOpen = () => {
+    this.setState({
+      modalshow: true,
+    });
+  };
+
+  ModalShowClose = () => {
+    this.setState({
+      modalshow: false,
+    });
+  };
 
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
     });
   }
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     //  return true!; 구현하지 않을때는 기본적으로 true 입니다.
     if (this.state !== nextState) {
@@ -95,6 +110,7 @@ class ExcelForm extends Component {
     }
     return this.props.info !== nextProps.info;
   }
+
   openFileBrowser = () => {
     this.fileInput.current.click();
   };
@@ -165,36 +181,66 @@ class ExcelForm extends Component {
       });
   };
 
-  uploadClick = (e) => {
+  uploadClick = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", this.state.fileObj);
+    console.log("formData :", formData);
     formData.entries();
 
-    request
-      .post("/excel/upload", formData)
-      .then((res) => {
-        this.setState({
-          isOpen: false,
-          dataLoaded: false,
-          isFormInvalid: false,
-          uploadName: [],
-          rows: null,
-          cols: null,
-          fileObj: null,
-          excelFileName: "",
-        });
-      })
-      .catch((err) => {
-        console.log("err : ", err);
-        alert("파일이름이 존재합니다.");
+    try {
+      await request.post("/excel/upload", formData);
+      this.setState({
+        isOpen: false,
+        dataLoaded: false,
+        isFormInvalid: false,
+        uploadName: [],
+        rows: null,
+        cols: null,
+        fileObj: null,
+        excelFileName: "",
       });
+    } catch (error) {
+      console.log(error);
+      if (error.response) {
+        const { data } = error.response;
+        console.error("data : ", data);
+        if (data.message === "EXISTS_EXCEL") {
+          this.setState({
+            modalshow: true,
+            modalmessage: "파일이름이 존재합니다.",
+          });
+        } else if (data.message === "NOT_EXCEL_FILE") {
+          this.setState({
+            modalshow: true,
+            modalmessage: "원하는 엑셀 파일이 아닙니다.",
+          });
+        } else if (data.message === "INVALID_KEY") {
+          this.setState({
+            modalshow: true,
+            modalmessage: "칼럼 값을 확인하세요.",
+          });
+        } else if (data.message === "DOES_NOT_FILE") {
+          this.setState({
+            modalshow: true,
+            modalmessage: "파일이 존재하지 않습니다.",
+          });
+        }
+      }
+    }
   };
 
   render() {
     return (
       <div>
         <FileUploadPageHeader>
+          {this.state.modalshow && (
+            <Modal
+              isOpen={this.ModalShowOpen}
+              close={this.ModalShowClose}
+              text={this.state.modalmessage}
+            ></Modal>
+          )}
           <form>
             <SheetListBox>
               <SheetListHeader>Sheet List</SheetListHeader>
