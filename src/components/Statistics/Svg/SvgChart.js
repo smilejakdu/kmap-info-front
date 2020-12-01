@@ -2,7 +2,8 @@ import React, { useState, useEffect, Component } from "react";
 import "./SvgChart.scss";
 import { Line } from "react-chartjs-2";
 
-export default class LineDemo extends Component {
+// LineDemo
+export default class SvgChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,38 +21,56 @@ export default class LineDemo extends Component {
 
   render() {
     const { labels, svgnumber } = this.props;
+    const labels_plus_none = ["", ...labels, ""];
+    const svg_plus_none = [NaN, ...svgnumber, NaN];
     const data = {
-      labels: labels,
+      labels: labels_plus_none,
       datasets: [
         {
-          label: "My First dataset",
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "#e7e4de",
-          borderColor: "#e7e4de",
+          backgroundColor: "#ff8000",
+          borderColor: "#ff8000",
           borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
+          borderDashOffset: 0.1,
           borderJoinStyle: "miter",
-          pointBorderColor: "#ff8000",
-          pointBackgroundColor: "#fff",
+          pointBackgroundColor: "#ff8000",
           pointBorderWidth: 10,
-          pointHoverRadius: 5,
+          pointHoverRadius: 10,
           pointHoverBackgroundColor: "#ff8000",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: svgnumber,
+          pointHoverBorderColor: "#ff8000",
+          pointRadius: 5,
+          pointHitRadius: 5,
+          data: svg_plus_none,
         },
       ],
     };
+
     return (
       <div>
         <h2>Kmap 데이터 누적량</h2>
         <Line
           ref="chart"
           data={data}
+          options={{
+            tooltips: {
+              xPadding: 10,
+            },
+            legend: {
+              display: false,
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    max: this.props.maxY,
+                    min: 0,
+                    stepSize: 100,
+                  },
+                },
+              ],
+            },
+          }}
           style={this.styles}
           width={this.state.width}
           height={this.state.height}

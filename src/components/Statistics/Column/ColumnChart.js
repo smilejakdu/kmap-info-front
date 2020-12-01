@@ -2,17 +2,24 @@ import React, { useState, useEffect } from "react";
 import "./ColumnChart.scss";
 import { Bar } from "react-chartjs-2";
 
-const ColumnChart = ({
-  labels,
-  datasets,
-  year_list,
-  year_data,
-  YearChangeBtn,
-}) => {
+const ColumnChart = ({ labels, datasets }) => {
+  console.log(labels);
+  console.log(datasets);
+
   const options = {
     responsive: true,
     legend: {
       display: false,
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            min: 0,
+            stepSize: 50,
+          },
+        },
+      ],
     },
     type: "bar",
   };
@@ -22,24 +29,9 @@ const ColumnChart = ({
     datasets,
   };
 
+  // 어차피 최근 8개가 나와야하니깐 yarchangebtn 은 필요없지 않을까 ?
   return (
     <div>
-      <div>
-        {year_list.map((year) =>
-          year_data === year ? (
-            <button
-              onClick={() => YearChangeBtn(year)}
-              className="year_yello_btn"
-            >
-              {year}
-            </button>
-          ) : (
-            <button onClick={() => YearChangeBtn(year)} className="year_btn">
-              {year}
-            </button>
-          )
-        )}
-      </div>
       <Bar data={data} width={900} height={500} options={options} />
     </div>
   );

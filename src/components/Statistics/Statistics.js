@@ -5,104 +5,16 @@ import ColumnChart from "./Column/ColumnChart";
 import SvgChart from "./Svg/SvgChart";
 import request from "../../util/request";
 import { CircleBorder, ColumnBorder, SvgBorder } from "./Statistics.style";
-import ChangingProgressProvider from "./ChangingProgressProvider";
 
 const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
   const [circlechemnum, setCirclechemnum] = useState(0);
   const [column, setColumn] = useState();
-  const [year, setYear] = useState();
   const [year_list, setYearList] = useState([]);
   const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState();
-  const [svgdate, setSvgDate] = useState([]);
+  const [svglabels, setSvgLabels] = useState([]);
   const [svgnumber, setSvgNumber] = useState([]);
-
-  const yearChange = (year) => {
-    const month_list = [];
-
-    for (const data in column) {
-      if (year === data) {
-        const month_list = [];
-        for (const month in column[`${data}`]) {
-          month_list.push(month);
-        }
-        // month sort
-        const number_sort = month_list.sort(function (a, b) {
-          return a - b;
-        });
-        // labels month input
-        const test = [];
-
-        for (const number_month of number_sort) {
-          test.push(`${number_month}month`);
-        }
-        setLabels(test);
-        const one_list = [];
-        const two_list = [];
-        const three_list = [];
-        const four_list = [];
-        const five_list = [];
-        const six_list = [];
-
-        for (const number of number_sort) {
-          one_list.push(column[year][number][0]);
-          two_list.push(column[year][number][1]);
-          three_list.push(column[year][number][2]);
-          four_list.push(column[year][number][3]);
-          five_list.push(column[year][number][4]);
-          six_list.push(column[year][number][5]);
-        }
-
-        setDatasets([
-          {
-            label: "1week",
-            backgroundColor: "coral",
-            borderColor: "coral",
-            borderWidth: 1,
-            hoverBackgroundColor: "coral",
-            hoverBorderColor: "coral",
-            data: one_list,
-          },
-          {
-            label: "2week",
-            backgroundColor: "#e7e4de",
-            borderColor: "#ff8000",
-            borderWidth: 1,
-            data: two_list,
-          },
-          {
-            label: "3week",
-            backgroundColor: "#e7e4de",
-            borderColor: "#ff8000",
-            borderWidth: 1,
-            data: three_list,
-          },
-          {
-            label: "4week",
-            backgroundColor: "#e7e4de",
-            borderColor: "#ff8000",
-            borderWidth: 1,
-            data: four_list,
-          },
-          {
-            label: "5week",
-            backgroundColor: "#e7e4de",
-            borderColor: "#ff8000",
-            borderWidth: 1,
-            data: five_list,
-          },
-          {
-            label: "6week",
-            backgroundColor: "#e7e4de",
-            borderColor: "#ff8000",
-            borderWidth: 1,
-            data: six_list,
-          },
-        ]);
-      }
-    }
-  };
 
   useEffect(() => {
     request
@@ -112,37 +24,162 @@ const Statistics = () => {
           circle_number,
           columns_list,
           kaichem_number,
-          svg_date,
+          svg_labels,
           svg_number,
         } = data;
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
         setColumn(columns_list);
-        setSvgDate(svg_date);
+        setSvgLabels(svg_labels);
         setSvgNumber(svg_number);
 
         let yearData = [];
         for (const year in columns_list) {
           yearData.push(year);
         }
-        setYearList(yearData);
+        const reverseyearData = yearData.reverse();
+        setYearList(reverseyearData);
       })
-
       .catch((err) => {
         err && console.log(err);
       });
   }, []);
 
   useEffect(() => {
-    yearChange("2020");
-    setYear("2020");
-  }, [column, svgnumber, svgdate]);
+    console.log(year_list);
+    console.log(column);
+    console.log(year_list);
 
-  const YearChangeBtn = (year) => {
-    yearChange(year);
-    setYear(year);
-  };
+    const year_month_list = [];
+    for (const year of year_list) {
+      for (const month in column[`${year}`]) {
+        year_month_list.push(Number(year + month));
+      }
+    }
+
+    // month sort 정렬 [202012, 202011, 202010, 202008, 201911, 201910]
+    const number_sort = year_month_list.sort(function (a, b) {
+      return a - b;
+    });
+
+    console.log(number_sort);
+
+    // labels month input
+    setLabels(number_sort);
+
+    const one_list = [];
+    const two_list = [];
+    const three_list = [];
+    const four_list = [];
+    const five_list = [];
+    const six_list = [];
+    console.log(column);
+
+    for (const number of number_sort) {
+      console.log(number);
+      one_list.push(
+        Number(
+          column[String(number).substring(0, 4)][
+            String(number).substring(4, 6)
+          ][0]
+        )
+      );
+      two_list.push(
+        Number(
+          column[String(number).substring(0, 4)][
+            String(number).substring(4, 6)
+          ][1]
+        )
+      );
+      three_list.push(
+        Number(
+          column[String(number).substring(0, 4)][
+            String(number).substring(4, 6)
+          ][2]
+        )
+      );
+      four_list.push(
+        Number(
+          column[String(number).substring(0, 4)][
+            String(number).substring(4, 6)
+          ][3]
+        )
+      );
+      five_list.push(
+        Number(
+          column[String(number).substring(0, 4)][
+            String(number).substring(4, 6)
+          ][4]
+        )
+      );
+      six_list.push(
+        Number(
+          column[String(number).substring(0, 4)][
+            String(number).substring(4, 6)
+          ][5]
+        )
+      );
+    }
+    console.log(one_list);
+
+    setDatasets([
+      {
+        label: "1week",
+        backgroundColor: "coral",
+        borderColor: "coral",
+        borderWidth: 1,
+        hoverBackgroundColor: "coral",
+        hoverBorderColor: "coral",
+        data: one_list,
+      },
+      {
+        label: "2week",
+        backgroundColor: "coral",
+        borderColor: "coral",
+        borderWidth: 1,
+        hoverBackgroundColor: "coral",
+        hoverBorderColor: "coral",
+        data: two_list,
+      },
+      {
+        label: "3week",
+        backgroundColor: "coral",
+        borderColor: "coral",
+        borderWidth: 1,
+        hoverBackgroundColor: "coral",
+        hoverBorderColor: "coral",
+        data: three_list,
+      },
+      {
+        label: "4week",
+        backgroundColor: "coral",
+        borderColor: "coral",
+        borderWidth: 1,
+        hoverBackgroundColor: "coral",
+        hoverBorderColor: "coral",
+        data: four_list,
+      },
+      {
+        label: "5week",
+        backgroundColor: "coral",
+        borderColor: "coral",
+        borderWidth: 1,
+        hoverBackgroundColor: "coral",
+        hoverBorderColor: "coral",
+        data: five_list,
+      },
+      {
+        label: "5week",
+        backgroundColor: "coral",
+        borderColor: "coral",
+        borderWidth: 1,
+        hoverBackgroundColor: "coral",
+        hoverBorderColor: "coral",
+        data: six_list,
+      },
+    ]);
+  }, [year_list]);
 
   return (
     <>
@@ -161,18 +198,12 @@ const Statistics = () => {
         </CircleChart>
       </CircleBorder>
       <div>
-        <SvgBorder>
-          <SvgChart labels={svgdate} svgnumber={svgnumber} />
-        </SvgBorder>
         <ColumnBorder>
-          <ColumnChart
-            labels={labels}
-            datasets={datasets}
-            year_list={year_list}
-            year_data={year}
-            YearChangeBtn={YearChangeBtn}
-          />
+          <ColumnChart labels={labels} datasets={datasets} />
         </ColumnBorder>
+        <SvgBorder>
+          <SvgChart labels={svglabels} svgnumber={svgnumber} />
+        </SvgBorder>
       </div>
     </>
   );

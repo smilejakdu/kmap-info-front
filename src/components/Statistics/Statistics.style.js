@@ -30,7 +30,6 @@ const SvgBorder = styled.div`
 
 const ColumnBorder = styled.div`
   display: flex;
-  float: left;
 
   @media (max-width: 1500px) {
     width: 100%;
