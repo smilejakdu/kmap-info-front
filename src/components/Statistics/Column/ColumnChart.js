@@ -11,6 +11,7 @@ const ColumnChart = ({ labels, datasets }) => {
     legend: {
       display: false,
     },
+
     scales: {
       yAxes: [
         {

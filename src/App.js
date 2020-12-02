@@ -11,7 +11,6 @@ import Layout from "./Layouts/Layout";
 const App = () => {
   const [user, setUser] = useState(null);
   const authenticated = user != null;
-
   const login = ({ user_id, password }) => setUser({ user_id, password });
 
   return (

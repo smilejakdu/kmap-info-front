@@ -12,12 +12,10 @@ const Statistics = () => {
   const [column        , setColumn] = useState();
   const [year_list     , setYearList] = useState([]);
   const [labels        , setLabels] = useState([]);
-  const [datasets      , setDatasets] = useState();
+  const [datasets     , setDatasets] = useState();
   const [svglabels     , setSvgLabels] = useState([]);
   const [svgnumber     , setSvgNumber] = useState([]);
-
   
-
   useEffect(() => {
     request
       .get("/excel/statistics")
@@ -34,7 +32,22 @@ const Statistics = () => {
         setCirclechemnum(kaichem_number);
         setColumn(columns_list);
         setSvgLabels(svg_labels);
-        setSvgNumber(svg_number);
+        console.log(svg_labels);
+        const empty_label = [];
+        for (const label of svg_labels){
+          if (label !==""){
+            empty_label.push(label);
+          }
+        }
+        setSvgLabels(empty_label);
+
+        const first_index_zero = [];
+        for (const number of svg_number){
+          if (number !==0){
+            first_index_zero.push(number);
+          }
+        }
+        setSvgNumber(first_index_zero);
 
         let yearData = [];
         for (const year in columns_list) {
@@ -43,6 +56,7 @@ const Statistics = () => {
         const reverseyearData = yearData.reverse();
         setYearList(reverseyearData);
       })
+
       .catch((err) => {
         err && console.log(err);
       });
@@ -54,6 +68,7 @@ const Statistics = () => {
     console.log(year_list);
 
     const year_month_list = [];
+
     for (const year of year_list) {
       for (const month in column[`${year}`]) {
         for (const week in column[`${year}`][`${month}`]){
@@ -61,7 +76,9 @@ const Statistics = () => {
             if (year_month_list.length === 8){
               break;
             }
-            year_month_list.push(Number(year + month + week));
+            const week_number = Number(week)+1; // 일단 week 에 index 0 부터니깐 +1 
+            console.log(week_number);
+            year_month_list.push(Number(year + month + week_number));
           }
         }
       }
@@ -75,27 +92,24 @@ const Statistics = () => {
     const year_number_to_string = [];
 
     for (const number of number_sort){
-      year_number_to_string.push(String(number).substring(0,4)+"년"+String(number).substring(4,6)+"월"+String(number).substring(6)+"주");
+      year_number_to_string.push(String(number).substring(0,4)+"년"+String(number).substring(4,6)+"월 "+String(number).substring(6)+"주");
     }
 
     // labels month input
+    console.log("year_number_to_string :" , year_number_to_string);
     setLabels(year_number_to_string);
 
     const column_data_list = [];
-    //    const two_list = [];
-    //    const three_list = [];
-    //    const four_list = [];
-    //    const five_list = [];
-    //    const six_list = [];
-    //    console.log(number_sort);
+
+    console.log(number_sort);
+    // console.log(number_sort.length); 2 
 
     for (const number of number_sort) {
-      console.log(column[String(number).substring(0,4)][String(number).substring(4,6)])
       column_data_list.push(
         Number(
           column[String(number).substring(0, 4)][
             String(number).substring(4, 6)
-          ][String(number).substring(6)]
+          ][String(Number(String(number).substring(6))-1)]
         )
       );
     }
