@@ -7,14 +7,16 @@ import request from "../../util/request";
 import { CircleBorder, ColumnBorder, SvgBorder } from "./Statistics.style";
 
 const Statistics = () => {
-  const [circlepercent, setCirclepercent] = useState(0);
-  const [circlechemnum, setCirclechemnum] = useState(0);
-  const [column, setColumn] = useState();
-  const [year_list, setYearList] = useState([]);
-  const [labels, setLabels] = useState([]);
-  const [datasets, setDatasets] = useState();
-  const [svglabels, setSvgLabels] = useState([]);
-  const [svgnumber, setSvgNumber] = useState([]);
+  const [circlepercent , setCirclepercent] = useState(0);
+  const [circlechemnum , setCirclechemnum] = useState(0);
+  const [column        , setColumn] = useState();
+  const [year_list     , setYearList] = useState([]);
+  const [labels        , setLabels] = useState([]);
+  const [datasets      , setDatasets] = useState();
+  const [svglabels     , setSvgLabels] = useState([]);
+  const [svgnumber     , setSvgNumber] = useState([]);
+
+  
 
   useEffect(() => {
     request
@@ -54,129 +56,61 @@ const Statistics = () => {
     const year_month_list = [];
     for (const year of year_list) {
       for (const month in column[`${year}`]) {
-        year_month_list.push(Number(year + month));
+        for (const week in column[`${year}`][`${month}`]){
+          if (column[`${year}`][`${month}`][`${week}`] !==0){
+            if (year_month_list.length === 8){
+              break;
+            }
+            year_month_list.push(Number(year + month + week));
+          }
+        }
       }
     }
 
     // month sort 정렬 [202012, 202011, 202010, 202008, 201911, 201910]
     const number_sort = year_month_list.sort(function (a, b) {
-      return a - b;
+      return a - b; // 정렬함
     });
+    
+    const year_number_to_string = [];
 
-    console.log(number_sort);
+    for (const number of number_sort){
+      year_number_to_string.push(String(number).substring(0,4)+"년"+String(number).substring(4,6)+"월"+String(number).substring(6)+"주");
+    }
 
     // labels month input
-    setLabels(number_sort);
+    setLabels(year_number_to_string);
 
-    const one_list = [];
-    const two_list = [];
-    const three_list = [];
-    const four_list = [];
-    const five_list = [];
-    const six_list = [];
-    console.log(column);
+    const column_data_list = [];
+    //    const two_list = [];
+    //    const three_list = [];
+    //    const four_list = [];
+    //    const five_list = [];
+    //    const six_list = [];
+    //    console.log(number_sort);
 
     for (const number of number_sort) {
-      console.log(number);
-      one_list.push(
+      console.log(column[String(number).substring(0,4)][String(number).substring(4,6)])
+      column_data_list.push(
         Number(
           column[String(number).substring(0, 4)][
             String(number).substring(4, 6)
-          ][0]
-        )
-      );
-      two_list.push(
-        Number(
-          column[String(number).substring(0, 4)][
-            String(number).substring(4, 6)
-          ][1]
-        )
-      );
-      three_list.push(
-        Number(
-          column[String(number).substring(0, 4)][
-            String(number).substring(4, 6)
-          ][2]
-        )
-      );
-      four_list.push(
-        Number(
-          column[String(number).substring(0, 4)][
-            String(number).substring(4, 6)
-          ][3]
-        )
-      );
-      five_list.push(
-        Number(
-          column[String(number).substring(0, 4)][
-            String(number).substring(4, 6)
-          ][4]
-        )
-      );
-      six_list.push(
-        Number(
-          column[String(number).substring(0, 4)][
-            String(number).substring(4, 6)
-          ][5]
+          ][String(number).substring(6)]
         )
       );
     }
-    console.log(one_list);
+
+    console.log(column_data_list);
 
     setDatasets([
       {
-        label: "1week",
+        label: "data",
         backgroundColor: "coral",
         borderColor: "coral",
-        borderWidth: 1,
+        borderWidth: 0.1,
         hoverBackgroundColor: "coral",
         hoverBorderColor: "coral",
-        data: one_list,
-      },
-      {
-        label: "2week",
-        backgroundColor: "coral",
-        borderColor: "coral",
-        borderWidth: 1,
-        hoverBackgroundColor: "coral",
-        hoverBorderColor: "coral",
-        data: two_list,
-      },
-      {
-        label: "3week",
-        backgroundColor: "coral",
-        borderColor: "coral",
-        borderWidth: 1,
-        hoverBackgroundColor: "coral",
-        hoverBorderColor: "coral",
-        data: three_list,
-      },
-      {
-        label: "4week",
-        backgroundColor: "coral",
-        borderColor: "coral",
-        borderWidth: 1,
-        hoverBackgroundColor: "coral",
-        hoverBorderColor: "coral",
-        data: four_list,
-      },
-      {
-        label: "5week",
-        backgroundColor: "coral",
-        borderColor: "coral",
-        borderWidth: 1,
-        hoverBackgroundColor: "coral",
-        hoverBorderColor: "coral",
-        data: five_list,
-      },
-      {
-        label: "5week",
-        backgroundColor: "coral",
-        borderColor: "coral",
-        borderWidth: 1,
-        hoverBackgroundColor: "coral",
-        hoverBorderColor: "coral",
-        data: six_list,
+        data: column_data_list,
       },
     ]);
   }, [year_list]);
