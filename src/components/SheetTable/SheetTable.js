@@ -1,5 +1,5 @@
-import React from "react";
-import "./SheetTable.scss";
+import React from 'react';
+import './SheetTable.scss';
 
 const SheetTable = ({ cols, rows }) => {
   return (

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
 
 const SearchBorder = styled.div`
   position: absolute;
@@ -7,7 +7,7 @@ const SearchBorder = styled.div`
   right: 0;
   input {
     outline: none !important;
-    border: 1px solid ${palette.base_clor[0]};
+    border: 1px solid ${palette.base_clor[1]};
     font-size: 1.5rem;
     padding: 10px;
     width: 25rem;
@@ -15,14 +15,14 @@ const SearchBorder = styled.div`
 
   .search-btn {
     outline: none !important;
-    border: 1px solid ${palette.base_clor[0]};
-    background: ${palette.base_clor[0]};
+    border: 1px solid ${palette.base_clor[1]};
+    background: ${palette.base_clor[1]};
     font-size: 1.5rem;
     padding: 12px;
     color: white;
 
     &:hover {
-      color: black;
+      color: ${palette.base_clor[0]};
     }
   }
 

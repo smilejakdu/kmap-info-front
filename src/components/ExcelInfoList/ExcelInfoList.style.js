@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
 
 const LeftBody = styled.div`
   width: 15%;
@@ -7,22 +7,22 @@ const LeftBody = styled.div`
 `;
 
 const FileListHeader = styled.div`
-  background: ${palette.base_clor[2]};
+  background: ${palette.base_clor[1]};
   display: flex;
   color: white;
-  border: 1px solid ${palette.base_clor[2]};
+  border: 1px solid ${palette.base_clor[1]};
   align-items: center;
   justify-content: center;
 `;
 
 const FileListBody = styled.div`
-  border: 1px solid ${palette.base_clor[2]};
+  border: 1px solid ${palette.base_clor[1]};
   font-size: 1rem;
   min-height: 700px;
   overflow-y: scroll;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${palette.base_clor[0]};
+  border: 1px solid ${palette.base_clor[1]};
 `;
 
 const FileItemBox = styled.div`
@@ -35,7 +35,7 @@ const FileItemBox = styled.div`
     margin: 0;
     text-align: center;
     justify-content: center;
-    border-bottom: 1px solid ${palette.blue[7]};
+    border-bottom: 1px solid ${palette.base_clor[1]};
   }
 `;
 const FileItemBoxRight = styled.div`
@@ -78,9 +78,9 @@ const RemoveBtn = styled.div`
 `;
 
 const RightBody = styled.div`
-  border-right: 1px solid ${palette.base_clor[0]};
-  border-top: 1px solid ${palette.base_clor[0]};
-  border-bottom: 1px solid ${palette.base_clor[0]};
+  border-right: 1px solid ${palette.base_clor[1]};
+  border-top: 1px solid ${palette.base_clor[1]};
+  border-bottom: 1px solid ${palette.base_clor[1]};
   margin-top: 4.5rem;
   width: 85%;
   height: 700px;
@@ -88,20 +88,20 @@ const RightBody = styled.div`
 `;
 
 const RightFileName = styled.div`
-  background: ${palette.base_clor[2]};
+  background: ${palette.base_clor[1]};
   display: flex;
   justify-content: center;
-  border-right: 1px solid ${palette.base_clor[0]};
+  border-right: 1px solid ${palette.base_clor[1]};
   color: white;
   width: 50%;
   height: 10%;
   float: left;
   overflow: scroll;
-  border-bottom: 1px solid ${palette.base_clor[0]};
+  border-bottom: 1px solid ${palette.base_clor[1]};
 `;
 
 const RightSheetClick = styled.div`
-  background: ${palette.base_clor[2]};
+  background: ${palette.base_clor[1]};
   color: white;
   width: 50%;
   height: 10%;
@@ -109,7 +109,7 @@ const RightSheetClick = styled.div`
   display: flex;
   overflow-x: scroll;
   justify-content: center;
-  border-bottom: 1px solid ${palette.base_clor[0]};
+  border-bottom: 1px solid ${palette.base_clor[1]};
   padding-left: 2rem;
 
   div {
@@ -119,13 +119,13 @@ const RightSheetClick = styled.div`
     color: white;
 
     &:hover {
-      color: ${palette.base_clor[4]};
+      color: ${palette.base_clor[0]};
       cursor: pointer;
       font-weight: bold;
     }
   }
   .active {
-    color: ${palette.base_clor[4]};
+    color: ${palette.base_clor[0]};
     font-weight: bold;
   }
 `;

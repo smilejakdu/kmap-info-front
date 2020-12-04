@@ -11,7 +11,7 @@ const StatisticsPageHeader = styled.div`
 `;
 
 const StatisticsPageBody = styled.div`
-  border: 1px solid ${palette.base_clor[0]};
+  border: 1px solid ${palette.base_clor[1]};
   border-radius: 50px;
   margin-top: 5rem;
   margin: 0 auto;

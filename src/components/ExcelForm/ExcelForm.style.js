@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
 
 const FileUploadPageHeader = styled.div`
   position: relative;
@@ -22,18 +22,18 @@ const SheetListBox = styled.div`
 `;
 
 const SheetListHeader = styled.div`
-  background: ${palette.base_clor[2]};
+  background: ${palette.base_clor[1]};
   color: white;
   justify-content: center;
   width: 100%;
   min-height: 5rem;
   display: flex;
-  border: 1px solid ${palette.base_clor[2]};
+  border: 1px solid ${palette.base_clor[1]};
   padding: 5px;
 `;
 
 const SheetListBody = styled.div`
-  border: 1px solid ${palette.base_clor[0]};
+  border: 1px solid ${palette.base_clor[1]};
   color: black;
   min-height: 13rem;
   max-height: 20rem;
@@ -61,8 +61,8 @@ const Button = styled.button`
   padding-left: 20px;
   padding-right: 20px;
   margin-right: 2rem;
-  background: ${palette.base_clor[3]};
-  border: 1px solid ${palette.base_clor[3]};
+  background: ${palette.base_clor[1]};
+  border: 1px solid ${palette.base_clor[1]};
 
   &:hover {
     color: coral;
@@ -86,6 +86,7 @@ const FileUploadPageBodyMiddle = styled.div`
     display: flex;
     float: left;
     justify-content: center;
+    color: white;
     width: 70%;
     font-size: 20px;
     margin: auto 0;
@@ -97,12 +98,12 @@ const FileUploadPageBodyMiddle = styled.div`
     border-left: 1px solid ${palette.base_clor[3]};
     margin: auto 0;
     display: flex;
-    color: ${palette.base_clor[5]};
+    color: white;
   }
 `;
 
 const FileUploadPageBodyFooter = styled.div`
-  border: 1px solid ${palette.base_clor[0]};
+  border: 1px solid ${palette.base_clor[1]};
   margin-top: 5.3rem;
   width: 100%;
   min-height: 650px;

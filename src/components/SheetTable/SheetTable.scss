@@ -1,3 +1,7 @@
+$orange_color  : #ff8000;
+$black_color : #000000;
+$blue_color : #304d91;
+
 .sheet_body {
     font-size: 13.5px;
     height: 500px;
@@ -12,12 +16,12 @@
 }
 
 .header_color {
-    background: #2a8a92;
+    background: $black_color;
     color: #e7e4de;
 }
 
 .row_border {
-    border: 1px solid #2a8a92;
+    border: 1px solid $black_color;
 }
 
 .fixedHeader {

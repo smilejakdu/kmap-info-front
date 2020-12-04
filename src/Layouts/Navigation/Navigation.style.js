@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
+import { NavLink } from 'react-router-dom';
 
 const CategoryLink = styled.div`
   position: relative;
@@ -35,7 +35,7 @@ const CategoryLinkItem = styled(NavLink)`
   margin-right: 3px;
   text-decoration: none;
   font-size: 25px;
-  color: ${palette.base_clor[2]};
+  color: ${palette.base_clor[0]};
   display: block;
   background: ${palette.base_clor[1]};
   border: 1px solid ${palette.base_clor[1]};
@@ -43,7 +43,7 @@ const CategoryLinkItem = styled(NavLink)`
   border-top-right-radius: 10px;
 
   &.active {
-    background: ${palette.base_clor[1]};
+    background: ${palette.base_clor[2]};
     color: ${palette.base_clor[0]};
   }
   @media (max-width: 850px) {

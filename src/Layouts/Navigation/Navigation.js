@@ -1,21 +1,21 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import { CategoryLinkItem, CategoryLink, ImageLogo } from "./Navigation.style";
-import image from "../../util/image/logo.png";
-import ipk from "../../util/image/ipk.jpg";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { CategoryLinkItem, CategoryLink, ImageLogo } from './Navigation.style';
+import image from '../../util/image/logo.png';
+import ipk from '../../util/image/ipk.jpg';
 
 const categories = [
   {
-    name: "statistics",
-    text: "Progress Stats",
+    name: 'statistics',
+    text: 'Progress Stats',
   },
   {
-    name: "",
-    text: "File Upload",
+    name: '',
+    text: 'File Upload',
   },
   {
-    name: "excelinfo",
-    text: "View Upload File",
+    name: 'excelinfo',
+    text: 'View Upload File',
   },
 ];
 
@@ -28,8 +28,8 @@ const Navigation = () => {
             key={c.name}
             exact={c.name}
             to={
-              c.name === "Compound Info"
-                ? "/kmapinfo/compoundinfo"
+              c.name === 'Compound Info'
+                ? '/kmapinfo/compoundinfo'
                 : `/kmapinfo/${c.name}`
             }
           >
@@ -37,7 +37,7 @@ const Navigation = () => {
           </CategoryLinkItem>
         ))}
 
-        <CategoryLinkItem to={"/kmapinfo/compoundinfo"}>
+        <CategoryLinkItem to={'/kmapinfo/compoundinfo'}>
           Compound Info
         </CategoryLinkItem>
 
