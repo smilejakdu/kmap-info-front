@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { SearchBorder } from "./SearchBox.style";
-import { Link, useHistory } from "react-router-dom";
-import request from "../../util/request";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { SearchBorder } from './SearchBox.style';
+import { Link, useHistory } from 'react-router-dom';
+import request from '../../util/request';
+import axios from 'axios';
 
 const SearchBox = ({ searchData }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [result, setResult] = useState([]);
-  const [compoundinfo, setCompoundinfo] = useState([]);
+  const [compoundinfo, setCompoundinfo] = useState('');
 
   const history = useHistory();
 
@@ -56,14 +56,14 @@ const SearchBox = ({ searchData }) => {
       })
       .catch((error) => {
         if (axios.isCancel(error) || error) {
-          console.log("error : ", error);
+          console.log('error : ', error);
         }
       });
   };
 
   const searchResultBtn = () => {
     searchData(compoundinfo);
-    history.push("compoundinfo");
+    history.push('compoundinfo');
   };
 
   return (
