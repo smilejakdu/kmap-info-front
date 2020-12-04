@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
 
 const StatisticsPageHeader = styled.div`
   position: relative;
@@ -14,8 +14,8 @@ const StatisticsPageBody = styled.div`
   border: 1px solid ${palette.base_clor[0]};
   border-radius: 50px;
   margin-top: 5rem;
-  display: inline-flex;
   margin: 0 auto;
+  display: inline-block;
   margin-bottom: 10rem;
   padding: 3rem;
   font-size: 28px;

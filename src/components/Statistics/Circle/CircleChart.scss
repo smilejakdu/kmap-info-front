@@ -1,102 +1,86 @@
-/*
- * react-circular-progressbar styles
- * All of the styles in this file are configurable!
- */
-
 .CircularProgressbar {
-    /*
+  /*
      * This fixes an issue where the CircularProgressbar svg has
      * 0 width inside a "display: flex" container, and thus not visible.
      */
-    width: 100%;
-    /*
+  width: 100%;
+  /*
      * This fixes a centering issue with CircularProgressbarWithChildren:
      * https://github.com/kevinsqi/react-circular-progressbar/issues/94
      */
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .CircularProgressbar .CircularProgressbar-path {
-    stroke: #ff8000;
-    stroke-linecap: round;
-    -webkit-transition: stroke-dashoffset 0.5s ease 0s;
-    transition: stroke-dashoffset 0.5s ease 0s;
+  stroke: #ff8000;
+  stroke-linecap: round;
+  -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+  transition: stroke-dashoffset 0.5s ease 0s;
 }
 
 .CircularProgressbar .CircularProgressbar-trail {
-    stroke: #e7e4de;
-    /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
-    stroke-linecap: round;
+  stroke: #e7e4de;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
 }
 
 .CircularProgressbar .CircularProgressbar-text {
-    fill: #e7e4de;
-    font-size: 20px;
-    dominant-baseline: middle;
-    text-anchor: middle;
+  fill: #e7e4de;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
 }
 
 .CircularProgressbar .CircularProgressbar-background {
-    fill: #d6d6d6;
+  fill: #d6d6d6;
 }
 
-/*
-   * Sample background styles. Use these with e.g.:
-   *
-   *   <CircularProgressbar
-   *     className="CircularProgressbar-inverted"
-   *     background
-   *     percentage={50}
-   *   />
-   */
-.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
-    fill: #3e98c7;
+.CircularProgressbar.CircularProgressbar-inverted
+  .CircularProgressbar-background {
+  fill: #3e98c7;
 }
 
 .CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
-    // fill: #fff;
-    fill: black;
+  // fill: #fff;
+  fill: black;
 }
 
 .CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
-    stroke: #fff;
-    // stroke: black;
+  stroke: #fff;
+  // stroke: black;
 }
 
 .CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
-    stroke: transparent;
+  stroke: transparent;
 }
 
 .circle_parent {
-    position: relative;
+  position: relative;
 }
 
 .circle_chart {
-    margin-top: 300px;
-    margin-left: 100px;
-    margin-right: 100px;
-    justify-content: center;
-    width: 400px;
-    display: flex;
-    align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  justify-content: center;
+  width: 400px;
+  align-items: center;
 
-    @media (max-width: 1700px) {
-        width: 300px;
-    }
+  @media (max-width: 1700px) {
+    width: 300px;
+  }
 
-    @media (max-width: 1500px) {
-        width: 300px;
-        display: block;
-        margin: auto;
-    }
+  @media (max-width: 1500px) {
+    width: 300px;
+    display: block;
+    margin: auto;
+  }
 }
 
 .compound_circle_count {
-    justify-content: center;
-    display: flex;
-    margin-top: 100px;
+  justify-content: center;
+  margin-top: 40px;
 
-    h1 {
-        font-size: x-large;
-    }
+  h1 {
+    font-size: x-large;
+  }
 }

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Statistics from "../../components/Statistics/Statistics";
+import React, { useState, useEffect } from 'react';
+import Statistics from '../../components/Statistics/Statistics';
 import {
   StatisticsPageHeader,
   StatisticsPageBody,
   KmapTwokProject,
-} from "./StatisticsPage.style";
-import SearchDataContainer from "../../containers/SearchDataContainer";
+} from './StatisticsPage.style';
+import SearchDataContainer from '../../containers/SearchDataContainer';
 
 const StatisticsPage = () => {
   return (

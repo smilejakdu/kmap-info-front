@@ -1,11 +1,13 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
+
+const CircleColumnBorder = styled.div`
+  display: inline-flex;
+  margin: 0 auto;
+`;
 
 const CircleBorder = styled.div`
-  border-right: 1px solid ${palette.base_clor[0]};
-  display: flex;
-  float: left;
-  margin-left: 20px;
+  height: 30%;
 
   @media (max-width: 1500px) {
     width: 100%;
@@ -16,21 +18,8 @@ const CircleBorder = styled.div`
   }
 `;
 
-const SvgBorder = styled.div`
-  display: flex;
-  border-bottom: 1px solid ${palette.base_clor[0]};
-
-  @media (max-width: 1500px) {
-    width: 100%;
-    border: none;
-    float: none;
-    margin: auto;
-  }
-`;
-
 const ColumnBorder = styled.div`
-  display: flex;
-
+  margin-left: 20px;
   @media (max-width: 1500px) {
     width: 100%;
     border: none;
@@ -39,4 +28,12 @@ const ColumnBorder = styled.div`
   }
 `;
 
-export { CircleBorder, ColumnBorder, SvgBorder };
+const SvgBorder = styled.div`
+  @media (max-width: 1500px) {
+    width: 100%;
+    border: none;
+    float: none;
+  }
+`;
+
+export { CircleBorder, ColumnBorder, SvgBorder, CircleColumnBorder };
