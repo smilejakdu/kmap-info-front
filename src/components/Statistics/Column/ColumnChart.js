@@ -3,7 +3,7 @@ import './ColumnChart.scss';
 import { Bar } from 'react-chartjs-2';
 
 const ColumnChart = ({ labels, datasets }) => {
-  console.log(labels);
+  // console.log(labels);
   console.log(datasets);
 
   const options = {

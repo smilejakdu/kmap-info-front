@@ -18,9 +18,9 @@ export default class SvgChart extends Component {
     // 여기서 ,
     const { labels, svgdata } = this.props;
     const labels_plus_none = ['', ...labels, ''];
-    console.log(svgdata);
+    // console.log(svgdata);
     const svg_plus_none = [NaN, ...svgdata, NaN];
-    console.log(svg_plus_none);
+    // console.log(svg_plus_none);
 
     const data = {
       labels: labels_plus_none,
