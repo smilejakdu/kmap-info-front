@@ -14,13 +14,11 @@ import {
 const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
   const [circlechemnum, setCirclechemnum] = useState(0);
-  const [columns_data, setColumnsData] = useState([]);
   const [columns_labels, setColumnsLabels] = useState([]);
-  const [year_list, setYearList] = useState([]);
-  const [labels, setLabels] = useState([]);
   const [datasets, setDatasets] = useState();
-  const [svglabels, setSvgLabels] = useState([]);
-  const [svgdata, setSvgData] = useState([]);
+  const [svg_data, setSvgData] = useState([]);
+  const [svg_weeks_list, setSvgWeeksList] = useState([]);
+  const [svg_year_month_list, setSvgYearMonthList] = useState([]);
 
   useEffect(() => {
     request
@@ -28,35 +26,24 @@ const Statistics = () => {
       .then(({ data }) => {
         const {
           circle_number,
+          kaichem_number,
           columns_data,
           columns_labels,
-          kaichem_number,
-          svg_labels,
           svg_data,
+          svg_weeks_list,
+          svg_year_month_list,
         } = data;
+
+        console.log(svg_data);
+        console.log(svg_weeks_list);
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
         setColumnsLabels(columns_labels);
-        setSvgLabels(svg_labels);
 
-        console.log(columns_data);
-        console.log(svg_labels);
-
-        const empty_label = [];
-        for (const label of svg_labels) {
-          if (label !== '') {
-            empty_label.push(label);
-          }
-        }
-
-        setSvgData(empty_label);
-
-        for (const data in svg_data) {
-          if (svg_data[data] === 0) {
-            svg_data[data] = NaN;
-          }
-        }
+        setSvgData(svg_data);
+        setSvgWeeksList(svg_weeks_list);
+        setSvgYearMonthList(svg_year_month_list);
 
         setDatasets([
           {
@@ -69,8 +56,6 @@ const Statistics = () => {
             data: columns_data,
           },
         ]);
-
-        setSvgData(svg_data);
       })
       .catch((err) => {
         err && console.log(err);
@@ -99,7 +84,11 @@ const Statistics = () => {
         </ColumnBorder>
       </CircleColumnBorder>
       <SvgBorder>
-        <SvgChart labels={svglabels} svgdata={svgdata} />
+        <SvgChart
+          labels={svg_weeks_list}
+          svgdata={svg_data}
+          svg_year_month_list={svg_year_month_list}
+        />
       </SvgBorder>
     </>
   );

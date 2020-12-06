@@ -16,7 +16,7 @@ export default class SvgChart extends Component {
 
   render() {
     // 여기서 ,
-    const { labels, svgdata } = this.props;
+    const { labels, svgdata, svg_year_month_list } = this.props;
     const labels_plus_none = ['', ...labels, ''];
     // console.log(svgdata);
     const svg_plus_none = [NaN, ...svgdata, NaN];
@@ -74,6 +74,11 @@ export default class SvgChart extends Component {
           width={this.state.width}
           height={this.state.height}
         />
+        <div className="test">
+          {svg_year_month_list.map((year_month) => (
+            <div>{year_month}</div>
+          ))}
+        </div>
       </div>
     );
   }

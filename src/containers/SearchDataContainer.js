@@ -7,9 +7,6 @@ import * as searchInputActions from '../modules/search_input';
 import { searchAdd } from '../modules/search_input';
 import SearchBox from '../components/SearchBox/SearchBox';
 
-import request from '../util/request';
-import { axios } from 'axios';
-
 const SearchDataContainer = ({ searchData }) => {
   return <SearchBox searchData={searchData} />;
 };
