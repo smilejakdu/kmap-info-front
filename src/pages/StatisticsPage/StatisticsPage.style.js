@@ -20,10 +20,6 @@ const StatisticsPageBody = styled.div`
   padding: 0.5rem;
   font-size: 28px;
   min-height: 80rem;
-
-  @media (max-width: 1500px) {
-    display: block;
-  }
 `;
 
 const KmapTwokProject = styled.div`
