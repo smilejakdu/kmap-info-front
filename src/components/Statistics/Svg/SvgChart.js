@@ -46,7 +46,7 @@ export default class SvgChart extends Component {
     };
 
     return (
-      <div>
+      <div className="border">
         <Line
           ref="chart"
           data={data}
@@ -76,7 +76,7 @@ export default class SvgChart extends Component {
         />
         <div className="test">
           {svg_year_month_list.map((year_month) => (
-            <div>{year_month}</div>
+            <div className="year_month">{year_month}</div>
           ))}
         </div>
       </div>

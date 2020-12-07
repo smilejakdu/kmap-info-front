@@ -8,6 +8,7 @@ const CircleColumnBorder = styled.div`
 
 const CircleBorder = styled.div`
   height: 30%;
+  border-right: 1px solid black;
 
   @media (max-width: 1500px) {
     width: 100%;
@@ -29,6 +30,7 @@ const ColumnBorder = styled.div`
 `;
 
 const SvgBorder = styled.div`
+  border-top: 1px solid black;
   @media (max-width: 1500px) {
     width: 100%;
     border: none;

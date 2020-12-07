@@ -17,14 +17,12 @@ const StatisticsPageBody = styled.div`
   margin: 0 auto;
   display: inline-block;
   margin-bottom: 10rem;
-  padding: 3rem;
+  padding: 0.5rem;
   font-size: 28px;
   min-height: 80rem;
 
   @media (max-width: 1500px) {
-    border: 1px solid ${palette.base_clor[0]};
-    padding: 3rem;
-    display: inline-block;
+    display: block;
   }
 `;
 

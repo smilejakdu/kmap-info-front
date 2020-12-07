@@ -7,7 +7,7 @@ const ColumnChart = ({ labels, datasets }) => {
   console.log(datasets);
 
   const options = {
-    responsive: false,
+    responsive: true,
     legend: {
       display: false,
     },

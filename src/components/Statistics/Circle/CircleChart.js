@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./CircleChart.scss";
+import React, { useState, useEffect } from 'react';
+import './CircleChart.scss';
 
 const CircleChart = (props) => {
   return (
