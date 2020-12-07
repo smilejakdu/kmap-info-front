@@ -7,9 +7,19 @@ const CircleColumnBorder = styled.div`
 `;
 
 const CircleBorder = styled.div`
-  height: 30%;
   border-right: 1px solid black;
-
+  ::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    height: 100%;
+    width: 1px;
+    background: #000;
+  }
   @media (max-width: 1500px) {
     width: 100%;
     border: none;
