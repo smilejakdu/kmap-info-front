@@ -41,7 +41,7 @@ const Statistics = () => {
         setCirclechemnum(kaichem_number);
         setColumnsLabels(columns_labels);
 
-        setSvgData(svg_data);
+        setSvgData([]); // 리스트를 넣어줘야함
         setSvgWeeksList(svg_weeks_list);
         setSvgYearMonthList(svg_year_month_list);
 

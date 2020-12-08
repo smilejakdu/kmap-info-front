@@ -18,7 +18,7 @@ export default class SvgChart extends Component {
     // 여기서 ,
     const { labels, svgdata, svg_year_month_list } = this.props;
     const labels_plus_none = ['', ...labels, ''];
-    // console.log(svgdata);
+    console.log(svgdata);
     const svg_plus_none = [NaN, ...svgdata, NaN];
     // console.log(svg_plus_none);
 
@@ -40,7 +40,7 @@ export default class SvgChart extends Component {
           pointHoverBorderColor: '#ff8000',
           pointRadius: 5,
           pointHitRadius: 5,
-          data: svg_plus_none,
+          data: [],
         },
       ],
     };
