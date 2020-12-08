@@ -18,7 +18,6 @@ const Statistics = () => {
   const [datasets, setDatasets] = useState();
   const [svg_data, setSvgData] = useState([]);
   const [svg_weeks_list, setSvgWeeksList] = useState([]);
-  const [svg_year_month_list, setSvgYearMonthList] = useState([]);
 
   useEffect(() => {
     request
@@ -31,7 +30,6 @@ const Statistics = () => {
           columns_labels,
           svg_data,
           svg_weeks_list,
-          svg_year_month_list,
         } = data;
 
         console.log(svg_data);
@@ -41,9 +39,8 @@ const Statistics = () => {
         setCirclechemnum(kaichem_number);
         setColumnsLabels(columns_labels);
 
-        setSvgData([]); // 리스트를 넣어줘야함
+        setSvgData(svg_data);
         setSvgWeeksList(svg_weeks_list);
-        setSvgYearMonthList(svg_year_month_list);
 
         setDatasets([
           {
@@ -84,11 +81,7 @@ const Statistics = () => {
         </ColumnBorder>
       </CircleColumnBorder>
       <SvgBorder>
-        <SvgChart
-          labels={svg_weeks_list}
-          svgdata={svg_data}
-          svg_year_month_list={svg_year_month_list}
-        />
+        <SvgChart labels={svg_weeks_list} svgdata={svg_data} />
       </SvgBorder>
     </>
   );

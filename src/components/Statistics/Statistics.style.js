@@ -23,6 +23,7 @@ const CircleBorder = styled.div`
   @media (max-width: 1500px) {
     width: 100%;
     border: none;
+    display: block;
     text-align: center;
     margin-top: 3rem;
     justify-content: center;
@@ -33,6 +34,7 @@ const ColumnBorder = styled.div`
   margin-left: 20px;
   @media (max-width: 1500px) {
     width: 100%;
+    display: block;
     border: none;
     float: none;
     margin: auto;

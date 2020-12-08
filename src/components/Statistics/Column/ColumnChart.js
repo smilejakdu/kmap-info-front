@@ -7,7 +7,8 @@ const ColumnChart = ({ labels, datasets }) => {
   console.log(datasets);
 
   const options = {
-    responsive: true,
+    // responsive: true,
+    maintainAspectRatio: false,
     legend: {
       display: false,
     },
@@ -22,7 +23,6 @@ const ColumnChart = ({ labels, datasets }) => {
         },
       ],
     },
-    type: 'bar',
   };
 
   const data = {

@@ -14,11 +14,35 @@ export default class SvgChart extends Component {
     textAlign: 'center',
   };
 
+  // updateDimensions() {
+  //   if (window.innerWidth < 500) {
+  //     this.setState({ width: 450, height: 102 });
+  //   } else {
+  //     let update_width = window.innerWidth - 100;
+  //     let update_height = Math.round(update_width / 4.4);
+  //     this.setState({ width: update_width, height: update_height });
+  //   }
+  // }
+
+  // componentDidMount() {
+  //   this.updateDimensions();
+  //   window.addEventListener('resize', this.updateDimensions.bind(this));
+  // }
+
+  // /**
+  //  * Remove event listener
+  //  */
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', this.updateDimensions.bind(this));
+  // }
+
   render() {
     // 여기서 ,
-    const { labels, svgdata, svg_year_month_list } = this.props;
-    const labels_plus_none = ['', ...labels, ''];
+    const { labels, svgdata } = this.props;
+    console.log(labels);
     console.log(svgdata);
+
+    const labels_plus_none = ['', ...labels, ''];
     const svg_plus_none = [NaN, ...svgdata, NaN];
     // console.log(svg_plus_none);
 
@@ -28,19 +52,19 @@ export default class SvgChart extends Component {
         {
           fill: false,
           lineTension: 0.1,
-          backgroundColor: '#ff8000',
           borderColor: '#ff8000',
           borderCapStyle: 'butt',
           borderDashOffset: 0.1,
           borderJoinStyle: 'miter',
           pointBackgroundColor: '#ff8000',
+          backgroundColor: 'rgba(1,1,1,0.1)',
           pointBorderWidth: 10,
           pointHoverRadius: 10,
           pointHoverBackgroundColor: '#ff8000',
           pointHoverBorderColor: '#ff8000',
           pointRadius: 5,
           pointHitRadius: 5,
-          data: [],
+          data: svg_plus_none,
         },
       ],
     };
@@ -74,11 +98,6 @@ export default class SvgChart extends Component {
           width={this.state.width}
           height={this.state.height}
         />
-        <div className="test">
-          {svg_year_month_list.map((year_month) => (
-            <div className="year_month">{year_month}</div>
-          ))}
-        </div>
       </div>
     );
   }
