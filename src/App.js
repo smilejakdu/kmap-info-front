@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import FileUpload from "./pages/FileUpload/FileUploadPage";
-import ExcelInfoPage from "./pages/ExcelInfo/ExcelInfoPage";
-import CompoundInfoPage from "./pages/CompoundInfoPage/CompoundInfoPage";
-import Login from "./components/Login/LoginForm";
-import AuthRoute from "./components/Commons/AuthRoute";
-import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
-import Layout from "./Layouts/Layout";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import FileUpload from './pages/FileUpload/FileUploadPage';
+import ExcelInfoPage from './pages/ExcelInfo/ExcelInfoPage';
+import CompoundInfoPage from './pages/CompoundInfoPage/CompoundInfoPage';
+import Login from './components/Login/LoginForm';
+import AuthRoute from './components/Commons/AuthRoute';
+import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
+import Layout from './Layouts/Layout';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -20,8 +20,14 @@ const App = () => {
           <Switch>
             <Route
               exact
+              path={['/kmapinfo/', '/kmapinfo/statistics']}
               authenticated={authenticated}
-              path="/kmapinfo/"
+              component={StatisticsPage}
+            ></Route>
+            <Route
+              exact
+              authenticated={authenticated}
+              path="/kmapinfo/upload"
               component={FileUpload}
             ></Route>
             <Route
@@ -35,12 +41,6 @@ const App = () => {
               path="/kmapinfo/compoundinfo/"
               authenticated={authenticated}
               component={CompoundInfoPage}
-            ></Route>
-            <Route
-              exact
-              path="/kmapinfo/statistics"
-              authenticated={authenticated}
-              component={StatisticsPage}
             ></Route>
             <Route
               exact

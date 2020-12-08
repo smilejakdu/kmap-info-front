@@ -10,7 +10,7 @@ const categories = [
     text: 'Progress Stats',
   },
   {
-    name: '',
+    name: 'upload',
     text: 'File Upload',
   },
   {
@@ -18,7 +18,6 @@ const categories = [
     text: 'View Upload File',
   },
 ];
-
 const Navigation = () => {
   return (
     <div>
