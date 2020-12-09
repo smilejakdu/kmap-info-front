@@ -2,9 +2,33 @@ import React, { useState, useEffect } from 'react';
 import './ColumnChart.scss';
 import { Bar } from 'react-chartjs-2';
 
-const ColumnChart = ({ labels, datasets }) => {
-  // console.log(labels);
-  console.log(datasets);
+const ColumnChart = ({ labels, bardata, bardata2 }) => {
+  console.log(labels);
+  console.log(bardata);
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 1,
+        backgroundColor: '#ff8000',
+        borderColor: '#ff8000',
+        borderWidth: 0.1,
+        hoverBackgroundColor: '#ff8000',
+        hoverBorderColor: '#ff8000',
+        data: bardata,
+      },
+      {
+        label: 2,
+        backgroundColor: '#304d91',
+        borderColor: '#304d91',
+        borderWidth: 0.1,
+        hoverBackgroundColor: '#304d91',
+        hoverBorderColor: '#304d91',
+        data: bardata2,
+      },
+    ],
+  };
 
   const options = {
     // responsive: true,
@@ -23,11 +47,6 @@ const ColumnChart = ({ labels, datasets }) => {
         },
       ],
     },
-  };
-
-  const data = {
-    labels,
-    datasets,
   };
 
   // 어차피 최근 8개가 나와야하니깐 yarchangebtn 은 필요없지 않을까 ?

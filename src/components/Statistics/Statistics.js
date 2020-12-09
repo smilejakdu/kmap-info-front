@@ -16,7 +16,10 @@ const Statistics = () => {
   const [circlechemnum, setCirclechemnum] = useState(0);
   const [columns_labels, setColumnsLabels] = useState([]);
   const [datasets, setDatasets] = useState();
+  const [bar_data, setBarData] = useState();
+  const [bar_data2, setBarData2] = useState();
   const [svg_data, setSvgData] = useState([]);
+  const [svg_data2, setSvgData2] = useState([]);
   const [svg_weeks_list, setSvgWeeksList] = useState([]);
 
   useEffect(() => {
@@ -27,12 +30,17 @@ const Statistics = () => {
           circle_number,
           kaichem_number,
           columns_data,
+          columns_data2,
           columns_labels,
           svg_data,
+          svg_data2,
           svg_weeks_list,
         } = data;
 
-        console.log(svg_data);
+        console.log('columns_data :', columns_data);
+        console.log('columns_data2 : ', columns_data2);
+        console.log('svg_data :', svg_data);
+        console.log('svg_data2 :', svg_data2);
         console.log(svg_weeks_list);
 
         setCirclepercent(circle_number);
@@ -40,19 +48,10 @@ const Statistics = () => {
         setColumnsLabels(columns_labels);
 
         setSvgData(svg_data);
+        setSvgData2(svg_data2);
         setSvgWeeksList(svg_weeks_list);
-
-        setDatasets([
-          {
-            label: 'data',
-            backgroundColor: 'coral',
-            borderColor: 'coral',
-            borderWidth: 0.1,
-            hoverBackgroundColor: 'coral',
-            hoverBorderColor: 'coral',
-            data: columns_data,
-          },
-        ]);
+        setBarData(columns_data);
+        setBarData2(columns_data2);
       })
       .catch((err) => {
         err && console.log(err);
@@ -77,11 +76,19 @@ const Statistics = () => {
           </CircleChart>
         </CircleBorder>
         <ColumnBorder>
-          <ColumnChart labels={columns_labels} datasets={datasets} />
+          <ColumnChart
+            labels={columns_labels}
+            bardata={bar_data}
+            bardata2={bar_data2}
+          />
         </ColumnBorder>
       </CircleColumnBorder>
       <SvgBorder>
-        <SvgChart labels={svg_weeks_list} svgdata={svg_data} />
+        <SvgChart
+          labels={svg_weeks_list}
+          svgdata={svg_data}
+          svgdata2={svg_data2}
+        />
       </SvgBorder>
     </>
   );
