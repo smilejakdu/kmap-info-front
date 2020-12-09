@@ -7,7 +7,7 @@
 
 # url file
 
-src/util/request.js
+/src/util/request.js
 
 # testing
 /coverage
