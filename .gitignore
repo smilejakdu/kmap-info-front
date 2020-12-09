@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# url file
+
+src/util/request.js
+
 # testing
 /coverage
 
