@@ -6,11 +6,15 @@ const ColumnChart = ({ labels, bardata, bardata2 }) => {
   console.log(labels);
   console.log(bardata);
 
+  for (const label of labels) {
+    console.log(label);
+  }
+
   const data = {
     labels: labels,
     datasets: [
       {
-        label: 1,
+        label: 'Library_Prep_date',
         backgroundColor: '#ff8000',
         borderColor: '#ff8000',
         borderWidth: 0.1,
@@ -19,7 +23,7 @@ const ColumnChart = ({ labels, bardata, bardata2 }) => {
         data: bardata,
       },
       {
-        label: 2,
+        label: 'Sample_sending_date_LAS',
         backgroundColor: '#304d91',
         borderColor: '#304d91',
         borderWidth: 0.1,
