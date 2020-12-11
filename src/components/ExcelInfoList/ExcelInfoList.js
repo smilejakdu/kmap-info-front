@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   FileListHeader,
   FileListBody,
@@ -11,17 +11,18 @@ import {
   RightFileName,
   RightSheetClick,
   SheetTableData,
-} from "./ExcelInfoList.style";
-import SheetTable from "../SheetTable/SheetTable";
-import request from "../../util/request";
-import { MdRemoveCircleOutline } from "react-icons/md";
+} from './ExcelInfoList.style';
+
+import SheetTable from '../SheetTable/SheetTable';
+import request from '../../util/request';
+import { MdRemoveCircleOutline } from 'react-icons/md';
 
 const ExcelInfoList = ({ data, handleChangeExcelData }) => {
   const [sheetData, setSheetData] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [cols, setCols] = useState([]);
   const [rows, setRows] = useState([]);
-  const [excelName, setExcelName] = useState("");
+  const [excelName, setExcelName] = useState('');
   const [sheetStyle, setSheetStyle] = useState([]);
 
   const getSheets = (excel, sheet) => (event) => {
@@ -69,7 +70,7 @@ const ExcelInfoList = ({ data, handleChangeExcelData }) => {
       setCols([]);
       setRows([]);
     } catch (e) {
-      console.error("error", e);
+      console.error('error', e);
     }
   };
 

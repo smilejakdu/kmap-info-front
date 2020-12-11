@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import './SvgChart.scss';
 import { Line } from 'react-chartjs-2';
 

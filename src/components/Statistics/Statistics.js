@@ -15,7 +15,6 @@ const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
   const [circlechemnum, setCirclechemnum] = useState(0);
   const [columns_labels, setColumnsLabels] = useState([]);
-  const [datasets, setDatasets] = useState();
   const [bar_data, setBarData] = useState();
   const [bar_data2, setBarData2] = useState();
   const [svg_data, setSvgData] = useState([]);
@@ -39,9 +38,8 @@ const Statistics = () => {
 
         console.log('columns_data :', columns_data);
         console.log('columns_data2 : ', columns_data2);
-        console.log('svg_data :', svg_data);
-        console.log('svg_data2 :', svg_data2);
-        console.log(svg_weeks_list);
+        // console.log('svg_data :', svg_data);
+        // console.log('svg_data2 :', svg_data2);
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
