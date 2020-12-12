@@ -17,7 +17,7 @@ import SheetTable from '../SheetTable/SheetTable';
 import request from '../../util/request';
 import { MdRemoveCircleOutline } from 'react-icons/md';
 
-const ExcelInfoList = ({ data, handleChangeExcelData }) => {
+const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
   const [sheetData, setSheetData] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
   const [cols, setCols] = useState([]);
@@ -25,7 +25,7 @@ const ExcelInfoList = ({ data, handleChangeExcelData }) => {
   const [excelName, setExcelName] = useState('');
   const [sheetStyle, setSheetStyle] = useState([]);
 
-  const getSheets = (excel, sheet) => (event) => {
+  const getSheets = (excel, sheet) => () => {
     return request
       .get(`/excel/${excel}/${sheet}`)
       .then((res) => {
@@ -42,7 +42,7 @@ const ExcelInfoList = ({ data, handleChangeExcelData }) => {
       });
   };
 
-  const ExcelNameClick = (itemName) => (event) => {
+  const ExcelNameClick = (itemName) => () => {
     return request
       .get(`/excel/${itemName}`)
       .then((res) => {
@@ -79,7 +79,7 @@ const ExcelInfoList = ({ data, handleChangeExcelData }) => {
       <LeftBody>
         <FileListHeader>File List</FileListHeader>
         <FileListBody>
-          {data.map((item) => (
+          {excel_file_name.map((item) => (
             <FileItemBox key={item.id}>
               <ExcelName onClick={ExcelNameClick(item.name)}>
                 {item.name}

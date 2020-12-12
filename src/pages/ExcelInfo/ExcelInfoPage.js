@@ -20,6 +20,7 @@ const ExcelInfoPage = () => {
             data: { excel_data },
           },
         } = res;
+        console.log(excel_data);
         setExcelData(excel_data);
       })
       .catch((error) => {
@@ -35,7 +36,7 @@ const ExcelInfoPage = () => {
       </ExcelInfoPageHeader>
       <ExcelInfoPageBody>
         <ExcelInfoList
-          data={excelData}
+          excel_file_name={excelData}
           handleChangeExcelData={handleChangeExcelData}
         />
       </ExcelInfoPageBody>

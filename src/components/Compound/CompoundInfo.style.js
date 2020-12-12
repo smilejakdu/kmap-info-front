@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
 
 const CompoundInfoBody = styled.div`
   margin-top: 20px;
@@ -101,7 +101,7 @@ const InputCheckBox = styled.input.attrs({})`
   border-radius: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
-  background: ${palette.base_clor[5]};
+  background: ${palette.gray[4]};
 `;
 
 const InputNoneCheckBox = styled.input.attrs({})`
