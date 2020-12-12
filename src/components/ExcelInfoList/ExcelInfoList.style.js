@@ -18,11 +18,10 @@ const FileListHeader = styled.div`
 const FileListBody = styled.div`
   border: 1px solid ${palette.base_clor[1]};
   font-size: 1rem;
-  min-height: 700px;
+  height: 700px;
   overflow-y: scroll;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${palette.base_clor[1]};
 `;
 
 const FileItemBox = styled.div`

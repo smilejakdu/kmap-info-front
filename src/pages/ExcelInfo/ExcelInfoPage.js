@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import ExcelInfoList from "../../components/ExcelInfoList/ExcelInfoList";
-import { ExcelInfoPageBody, ExcelInfoPageHeader } from "./ExcelInfoPage.style";
-import request from "../../util/request";
-import SearchDataContainer from "../../containers/SearchDataContainer";
+import React, { useState, useEffect } from 'react';
+import ExcelInfoList from '../../components/ExcelInfoList/ExcelInfoList';
+import { ExcelInfoPageBody, ExcelInfoPageHeader } from './ExcelInfoPage.style';
+import request from '../../util/request';
+import SearchDataContainer from '../../containers/SearchDataContainer';
 
 const ExcelInfoPage = () => {
   const [excelData, setExcelData] = useState([]);
@@ -13,7 +13,7 @@ const ExcelInfoPage = () => {
 
   useEffect(() => {
     request
-      .get("/excel/upload")
+      .get('/excel/upload')
       .then((res) => {
         let {
           data: {
