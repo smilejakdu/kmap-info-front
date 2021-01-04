@@ -20,7 +20,6 @@ const ExcelInfoPage = () => {
             data: { excel_data },
           },
         } = res;
-        console.log(excel_data);
         setExcelData(excel_data);
       })
       .catch((error) => {
@@ -32,7 +31,7 @@ const ExcelInfoPage = () => {
   return (
     <div>
       <ExcelInfoPageHeader>
-        <SearchDataContainer></SearchDataContainer>
+        <SearchDataContainer />
       </ExcelInfoPageHeader>
       <ExcelInfoPageBody>
         <ExcelInfoList

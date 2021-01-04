@@ -36,10 +36,6 @@ const Statistics = () => {
           svg_weeks_list,
         } = data;
 
-        console.log('columns_data :', columns_data);
-        console.log('columns_data2 : ', columns_data2);
-        // console.log('svg_data :', svg_data);
-        // console.log('svg_data2 :', svg_data2);
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);

@@ -3,12 +3,6 @@ import './ColumnChart.scss';
 import { Bar } from 'react-chartjs-2';
 
 const ColumnChart = ({ labels, bardata, bardata2 }) => {
-  console.log(labels);
-  console.log(bardata);
-
-  for (const label of labels) {
-    console.log(label);
-  }
 
   const data = {
     labels: labels,
@@ -56,7 +50,7 @@ const ColumnChart = ({ labels, bardata, bardata2 }) => {
   return (
     <div>
       <Bar
-        className="test"
+        className='test'
         data={data}
         width={900}
         height={470}

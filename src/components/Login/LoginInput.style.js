@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import palette from "../../util/styles/palette";
+import styled from 'styled-components';
+import palette from '../../util/styles/palette';
 
 const Container = styled.div`
   width: 100%;

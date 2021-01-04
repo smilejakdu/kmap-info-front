@@ -16,6 +16,8 @@ const RightBody = styled.div`
 `;
 
 const LeftImage = styled.div`
+  background: white;
+
   img {
     border: 1px solid ${palette.base_clor[0]};
     width: 90%;
@@ -33,6 +35,7 @@ const KmapCompoundName = styled.div`
     font-size: 15px;
     border-right: 1px solid ${palette.base_clor[2]};
   }
+
   td {
     font-size: 25px;
     padding-left: 5rem;
@@ -75,11 +78,13 @@ const KmapTwokSubset = styled.div`
 
 const CheckBox = styled.div`
   float: right;
+
   input {
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 5px;
   }
+
   @media (max-width: 1300px) {
     width: 100%;
   }
@@ -122,6 +127,7 @@ const PubBox = styled.div`
 const PubBoxCID = styled.table`
   float: left;
   width: 50%;
+
   tr {
     th {
       background: ${palette.base_clor[2]};
@@ -132,6 +138,7 @@ const PubBoxCID = styled.table`
       width: 40%;
       font-size: 2rem;
     }
+
     td {
       font-size: 2rem;
       padding: 10px;
@@ -146,6 +153,7 @@ const PubBoxCID = styled.table`
 
 const InChiKey = styled.table`
   width: 50%;
+
   tr {
     th {
       background: ${palette.base_clor[2]};
@@ -156,12 +164,14 @@ const InChiKey = styled.table`
       width: 20%;
       font-size: 2rem;
     }
+
     td {
       font-size: 2rem;
       padding: 10px;
       width: 30%;
     }
   }
+
   @media (max-width: 1300px) {
     border-top: 1px solid ${palette.base_clor[3]};
     width: 100%;
@@ -170,6 +180,7 @@ const InChiKey = styled.table`
 
 const PubChemName = styled.table`
   width: 100%;
+
   tr {
     th {
       background: ${palette.base_clor[2]};
@@ -180,6 +191,7 @@ const PubChemName = styled.table`
       width: 20%;
       font-size: 2rem;
     }
+
     td {
       font-size: 2rem;
       padding: 10px;
@@ -196,6 +208,7 @@ const RightBodyFooter = styled.div`
 
 const KnownTargets = styled.table`
   width: 100%;
+
   tr {
     th {
       background: ${palette.base_clor[2]};
@@ -205,6 +218,7 @@ const KnownTargets = styled.table`
       width: 20%;
       font-size: 2rem;
     }
+
     td {
       font-size: 2rem;
       padding: 10px;

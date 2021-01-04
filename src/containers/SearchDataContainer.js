@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 // connect
 import { connect } from 'react-redux';
-
-import * as searchInputActions from '../modules/search_input';
 import { searchAdd } from '../modules/search_input';
 import SearchBox from '../components/SearchBox/SearchBox';
 

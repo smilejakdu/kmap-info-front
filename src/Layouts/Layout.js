@@ -1,7 +1,7 @@
-import { Navigation } from ".";
-import React, { Component } from "react";
+import { Navigation } from '.';
+import React from 'react';
 
-const Layout = ({ children, match, location, history }) => {
+const Layout = ({ children }) => {
   return (
     <div>
       <Navigation />

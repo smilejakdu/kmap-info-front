@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   CompoundInfoBody,
   LeftImage,
@@ -28,16 +28,16 @@ import {
   ChemIndexSearchBox,
   InputCheckBox,
   InputNoneCheckBox,
-} from "./CompoundInfo.style";
-import request from "../../util/request";
-import axios from "axios";
-import Modal from "../Modal/Modal";
+} from './CompoundInfo.style';
+import request from '../../util/request';
+import axios from 'axios';
+import Modal from '../Modal/Modal';
 
 // redux
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 const CompoundInfo = ({ search_data }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [result, setResult] = useState([]);
   const [data, setData] = useState([]);
   const [chemindex, setChemindex] = useState(1);
@@ -45,8 +45,8 @@ const CompoundInfo = ({ search_data }) => {
 
   let { search_input } = search_data;
 
-  if (search_input === "") {
-    search_input = "Abacavir";
+  if (search_input === '') {
+    search_input = 'Abacavir';
   }
 
   const ModalShowOpen = () => {
@@ -88,7 +88,7 @@ const CompoundInfo = ({ search_data }) => {
         setChemindex(data[0].id);
       })
       .catch((error) => {
-        alert("데이터가 없습니다.");
+        alert('데이터가 없습니다.');
       });
   }, []);
 
@@ -125,7 +125,7 @@ const CompoundInfo = ({ search_data }) => {
         setResult([]);
       })
       .catch((error) => {
-        alert("데이터가 없습니다.");
+        alert('데이터가 없습니다.');
       });
   };
 
@@ -141,7 +141,7 @@ const CompoundInfo = ({ search_data }) => {
       })
       .catch((error) => {
         if (axios.isCancel(error) || error) {
-          console.log("error : ", error);
+          console.log('error : ', error);
         }
       });
   };
@@ -250,7 +250,7 @@ const CompoundInfo = ({ search_data }) => {
             &gt;
           </KaiChemIndexUpDown>
           <SearchBox>
-            <input type="text" value={query} onChange={handleOnInputChange} />
+            <input type='text' value={query} onChange={handleOnInputChange} />
             {renderSearchResults()}
           </SearchBox>
         </ChemIndexSearchBox>
@@ -259,14 +259,19 @@ const CompoundInfo = ({ search_data }) => {
         <Modal
           isOpen={ModalShowOpen}
           close={ModalShowClose}
-          text={"처음데이터입니다."}
-        ></Modal>
+          text={'처음데이터입니다.'}
+        />
       )}
       <LeftBody>
         <LeftImage>
-          <img
-            src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${data.cid}&t=l`}
-          />
+          {
+            data.cid ? (
+              <img
+                src={`https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=${data.cid}&t=l`}
+              />) : (
+              <img />
+            )
+          }
         </LeftImage>
       </LeftBody>
       <RightBody>
@@ -285,17 +290,17 @@ const CompoundInfo = ({ search_data }) => {
           <CheckBox>
             <CountryCheckBox>
               <table>
-                {CountryData(data.usa, "US FDA approved")}
-                {CountryData(data.europe, "EUROPE approved")}
-                {CountryData(data.japan, "JAPAN approved")}
-                {CountryData(data.nci_cancer, "NCI Cancer Drug")}
+                {CountryData(data.usa, 'US FDA approved')}
+                {CountryData(data.europe, 'EUROPE approved')}
+                {CountryData(data.japan, 'JAPAN approved')}
+                {CountryData(data.nci_cancer, 'NCI Cancer Drug')}
               </table>
             </CountryCheckBox>
             <IpkExpasionCheckBox>
               <table>
-                {CountryData(data.ipk, "IPK Expansion")}
-                {CountryData(data.prestwick, "Prestwick")}
-                {CountryData(data.selleckchem, "SelleckChem")}
+                {CountryData(data.ipk, 'IPK Expansion')}
+                {CountryData(data.prestwick, 'Prestwick')}
+                {CountryData(data.selleckchem, 'SelleckChem')}
               </table>
             </IpkExpasionCheckBox>
           </CheckBox>
@@ -315,7 +320,7 @@ const CompoundInfo = ({ search_data }) => {
             <PubChemName>
               <tr>
                 <th>PubChem NAME</th>
-                <td colSpan="3">{data.pubchem_name}</td>
+                <td colSpan='3'>{data.pubchem_name}</td>
               </tr>
             </PubChemName>
           </PubBox>
@@ -324,7 +329,7 @@ const CompoundInfo = ({ search_data }) => {
           <KnownTargets>
             <tr>
               <th>Known Targets</th>
-              <td colSpan="3">{data.known_target}</td>
+              <td colSpan='3'>{data.known_target}</td>
             </tr>
           </KnownTargets>
           <InformationHeader>Information</InformationHeader>
