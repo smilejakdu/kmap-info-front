@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f10b4e3b-bd8f-4799-a746-5cfe41b6e4ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layouts/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layouts/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Compound/CompoundInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Compound/CompoundInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Compound/CompoundInfo.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Compound/CompoundInfo.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/LoginInput.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/LoginInput.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SheetTable/SheetTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SheetTable/SheetTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Statistics/Column/ColumnChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistics/Column/ColumnChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Statistics/Statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistics/Statistics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/SearchDataContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SearchDataContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ExcelInfo/ExcelInfoPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ExcelInfo/ExcelInfoPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +38,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609724945831</updated>
-      <workItem from="1609724950264" duration="2426000" />
+      <workItem from="1609724950264" duration="4587000" />
+      <workItem from="1610350947773" duration="1223000" />
+      <workItem from="1610377961793" duration="667000" />
     </task>
     <servers />
   </component>

@@ -17,7 +17,7 @@ const ColumnChart = ({ labels, bardata, bardata2 }) => {
         data: bardata,
       },
       {
-        label: 'Sample_sending_date_LAS',
+        label: 'Sequencing_Completed',
         backgroundColor: '#ff8000',
         borderColor: '#ff8000',
         borderWidth: 0.1,
