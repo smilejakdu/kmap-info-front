@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f10b4e3b-bd8f-4799-a746-5cfe41b6e4ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Compound/CompoundInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Compound/CompoundInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SheetTable/SheetTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SheetTable/SheetTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Statistics/Column/ColumnChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistics/Column/ColumnChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Statistics/Svg/SvgChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Statistics/Svg/SvgChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/search_input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/search_input.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +42,11 @@
       <updated>1609724945831</updated>
       <workItem from="1609724950264" duration="4587000" />
       <workItem from="1610350947773" duration="1223000" />
-      <workItem from="1610377961793" duration="667000" />
+      <workItem from="1610377961793" duration="1009000" />
+      <workItem from="1610413793347" duration="2562000" />
+      <workItem from="1610949592110" duration="97000" />
+      <workItem from="1610949787093" duration="40000" />
+      <workItem from="1610950050222" duration="80000" />
     </task>
     <servers />
   </component>

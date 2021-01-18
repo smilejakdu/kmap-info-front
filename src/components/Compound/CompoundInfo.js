@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CompoundInfoBody,
-  LeftImage,
-  LeftBody,
-  KmapCompoundName,
-  RightBody,
-  KmapTwokSubset,
-  RightBodyMiddle,
-  RightBodyFooter,
-  CheckBox,
-  CountryCheckBox,
-  IpkExpasionCheckBox,
+  CompoundInfoBody, LeftImage, LeftBody, KmapCompoundName, RightBody, KmapTwokSubset, RightBodyMiddle, RightBodyFooter, CheckBox, CountryCheckBox, IpkExpasionCheckBox,
   PubBox,
   PubBoxCID,
   InChiKey,

@@ -3,6 +3,7 @@ import './SvgChart.scss';
 import { Line } from 'react-chartjs-2';
 
 const SvgChart = ({ labels, svgdata, svgdata2 }) => {
+
   const labels_plus_none = ['', ...labels, ''];
 
   for (const data of svgdata) {

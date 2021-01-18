@@ -90,12 +90,12 @@ const RightFileName = styled.div`
   background: ${palette.base_clor[1]};
   display: flex;
   justify-content: center;
+  margin : 0 auto;
   border-right: 1px solid ${palette.base_clor[1]};
   color: white;
   width: 50%;
   height: 10%;
   float: left;
-  overflow: scroll;
   border-bottom: 1px solid ${palette.base_clor[1]};
 `;
 
@@ -106,7 +106,6 @@ const RightSheetClick = styled.div`
   height: 10%;
   float: left;
   display: flex;
-  overflow-x: scroll;
   justify-content: center;
   border-bottom: 1px solid ${palette.base_clor[1]};
   padding-left: 2rem;

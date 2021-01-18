@@ -13,8 +13,8 @@ export default handleActions(
   {
     [SEARCH_ADD]: (state, action) => {
       const { search } = action;
-      console.log(search);
       state = '';
+      console.log(search);
       return state.concat(search);
     },
   },

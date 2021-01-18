@@ -2,8 +2,6 @@ import React from 'react';
 import './SheetTable.scss';
 
 const SheetTable = ({ cols, rows }) => {
-  console.log(rows);
-  console.log(cols);
   return (
     <div className='sheet_body'>
       <table className='table'>
