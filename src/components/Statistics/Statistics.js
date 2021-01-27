@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import CircleChart from './Circle/CircleChart';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import ColumnChart from './Column/ColumnChart';
-import SvgChart from './Svg/SvgChart';
+import ColumnChart from './Bar/BarChart';
+import SvgChart from './Line/LineChart';
 import request from '../../util/request';
 import {
   CircleBorder,
-  ColumnBorder,
-  SvgBorder,
-  CircleColumnBorder,
+  BarBorder,
+  LineBorder,
+  CircleBarBorder,
 } from './Statistics.style';
 
 const Statistics = () => {
   const [circlepercent, setCirclepercent] = useState(0);
   const [circlechemnum, setCirclechemnum] = useState(0);
-  const [columns_labels, setColumnsLabels] = useState([]);
+  const [bar_labels, setBarLabels] = useState([]);
   const [bar_data, setBarData] = useState();
   const [bar_data2, setBarData2] = useState();
-  const [svg_data, setSvgData] = useState([]);
-  const [svg_data2, setSvgData2] = useState([]);
-  const [svg_weeks_list, setSvgWeeksList] = useState([]);
+  const [line_data, setLineData] = useState([]);
+  const [line_data2, setLineData2] = useState([]);
+  const [line_label_list, setLineLabelList] = useState([]);
 
+  // chart 에 뿌려줄 데이터를 불러오 된다.
   useEffect(() => {
     request
       .get('/excel/statistics')
@@ -39,13 +40,14 @@ const Statistics = () => {
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
-        setColumnsLabels(columns_labels);
 
-        setSvgData(svg_data);
-        setSvgData2(svg_data2);
-        setSvgWeeksList(svg_weeks_list);
         setBarData(columns_data);
         setBarData2(columns_data2);
+        setBarLabels(columns_labels);
+
+        setLineData(svg_data);
+        setLineData2(svg_data2);
+        setLineLabelList(svg_weeks_list);
       })
       .catch((err) => {
         err && console.log(err);
@@ -54,7 +56,7 @@ const Statistics = () => {
 
   return (
     <>
-      <CircleColumnBorder>
+      <CircleBarBorder>
         <CircleBorder>
           <CircleChart label={`${circlechemnum} compound`}>
             <CircularProgressbar
@@ -69,21 +71,21 @@ const Statistics = () => {
             />
           </CircleChart>
         </CircleBorder>
-        <ColumnBorder>
+        <BarBorder>
           <ColumnChart
-            labels={columns_labels}
+            labels={bar_labels}
             bardata={bar_data}
             bardata2={bar_data2}
           />
-        </ColumnBorder>
-      </CircleColumnBorder>
-      <SvgBorder>
+        </BarBorder>
+      </CircleBarBorder>
+      <LineBorder>
         <SvgChart
-          labels={svg_weeks_list}
-          svgdata={svg_data}
-          svgdata2={svg_data2}
+          labels={line_label_list}
+          svgdata={line_data}
+          svgdata2={line_data2}
         />
-      </SvgBorder>
+      </LineBorder>
     </>
   );
 };

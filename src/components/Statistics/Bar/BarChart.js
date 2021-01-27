@@ -1,8 +1,8 @@
 import React from 'react';
-import './ColumnChart.scss';
+import './BarChart.scss';
 import { Bar } from 'react-chartjs-2';
 
-const ColumnChart = ({ labels, bardata, bardata2 }) => {
+const BarChart = ({ labels, bardata, bardata2 }) => {
 
   const data = {
     labels: labels,
@@ -50,7 +50,6 @@ const ColumnChart = ({ labels, bardata, bardata2 }) => {
   return (
     <div>
       <Bar
-        className='test'
         data={data}
         width={900}
         height={470}
@@ -60,4 +59,4 @@ const ColumnChart = ({ labels, bardata, bardata2 }) => {
   );
 };
 
-export default ColumnChart;
+export default BarChart;

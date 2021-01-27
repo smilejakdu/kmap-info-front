@@ -19,6 +19,7 @@ const categories = [
   },
 ];
 const Navigation = () => {
+  // Header 부분 
   return (
     <div>
       <CategoryLink>

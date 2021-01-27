@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import palette from '../../util/styles/palette';
 
-const CircleColumnBorder = styled.div`
+const CircleBarBorder = styled.div`
   display: inline-flex;
   margin: 0 auto;
 `;
@@ -30,7 +30,7 @@ const CircleBorder = styled.div`
   }
 `;
 
-const ColumnBorder = styled.div`
+const BarBorder = styled.div`
   margin-left: 20px;
   @media (max-width: 1500px) {
     width: 100%;
@@ -41,7 +41,7 @@ const ColumnBorder = styled.div`
   }
 `;
 
-const SvgBorder = styled.div`
+const LineBorder = styled.div`
   border-top: 1px solid black;
   @media (max-width: 1500px) {
     width: 100%;
@@ -50,4 +50,4 @@ const SvgBorder = styled.div`
   }
 `;
 
-export { CircleBorder, ColumnBorder, SvgBorder, CircleColumnBorder };
+export { CircleBorder, BarBorder, LineBorder, CircleBarBorder };

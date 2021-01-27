@@ -34,7 +34,7 @@ const CompoundInfo = ({ search_data }) => {
   const [modalShow, setModalShow] = useState(false);
 
   let { search_input } = search_data;
-
+  // 검색데이터를 입력 받고 없다면 기본값을 설정 
   if (search_input === '') {
     search_input = 'Abacavir';
   }
@@ -82,6 +82,7 @@ const CompoundInfo = ({ search_data }) => {
       });
   }, []);
 
+  // ChemIndex 숫자 변화로 데이터를 가져오게 된다.
   const KaipharmChemIndexGet = (chemindex) => {
     request
       .get(`/compound/${chemindex}`)
@@ -136,6 +137,7 @@ const CompoundInfo = ({ search_data }) => {
       });
   };
 
+// 가져온 데이터를 가져오고 나서 클릭하게 되면 가져오는 함수 
   const searchDataClick = (search_data) => {
     return request
       .get(`/compound/search/${search_data}`)
@@ -173,6 +175,7 @@ const CompoundInfo = ({ search_data }) => {
       });
   };
 
+//  input 에 들어가는 값 , 들어가는 값에 따라 데이터 요청을 계속 보내게 된다.
   const handleOnInputChange = (event) => {
     const query = event.target.value;
     if (!query) {
@@ -184,6 +187,7 @@ const CompoundInfo = ({ search_data }) => {
     }
   };
 
+  // 불러온 데이터 중에 하나를 클릭 했을 경우 
   const renderSearchResults = () => {
     if (Object.keys(result).length && result.length) {
       return (
@@ -200,6 +204,8 @@ const CompoundInfo = ({ search_data }) => {
     }
   };
 
+  // 데이터가 있다면 , InputCheckBox
+  // 데이터가 없다면 , InputNoneCheckBox
   const CountryData = (data, text) => {
     return (
       <tr>
@@ -209,10 +215,12 @@ const CompoundInfo = ({ search_data }) => {
     );
   };
 
+  // ChemIndex up button click
   const KaipharmChemUp = () => {
     KaipharmChemIndexGet(chemindex + 1);
   };
 
+  //  ChemIndex down button click
   const KaipharmChemDown = () => {
     if (chemindex === 1) {
       setModalShow(true);
@@ -221,6 +229,7 @@ const CompoundInfo = ({ search_data }) => {
     }
   };
 
+  // html css 화면 부분 받아온 데이터를 화면에 뿌려주게 된다.
   return (
     <CompoundInfoBody>
       <Header>
@@ -334,8 +343,7 @@ const CompoundInfo = ({ search_data }) => {
   );
 };
 
-// export default CompoundInfo;
-
+// redux search_data 를 가져온다
 export default connect((state) => ({
   search_data: state,
 }))(CompoundInfo);

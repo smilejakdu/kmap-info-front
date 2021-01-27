@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions';
+// search string 
 
 const SEARCH_ADD = 'search/SEARCH_DATA';
 
@@ -14,7 +15,6 @@ export default handleActions(
     [SEARCH_ADD]: (state, action) => {
       const { search } = action;
       state = '';
-      console.log(search);
       return state.concat(search);
     },
   },

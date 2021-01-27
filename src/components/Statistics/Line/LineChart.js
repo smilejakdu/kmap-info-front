@@ -1,10 +1,7 @@
 import React from 'react';
-import './SvgChart.scss';
 import { Line } from 'react-chartjs-2';
 
-const SvgChart = ({ labels, svgdata, svgdata2 }) => {
-
-  const labels_plus_none = ['', ...labels, ''];
+const LineChart = ({ labels, svgdata, svgdata2 }) => {
 
   for (const data of svgdata) {
     if (data === 0) {
@@ -19,7 +16,7 @@ const SvgChart = ({ labels, svgdata, svgdata2 }) => {
   }
 
   const data = {
-    labels: labels_plus_none,
+    labels: ['', ...labels , ''],
     datasets: [
       {
         label: 1,
@@ -79,4 +76,4 @@ const SvgChart = ({ labels, svgdata, svgdata2 }) => {
   );
 };
 
-export default SvgChart;
+export default LineChart;

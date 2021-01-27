@@ -78,14 +78,14 @@ const KmapTwokSubset = styled.div`
 
 const CheckBox = styled.div`
   float: right;
-
   input {
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 5px;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
+    float : left;
     width: 100%;
   }
 `;
@@ -120,11 +120,16 @@ const InputNoneCheckBox = styled.input.attrs({})`
 const PubBox = styled.div`
   position: absolute;
   border: 1px solid ${palette.base_clor[3]};
-  width: 100%;
   bottom: 0;
+
+  @media (max-width: 1300px) {
+    width: 100%;
+    position : relative; 
+  }
 `;
 
 const PubBoxCID = styled.table`
+  table-layout : fixed;
   float: left;
   width: 50%;
 
@@ -133,26 +138,33 @@ const PubBoxCID = styled.table`
       background: ${palette.base_clor[2]};
       border-right: 1px solid ${palette.base_clor[1]};
       border-bottom: 1px solid ${palette.base_clor[1]};
-      padding: 20px;
+      padding: 2rem;
       color: black;
       width: 40%;
       font-size: 2rem;
+      text-overflow:ellipsis;
+      overflow : hidden;
+      white-space : nowrap;
     }
 
     td {
       font-size: 2rem;
       padding: 10px;
       width: 60%;
+
     }
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     width: 100%;
+    border : 1px solid black;
   }
 `;
 
 const InChiKey = styled.table`
+  table-layout : fixed;
   width: 50%;
+  box-sizing : border-box;
 
   tr {
     th {
@@ -166,6 +178,9 @@ const InChiKey = styled.table`
     }
 
     td {
+      text-overflow:ellipsis;
+      overflow : hidden;
+      white-space : nowrap;
       font-size: 2rem;
       padding: 10px;
       width: 30%;
@@ -180,7 +195,6 @@ const InChiKey = styled.table`
 
 const PubChemName = styled.table`
   width: 100%;
-
   tr {
     th {
       background: ${palette.base_clor[2]};

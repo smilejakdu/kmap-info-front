@@ -9,7 +9,6 @@ import {
   FileUploadPageHeader,
   FileUploadPageBodyMiddle,
   FileUploadPageBodyFooter,
-  Search,
 } from "./ExcelForm.style";
 import request from "../../util/request";
 import SheetTable from "../SheetTable/SheetTable";
@@ -79,12 +78,13 @@ class ExcelForm extends Component {
       modalmessage: "",
     };
 
-    this.fileHandler = this.fileHandler.bind(this);
+    this.fileSearching = this.fileSearching.bind(this);
     this.toggle = this.toggle.bind(this);
     this.openFileBrowser = this.openFileBrowser.bind(this);
     this.renderFile = this.renderFile.bind(this);
     this.fileInput = React.createRef();
   }
+  // 모달창 함수 
   ModalShowOpen = () => {
     this.setState({
       modalshow: true,
@@ -111,11 +111,13 @@ class ExcelForm extends Component {
     return this.props.info !== nextProps.info;
   }
 
+// 파일 업로드 파일 탐색기 open
   openFileBrowser = () => {
     this.fileInput.current.click();
   };
 
-  fileHandler = (event) => {
+  // 파일 탐색기 에서 탐색버튼 을 누르게 됬을때 실행하는 함수 
+  fileSearching = (event) => {
     if (event.target.files.length) {
       let fileObj = event.target.files[0];
       let fileName = fileObj.name;
@@ -156,6 +158,7 @@ class ExcelForm extends Component {
     );
   };
 
+  // sheet list 중에 하나를 클릭했을때 작동하는 함수 
   sheetDataClick = (index) => {
     this.setState({
       sheetName: this.state.uploadName[index],
@@ -163,24 +166,7 @@ class ExcelForm extends Component {
     this.renderFile(this.state.fileObj, index);
   };
 
-  ExcelData = (e) => {
-    e.preventDefault();
-    return request
-      .get("/excel/upload")
-      .then((res) => {
-        let {
-          data: {
-            data: { excel_data },
-          },
-        } = res;
-        let uploadNames = excel_data.map(({ name }) => name);
-        this.setState({ uploadName: uploadNames });
-      })
-      .catch((error) => {
-        error && console.warn(error);
-      });
-  };
-
+  // 업로드 버튼 클릭시 실행하는 함수 
   uploadClick = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -252,11 +238,11 @@ class ExcelForm extends Component {
             <p className="ms-office-excel">
               MS Office Excel 파일 (xlsx) 만 가능합니다.
             </p>
-            <SearchDataContainer></SearchDataContainer>
+            <SearchDataContainer/>
             <input
               type="file"
               hidden
-              onChange={this.fileHandler.bind(this)}
+              onChange={this.fileSearching.bind(this)}
               ref={this.fileInput}
               onClick={(event) => {
                 event.target.value = null;

@@ -25,6 +25,7 @@ const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
   const [excelName, setExcelName] = useState('');
   const [sheetStyle, setSheetStyle] = useState([]);
 
+// 클릭했을때 , sheet 리스트 데이터를 불러오게 함수 
   const getSheets = (excel, sheet) => () => {
     return request
       .get(`/excel/${excel}/${sheet}`)
@@ -42,6 +43,7 @@ const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
       });
   };
 
+// 엑셀 클릭시 sheet 데이터 불러오게 된다.
   const ExcelNameClick = (itemName) => () => {
     return request
       .get(`/excel/${itemName}`)
@@ -60,7 +62,8 @@ const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
       });
   };
 
-  const removeClick = (itemId, itemName) => async (e) => {
+// remove Button 클릭시 삭제를 하고 다시 배열을 하게된다.
+  const removeBtnClick = (itemId, itemName) => async (e) => {
     e.preventDefault();
     e.stopPropagation();
     try {
@@ -85,7 +88,7 @@ const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
                 {item.name}
               </ExcelName>
               <ExcelDate>{item.create_at}</ExcelDate>
-              <RemoveBtn onClick={removeClick(item.id, item.name)}>
+              <RemoveBtn onClick={removeBtnClick(item.id, item.name)}>
                 <MdRemoveCircleOutline />
               </RemoveBtn>
             </FileItemBox>
