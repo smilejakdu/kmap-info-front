@@ -19,11 +19,11 @@ import { MdRemoveCircleOutline } from 'react-icons/md';
 
 const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
   const [sheetData, setSheetData] = useState([]);
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const [cols, setCols] = useState([]);
-  const [rows, setRows] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false); 
+  const [cols, setCols] = useState([]); // 칼럼 
+  const [rows, setRows] = useState([]); // rows
   const [excelName, setExcelName] = useState('');
-  const [sheetStyle, setSheetStyle] = useState([]);
+  const [sheetName, setSheetName] = useState([]);
 
 // 클릭했을때 , sheet 리스트 데이터를 불러오게 함수 
   const getSheets = (excel, sheet) => () => {
@@ -36,7 +36,7 @@ const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
         setDataLoaded(true);
         setCols(sheet_table.cols);
         setRows(sheet_table.rows);
-        setSheetStyle(`${sheet}`);
+        setSheetName(`${sheet}`);
       })
       .catch((err) => {
         err && console.log(err);
@@ -105,7 +105,7 @@ const ExcelInfoList = ({ excel_file_name, handleChangeExcelData }) => {
           <RightSheetClick>
             {sheetData.map((sheet, i) => (
               <div>
-                {sheetStyle === sheet ? (
+                {sheetName === sheet ? (
                   <div
                     key={i}
                     className="active"

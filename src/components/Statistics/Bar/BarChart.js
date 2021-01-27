@@ -29,7 +29,6 @@ const BarChart = ({ labels, bardata, bardata2 }) => {
   };
 
   const options = {
-    // responsive: true,
     maintainAspectRatio: false,
     legend: {
       display: false,

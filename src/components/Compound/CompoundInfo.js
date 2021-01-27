@@ -120,6 +120,7 @@ const CompoundInfo = ({ search_data }) => {
       });
   };
 
+  // Search 결과 서버에 요청 함수 
   const fetchSearchResults = (query) => {
     const searchUrl = `/compound/search?query=${query}`;
     request

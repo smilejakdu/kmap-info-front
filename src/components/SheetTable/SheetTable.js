@@ -3,7 +3,6 @@ import './SheetTable.scss';
 
 
 const SheetTable = ({ cols, rows }) => {
-// sheet 데이터를 전달 받는다 
 // sheet 데이터를 전달 받고 cols 는 헤더 rows 는 바디에 데이터 전달을한다 
   return (
     <div className='sheet_body'>

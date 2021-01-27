@@ -21,7 +21,7 @@ const Statistics = () => {
   const [line_data2, setLineData2] = useState([]);
   const [line_label_list, setLineLabelList] = useState([]);
 
-  // chart 에 뿌려줄 데이터를 불러오 된다.
+  // chart 에 뿌려줄 데이터를 불러오는 함수 
   useEffect(() => {
     request
       .get('/excel/statistics')

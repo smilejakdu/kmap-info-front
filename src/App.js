@@ -7,7 +7,6 @@ import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
 import Layout from './Layouts/Layout';
 
 const App = () => {
-
   // Routering 하기위한 Component
 
   return (
@@ -16,22 +15,22 @@ const App = () => {
         <Layout>
           <Switch>
             <Route
-              exact
+              exact="exact"
               path={['/kmapinfo/', '/kmapinfo/statistics']}
               component={StatisticsPage}
             />
             <Route
-              exact
+              exact="exact"
               path="/kmapinfo/upload"
               component={FileUpload}
             />
             <Route
-              exact
+              exact="exact"
               path="/kmapinfo/excelinfo"
               component={ExcelInfoPage}
             />
             <Route
-              exact
+              exact="exact"
               path="/kmapinfo/compoundinfo/"
               component={CompoundInfoPage}
             />
