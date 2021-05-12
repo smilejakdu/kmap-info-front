@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import CircleChart from './Circle/CircleChart';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import ColumnChart from './Bar/BarChart';
-import SvgChart from './Line/LineChart';
+import CircleChart from './Circle/CircleChart';
+import BarChart from './Bar/BarChart';
+import LineChart from './Line/LineChart';
 import request from '../../util/request';
 import {
   CircleBorder,
@@ -26,28 +26,19 @@ const Statistics = () => {
     request
       .get('/excel/statistics')
       .then(({ data }) => {
-        const {
-          circle_number,
-          kaichem_number,
-          columns_data,
-          columns_data2,
-          columns_labels,
-          svg_data,
-          svg_data2,
-          svg_weeks_list,
-        } = data;
+        const { circle_number, kaichem_number, bar_data, bar_data2, bar_labels, line_data, line_data2, line_weeks_list } = data;
 
 
         setCirclepercent(circle_number);
         setCirclechemnum(kaichem_number);
 
-        setBarData(columns_data);
-        setBarData2(columns_data2);
-        setBarLabels(columns_labels);
+        setBarData(bar_data);
+        setBarData2(bar_data2);
+        setBarLabels(bar_labels);
 
-        setLineData(svg_data);
-        setLineData2(svg_data2);
-        setLineLabelList(svg_weeks_list);
+        setLineData(line_data);
+        setLineData2(line_data2);
+        setLineLabelList(line_weeks_list);
       })
       .catch((err) => {
         err && console.log(err);
@@ -72,7 +63,7 @@ const Statistics = () => {
           </CircleChart>
         </CircleBorder>
         <BarBorder>
-          <ColumnChart
+          <BarChart
             labels={bar_labels}
             bardata={bar_data}
             bardata2={bar_data2}
@@ -80,10 +71,10 @@ const Statistics = () => {
         </BarBorder>
       </CircleBarBorder>
       <LineBorder>
-        <SvgChart
+        <LineChart
           labels={line_label_list}
-          svgdata={line_data}
-          svgdata2={line_data2}
+          line_data={line_data}
+          line_data2={line_data2}
         />
       </LineBorder>
     </>

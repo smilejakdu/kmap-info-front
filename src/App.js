@@ -7,7 +7,6 @@ import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
 import Layout from './Layouts/Layout';
 
 const App = () => {
-  // Routering 하기위한 Component
 
   return (
     <div>

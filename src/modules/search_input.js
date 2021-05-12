@@ -1,5 +1,4 @@
 import { handleActions } from 'redux-actions';
-// search string 
 
 const SEARCH_ADD = 'search/SEARCH_DATA';
 

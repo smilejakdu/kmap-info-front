@@ -7,15 +7,15 @@ import ipk from '../../util/image/ipk.jpg';
 const categories = [
   {
     name: 'statistics',
-    text: 'Progress Stats',
+    text: 'Data Chart',
   },
   {
     name: 'upload',
-    text: 'File Upload',
+    text: 'Programming select',
   },
   {
     name: 'excelinfo',
-    text: 'View Upload File',
+    text: 'User View',
   },
 ];
 const Navigation = () => {

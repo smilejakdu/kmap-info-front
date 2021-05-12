@@ -6,11 +6,7 @@ import SearchDataContainer from '../../containers/SearchDataContainer';
 
 const ExcelInfoPage = () => {
   const [excelData, setExcelData] = useState([]);
-
-// remove icon 버튼을 누르게 되면 , remove 된거를 제거하고 다시 들고오기 위함 함수 
-  const handleChangeExcelData = (id) => {
-    setExcelData(() => excelData.filter((excel) => excel.id !== id));
-  };
+  const handleChangeExcelData = (id) => {setExcelData(() => excelData.filter((excel) => excel.id !== id))};
 
 // 엑셀 데이터를 불러온다 
   useEffect(() => {
@@ -23,12 +19,10 @@ const ExcelInfoPage = () => {
           },
         } = res;
         setExcelData(excel_data);
-      })
-      .catch((error) => {
+      }).catch((error) => {
         error && console.warn(error);
       });
   }, []);
-  // excelData
 
   return (
     <div>

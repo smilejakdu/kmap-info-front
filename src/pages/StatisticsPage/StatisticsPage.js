@@ -12,7 +12,7 @@ const StatisticsPage = () => {
     <div>
       <StatisticsPageHeader>
         <SearchDataContainer></SearchDataContainer>
-        <KmapTwokProject>KMAP-2K Project Progress</KmapTwokProject>
+        <KmapTwokProject>TEST-K Project Progress</KmapTwokProject>
       </StatisticsPageHeader>
       <center>
         <StatisticsPageBody>

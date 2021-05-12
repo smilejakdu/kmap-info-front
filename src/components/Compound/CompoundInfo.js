@@ -34,26 +34,16 @@ const CompoundInfo = ({ search_data }) => {
   const [modalShow, setModalShow] = useState(false);
 
   let { search_input } = search_data;
-  // 검색데이터를 입력 받고 없다면 기본값을 설정 
-  if (search_input === '') {
-    search_input = 'Abacavir';
-  }
+  if (search_input === '') {search_input = 'Abacavir'}
 
-  const ModalShowOpen = () => {
-    setModalShow(true);
-  };
-
-  const ModalShowClose = () => {
-    setModalShow(false);
-  };
+  const ModalShowOpen = () => { setModalShow(true) };
+  const ModalShowClose = () => { setModalShow(false) };
 
   useEffect(() => {
     request
       .get(`/compound/search/${search_input}`)
       .then((res) => {
-        let {
-          data: { data },
-        } = res;
+        let {data: { data }} = res;
         setData({
           id: data[0].id,
           chem_series: data[0].chem_series,
