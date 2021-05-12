@@ -252,9 +252,7 @@ class ExcelForm extends Component {
                     </form>
 
                     <Button onClick={this.openFileBrowser.bind(this)}>파일찾기</Button>
-                    <Button type="submit" onClick={this.uploadClick}>
-                        업로드
-                    </Button>
+                    <Button type="submit" onClick={this.uploadClick}>업로드</Button>
                 </FileUploadPageHeader>
                 <FileUploadPageBodyMiddle>
                     {this.state.excelFileName ? (
